@@ -10,19 +10,11 @@
 
 <script>
 import herosection from './components/herosection.vue'
-import aboutsection from './components/aboutsection.vue'
-import projectssection from './components/projectssection.vue'
-import contactsection from './components/contactsection.vue'
-import sitefooter from './components/sitefooter.vue'
 
 export default {
   name: 'app',
   components: {
     'hero-section': herosection,
-    'about-section': aboutsection,
-    'projects-section': projectssection,
-    'contact-section': contactsection,
-    'site-footer': sitefooter
   }
 }
 </script>
@@ -33,6 +25,7 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 body {
