@@ -36,10 +36,11 @@ export default {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   line-height: 1.4;
-  color: #1a1a1a;
-  background-color: #faf9f7;
+  /* Set global text color and background here */
+  color: #f0f0f0; /* Light text color for the entire app by default */
+  background-color: #0d0d0d; /* Dark background color for the entire app by default */
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -52,18 +53,22 @@ body {
 /* typography */
 h1 {
   font-size: clamp(2.5rem, 8vw, 6rem);
-  font-weight: 700;
+  font-weight: 5;
   line-height: 0.9;
   letter-spacing: -0.02em;
   margin-bottom: 2rem;
+  color: #f0f0f0; /* Ensure headings are also light, overriding App.vue's body color if needed */
+
 }
 
 h2 {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 600;
+  font-weight: 60;
   line-height: 1.1;
   letter-spacing: -0.01em;
   margin-bottom: 1.5rem;
+  color: #f0f0f0; 
+
 }
 
 h3 {
@@ -71,6 +76,7 @@ h3 {
   font-weight: 500;
   line-height: 1.2;
   margin-bottom: 1rem;
+  color: #f0f0f0;
 }
 
 p {
@@ -78,6 +84,7 @@ p {
   line-height: 1.6;
   margin-bottom: 1.5rem;
   max-width: 65ch;
+  color: #aaa;
 }
 
 .large-text {
@@ -86,6 +93,7 @@ p {
   font-weight: 400;
   margin-bottom: 3rem;
   max-width: 50ch;
+  color: #aaa;
 }
 
 .small-text {
@@ -112,6 +120,7 @@ a:hover {
   cursor: pointer;
   margin-bottom: 0.5rem;
   transition: all 0.2s ease;
+  color: #f0f0f0;
 }
 
 .nav-item:hover {
@@ -120,6 +129,7 @@ a:hover {
 
 .nav-item.active {
   font-weight: 500;
+  color: white;
 }
 
 /* layout utilities */
