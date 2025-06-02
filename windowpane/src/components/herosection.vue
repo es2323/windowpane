@@ -57,20 +57,31 @@
           </div>
 
           <div v-if="activeSection === 'projects'" class="content-section fade-in visible">
-            <div class="project-list">
-              <div class="project-item" v-for="project in projects" :key="project.id">
+            <div v-if="!selectedProject" class="project-list-view">
+              <div class="project-item" v-for="project in projects" :key="project.id" @click="showProjectDetails(project)">
                 <h3>{{ project.title }}</h3>
-                <div class="project-meta">
-                  <span class="project-date">{{ project.date }}</span>
-                  <span class="project-role">{{ project.role }}</span>
-                  <span v-if="project.collaborator" class="project-collaborator">
-                    {{ project.collaborator }}
-                  </span>
+                <p class="project-short-description">{{ project.shortDescription }}</p>
                 </div>
-              </div>
             </div>
-          </div>
 
+            <div v-else class="project-detail-view">
+              <button class="back-button" @click="backToProjectList()">
+                &larr; Back to Projects
+              </button>
+              <h2>{{ selectedProject.title }}</h2>
+              <p>{{ selectedProject.longDescription }}</p>
+              
+              <div v-if="selectedProject.links && selectedProject.links.length > 0" class="project-links">
+                <h3>Links</h3>
+                <ul>
+                  <li v-for="(link, index) in selectedProject.links" :key="index">
+                    <a :href="link.url" target="_blank">{{ link.type }}</a>
+                  </li>
+                </ul>
+              </div>
+
+              </div>
+          </div>
           <div v-if="activeSection === 'experience'" class="content-section fade-in visible">
             <div class="experience-content">
               <h3>Professional Experience</h3>
@@ -80,7 +91,7 @@
               </p>
               <h3>Skills Gained</h3>
               <p>Highlight specific technologies, methodologies, or soft skills developed.</p>
-              </div>
+            </div>
           </div>
 
           <div v-if="activeSection === 'about'" class="content-section fade-in visible">
@@ -135,45 +146,64 @@ export default {
   data() {
     return {
       activeSection: 'home', // Default to home
+      selectedProject: null, // NEW: Holds the currently selected project for detail view
+
       projects: [
+        // NEW: Updated project data with shortDescription, longDescription, and links
         {
-          id: 1,
-          title: 'Project Alpha',
-          date: 'Apr.2025',
-          role: 'Design & Dev'
+          id: 'prs',
+          title: 'PRS',
+          shortDescription: 'Real-time performance analysis system.',
+          longDescription: 'PRS (Performance Reporting System) is a robust application designed to provide instantaneous insights into complex system performance. It leverages advanced data visualization techniques and real-time data streaming to help identify bottlenecks and optimize operations. Developed using [Technologies like Python, Flask, React, D3.js].',
+          links: [
+            { type: 'GitHub Repo', url: 'https://github.com/enosh-earnest/prs' }, // Placeholder
+            { type: 'Live Demo', url: '#' } // Placeholder
+          ]
         },
         {
-          id: 2,
-          title: 'Creative Portfolio',
-          date: 'Mar.2025',
-          role: 'Dev',
-          collaborator: 'Design: Jane Doe'
+          id: 'seec',
+          title: 'SEEC',
+          shortDescription: 'Secure email encryption client.',
+          longDescription: 'SEEC (Secure Email Encryption Client) is a desktop application focused on enhancing email privacy through end-to-end encryption. It integrates seamlessly with popular email services and employs [Encryption standard, e.g., AES-256, RSA] to protect sensitive communications. Built with [Technologies like Electron, Node.js, OpenSSL].',
+          links: [
+            { type: 'GitHub Repo', url: 'https://github.com/enosh-earnest/seec' } // Placeholder
+          ]
         },
         {
-          id: 3,
-          title: 'Interactive Experience',
-          date: 'Feb.2025',
-          role: 'Design & Dev'
+          id: 'snapback',
+          title: 'SnapBack',
+          shortDescription: 'Mobile app for task tracking.',
+          longDescription: 'SnapBack is an intuitive mobile application designed to help users track and revert progress on tasks with ease. Ideal for managing personal projects or small team workflows, it features a unique "snap-to-previous-state" functionality. Developed for [Platform, e.g., iOS/Android] using [Technologies like React Native, Firebase].',
+          links: [
+            { type: 'App Store', url: '#' }, // Placeholder
+            { type: 'Google Play', url: '#' } // Placeholder
+          ]
         },
         {
-          id: 4,
-          title: 'Brand Website',
-          date: 'Jan.2025',
-          role: 'Frontend Dev',
-          collaborator: 'Design: Studio XYZ'
-        },
-        {
-          id: 5,
-          title: 'WebGL Experiment',
-          date: 'Dec.2024',
-          role: 'Design & Dev'
+          id: 'ssh',
+          title: 'SSH',
+          shortDescription: 'Smart home automation hub.',
+          longDescription: 'SSH (Smart Home Hub) is a centralized control system for various smart home devices, designed for ease of use and interoperability. It provides a unified interface for managing lighting, climate, security, and entertainment systems, offering both local and remote access. Implemented with [Technologies like Raspberry Pi, Home Assistant, MQTT].',
+          links: [
+            { type: 'GitHub Repo', url: 'https://github.com/enosh-earnest/ssh' } // Placeholder
+          ]
         }
+        // Removed old project data
       ]
     }
   },
   methods: {
     setActiveSection(section) {
-      this.activeSection = section
+      this.activeSection = section;
+      this.selectedProject = null; // IMPORTANT: Reset selected project when changing main sections
+    },
+    // NEW: Method to show project details
+    showProjectDetails(project) {
+      this.selectedProject = project;
+    },
+    // NEW: Method to go back to the project list
+    backToProjectList() {
+      this.selectedProject = null;
     }
   }
 }
@@ -281,7 +311,7 @@ export default {
 .nav-item {
   display: block;
   margin-bottom: 0.8rem;
-  font-size: 1rem; /* Adjusted from 1.1rem */
+  font-size: 1rem; /* Adjusted from 1.1rem to 1rem */
   cursor: pointer;
   transition: all 0.2s ease;
   text-transform: capitalize;
@@ -298,42 +328,106 @@ export default {
   color: white;
 }
 
-/* Project List Styles */
-.project-list {
+/* Project List Styles (List View) */
+.project-list-view {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
 }
 
-.project-item {
-  border-bottom: 1px solid #333;
+.project-list-view .project-item { /* Target project items specifically in the list view */
+  border-bottom: 1px solid #333; /* Darker border for projects */
   padding-bottom: 1.5rem;
+  cursor: pointer; /* Indicate clickability */
+  transition: opacity 0.2s ease;
 }
 
-.project-item:last-child {
+.project-list-view .project-item:last-child {
   border-bottom: none;
 }
 
-.project-item h3 {
-  font-size: 1.25rem; /* Specific font size for this h3 */
+.project-list-view .project-item:hover {
+  opacity: 0.7; /* Slight hover effect */
+}
+
+.project-list-view .project-item h3 {
+  font-size: 1.25rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
   line-height: 1.2;
   color: #f0f0f0;
 }
 
-.project-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
+.project-list-view .project-short-description {
   font-size: 0.9rem;
   color: #aaa;
   line-height: 1.4;
+  margin-bottom: 0; /* Remove default paragraph margin */
 }
 
-.project-date {
-  font-weight: 500;
+/* Project Detail View */
+.project-detail-view {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Spacing between elements in detail view */
 }
+
+.project-detail-view h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #f0f0f0;
+}
+
+.project-detail-view h3 {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  color: #f0f0f0;
+}
+
+.project-detail-view p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #aaa;
+  max-width: none; /* Ensure text fills container */
+}
+
+.project-links ul {
+  list-style: none; /* Remove bullet points */
+  padding-left: 0;
+  margin-top: 0.5rem;
+}
+
+.project-links li {
+  margin-bottom: 0.5rem;
+}
+
+.project-links a {
+  color: #f0f0f0;
+  text-decoration: underline; /* Underline links for clarity */
+}
+
+.project-links a:hover {
+  opacity: 0.8;
+  color: white;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  margin-bottom: 2rem; /* Space below button */
+  transition: color 0.2s ease;
+}
+
+.back-button:hover {
+  color: white;
+}
+
 
 /* NEW: Experience Content Styles (inherits most styles but can be customized) */
 .experience-content {
@@ -440,12 +534,18 @@ export default {
     max-width: 100%;
   }
 
-  .project-list {
+  /* Adjust project list for mobile */
+  .project-list-view {
     gap: 2rem;
   }
 
-  .project-item {
+  .project-list-view .project-item {
     padding-bottom: 1rem;
+  }
+
+  /* Adjust project detail view for mobile */
+  .project-detail-view h2 {
+    font-size: 1.8rem;
   }
 }
 </style>
