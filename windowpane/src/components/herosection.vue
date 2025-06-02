@@ -25,6 +25,13 @@
             </div>
             <div
               class="nav-item"
+              :class="{ active: activeSection === 'experience' }"
+              @click="setActiveSection('experience')"
+            >
+              experience
+            </div>
+            <div
+              class="nav-item"
               :class="{ active: activeSection === 'about' }"
               @click="setActiveSection('about')"
             >
@@ -44,7 +51,8 @@
           <div v-if="activeSection === 'home'" class="content-section fade-in visible">
             <div class="home-content">
               <p class="about-para">
-                Firm believer in leveraging computational mathematics to build intelligent applications—from accessibility focused mobile apps to autonomous resource allocation systems. My work thrives where mathematical rigour meets human complexity, crafting systems that amplify rather than automate judgement. Based in the UK.               </p>
+                Firm believer in leveraging computational mathematics to build intelligent applications—from accessibility focused mobile apps to autonomous resource allocation systems. My work thrives where mathematical rigour meets human complexity, crafting systems that amplify rather than automate judgement. Based in the UK. 
+              </p>
             </div>
           </div>
 
@@ -61,6 +69,18 @@
                 </div>
               </div>
             </div>
+          </div>
+
+          <div v-if="activeSection === 'experience'" class="content-section fade-in visible">
+            <div class="experience-content">
+              <h3>Professional Experience</h3>
+              <p>
+                List your internships, part-time jobs, academic roles, etc. here.
+                Include dates, company/institution names, and brief descriptions of your responsibilities and achievements.
+              </p>
+              <h3>Skills Gained</h3>
+              <p>Highlight specific technologies, methodologies, or soft skills developed.</p>
+              </div>
           </div>
 
           <div v-if="activeSection === 'about'" class="content-section fade-in visible">
@@ -111,7 +131,7 @@
 
 <script>
 export default {
-  name: 'HeroSection', // Multi-word component name
+  name: 'HeroSection',
   data() {
     return {
       activeSection: 'home', // Default to home
@@ -160,20 +180,12 @@ export default {
 </script>
 
 <style scoped>
-/* --- GLOBAL STYLES (Consider moving these to App.vue or a global CSS file) --- */
-/* Set a dark background for the entire page, and ensure no default margins */
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #0d0d0d; /* Very dark almost black */
-  color: #f0f0f0; /* Default light text color */
-  font-family: 'Segoe UI', sans-serif; /* Basic font, you can import specific fonts */
-}
+/* REMOVED: All body and global font-family rules from here. They are now assumed to be in App.vue */
 
 /* --- Hero Section Specific Styles --- */
 .hero-section {
   min-height: 100vh; /* Ensures it takes at least the full viewport height */
-  background-color: #0d0d0d; /* Matches body background for seamless look */
+  background-color: #0d0d0d; /* Specific background for hero section */
   display: flex; /* Make hero-section a flex container */
   align-items: center; /* Vertically centers the content (container) within the viewport */
   padding: 20px; /* This creates the "little room outside" around the main content box */
@@ -187,7 +199,6 @@ body {
   background-color: #1a1a1a; /* Slightly lighter dark for the 'box' effect */
   border: 1px solid #333; /* Border for the 'box' */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
-  /* Remove max-width here, let the padding on hero-section create the outer spacing */
   margin: 0; /* No auto margin needed, padding handles spacing */
   padding: 40px; /* Internal padding within the bordered box */
   box-sizing: border-box; /* Include padding in element's total width/height */
@@ -201,7 +212,6 @@ body {
   flex-wrap: nowrap; /* Prevent wrapping by default on large screens */
   width: 100%; /* Ensures it takes full width of container */
   align-items: stretch; /* Ensures flex children (left/right columns) stretch to fill height */
-  /* Remove padding from two-column if container has enough */
 }
 
 .left-column {
@@ -211,74 +221,71 @@ body {
   display: flex; /* Make it a flex container */
   flex-direction: column; /* Stack content vertically */
   padding-right: 20px; /* Add some space to the right of left column */
-
-  color: #f0f0f0; /* Light text color */
+  color: #f0f0f0; /* Light text color for left column content */
 }
 
 .left-column h1 {
-  font-size: 2.5rem;
+  font-size: 2.5rem; /* Specific font size for this h1 */
   margin-bottom: 0.5rem;
   color: #f0f0f0; /* Ensure title is light */
 }
 
 .left-column .large-text {
-  font-size: 0.9rem; /* Smaller, matches image more */
+  font-size: 0.9rem; /* Specific font size for this large-text */
   line-height: 1.6;
   color: #aaa; /* Slightly subdued text */
   margin-top: 0;
 }
-
 
 .right-column {
   flex: 2; /* Allows the right column to grow more than the left */
   display: flex; /* Make it a flex container */
   flex-direction: column; /* Stack content vertically */
   min-height: 400px; /* Gives it a minimum height for visual balance if content is short */
-  color: #f0f0f0; /* Light text color */
+  color: #f0f0f0; /* Light text color for right column content */
 }
 
 /* Common Styles for Dynamic Content Sections */
 .content-section {
-  flex-grow: 1; /* Crucial: makes it take all available vertical space within right-column */
-  display: flex; /* To manage internal content alignment */
-  flex-direction: column; /* To stack content if multiple children */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
   animation: fadeIn 0.4s ease-in-out;
 }
 
 /* Specific Styles for Home Content & About Paragraph */
 .home-content {
-  height: 100%; /* Ensure it fills the .content-section */
+  height: 100%;
   display: flex;
-  flex-direction: column; /* Allows content within to be stacked vertically */
-  justify-content: flex-end; /* Pushes content (specifically about-para) to the bottom */
-  padding-bottom: 10px; /* Small padding from the very bottom edge */
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 10px;
 }
 
 .about-para {
-  font-size: 0.8rem; /* Matches image size more closely */
+  font-size: 0.8rem;
   line-height: 1.5;
-  color: #aaa; /* Subdued text color */
-  max-width: 200px; /* Adjusted max-width based on image proportions */
-  margin-bottom: 0; /* Ensure no extra margin at the bottom */
-  margin-left: auto; /* Pushes the paragraph to the right within its flex container */
-  text-align: left; /* Aligns the text content inside the paragraph to the right */
-  padding-right: 10px; /* Add a little internal padding from the right edge */
+  color: #aaa;
+  max-width: 200px;
+  margin-bottom: 0;
+  margin-left: auto;
+  text-align: left;
+  padding-right: 10px;
 }
-
 
 /* Main Navigation Styles */
 .main-navigation {
-  margin-top: 1rem; /* Pushes navigation to the bottom of the left column */
+  margin-top: 1rem;
 }
 
 .nav-item {
   display: block;
   margin-bottom: 0.8rem;
-  font-size: 1.1rem;
+  font-size: 1rem; /* Adjusted from 1.1rem */
   cursor: pointer;
   transition: all 0.2s ease;
-  text-transform: capitalize; /* Makes the text look nicer */
-  color: #f0f0f0; /* Light text color */
+  text-transform: capitalize;
+  color: #f0f0f0; /* Ensure nav items are light */
 }
 
 .nav-item:hover {
@@ -288,7 +295,7 @@ body {
 .nav-item.active {
   font-weight: 500;
   opacity: 1;
-  color: white; /* Active item can be pure white */
+  color: white;
 }
 
 /* Project List Styles */
@@ -299,7 +306,7 @@ body {
 }
 
 .project-item {
-  border-bottom: 1px solid #333; /* Darker border for projects */
+  border-bottom: 1px solid #333;
   padding-bottom: 1.5rem;
 }
 
@@ -308,7 +315,7 @@ body {
 }
 
 .project-item h3 {
-  font-size: 1.25rem;
+  font-size: 1.25rem; /* Specific font size for this h3 */
   font-weight: 500;
   margin-bottom: 0.5rem;
   line-height: 1.2;
@@ -320,7 +327,7 @@ body {
   flex-direction: column;
   gap: 0.2rem;
   font-size: 0.9rem;
-  color: #aaa; /* Subdued meta text */
+  color: #aaa;
   line-height: 1.4;
 }
 
@@ -328,10 +335,16 @@ body {
   font-weight: 500;
 }
 
+/* NEW: Experience Content Styles (inherits most styles but can be customized) */
+.experience-content {
+  /* Add specific styles here if needed, or it will inherit from global p/h3 */
+}
+
 /* About and Contact Content Styles */
 .about-content h3,
-.contact-content h3 {
-  font-size: 1.1rem;
+.contact-content h3,
+.experience-content h3 { /* Added experience-content h3 here */
+  font-size: 1.1rem; /* Specific font size for these h3s */
   font-weight: 500;
   margin-bottom: 0.8rem;
   margin-top: 2rem;
@@ -339,28 +352,30 @@ body {
 }
 
 .about-content h3:first-child,
-.contact-content h3:first-child {
+.contact-content h3:first-child,
+.experience-content h3:first-child { /* Added experience-content h3 here */
   margin-top: 0;
 }
 
 .about-content p,
-.contact-content p {
+.contact-content p,
+.experience-content p { /* Added experience-content p here */
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  max-width: none; /* Resets max-width if inherited from elsewhere */
-  color: #aaa; /* Subdued paragraph text */
+  max-width: none;
+  color: #aaa;
 }
 
 .contact-content a {
-  color: #f0f0f0; /* Light link color */
+  color: #f0f0f0;
   text-decoration: none;
   transition: opacity 0.2s ease;
 }
 
 .contact-content a:hover {
   opacity: 0.6;
-  color: white; /* Brighter on hover */
+  color: white;
 }
 
 /* Fade-in Animation */
@@ -378,24 +393,24 @@ body {
 /* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
   .hero-section {
-    padding: 10px; /* Less padding on mobile */
+    padding: 10px;
   }
   .container {
-    padding: 20px; /* Reduced internal padding on mobile */
-    flex-direction: column; /* Stack container content */
+    padding: 20px;
+    flex-direction: column;
   }
   .two-column {
-    flex-direction: column; /* Stack columns vertically on mobile */
-    gap: 20px; /* Reduce gap on mobile */
-    flex-wrap: wrap; /* Allow wrapping again */
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
   }
   .left-column, .right-column {
-    min-width: unset; /* Remove min-width on mobile */
-    max-width: 100%; /* Allow full width */
-    min-height: unset; /* Remove min-height on mobile */
+    min-width: unset;
+    max-width: 100%;
+    min-height: unset;
     padding-left: 0;
     padding-right: 0;
-    align-items: flex-start; /* Left align text */
+    align-items: flex-start;
   }
 
   .left-column h1, .left-column .large-text {
@@ -403,26 +418,26 @@ body {
   }
   
   .main-navigation {
-    margin-top: 2rem; /* Adjust margin for mobile */
-    margin-bottom: 2rem; /* Add some space below nav */
-    display: flex; /* Make nav items horizontal on mobile if desired */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
     flex-wrap: wrap;
-    gap: 15px; /* Space out nav items */
+    gap: 15px;
   }
 
   .nav-item {
-    margin-bottom: 0; /* Remove vertical margin */
+    margin-bottom: 0;
   }
 
   /* Adjust home content for mobile */
   .home-content {
-    justify-content: flex-start; /* Reset to top alignment on mobile */
-    padding-bottom: 0; /* Remove bottom padding on mobile */
+    justify-content: flex-start;
+    padding-bottom: 0;
   }
   .about-para {
-    margin-left: 0; /* Remove auto margin on mobile to prevent overflow */
-    text-align: left; /* Reset text align on mobile */
-    max-width: 100%; /* Allow full width */
+    margin-left: 0;
+    text-align: left;
+    max-width: 100%;
   }
 
   .project-list {
