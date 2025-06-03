@@ -69,13 +69,12 @@
                 &larr; Back to Projects
               </button>
               <h2>{{ selectedProject.title }}</h2>
-              <p>{{ selectedProject.longDescription }}</p>
+              <p v-html="selectedProject.longDescription"></p>
               
               <div v-if="selectedProject.links && selectedProject.links.length > 0" class="project-links">
-                <h3>Links</h3>
                 <ul>
-                  <li v-for="(link, index) in selectedProject.links" :key="index">
-                    <a :href="link.url" target="_blank">{{ link.type }}</a>
+                  <li v-for="(link, index) in selectedProject.links.filter(l => l.type === 'GitHub')" :key="index">
+                    <a :href="link.url" target="_blank">GitHub</a>
                   </li>
                 </ul>
               </div>
@@ -150,41 +149,39 @@ export default {
 
       projects: [
         {
-          id: 'prs',
-          title: 'PRS',
-          shortDescription: 'Web platform for real-time pandemic data management.',
-          longDescription: 'PRS (Performance Reporting System) is a robust application designed to provide instantaneous insights into complex system performance. It leverages advanced data visualization techniques and real-time data streaming to help identify bottlenecks and optimize operations. Developed using [Technologies like Python, Flask, React, D3.js].',
-          links: [
-            { type: 'GitHub Repo', url: 'https://github.com/enosh-earnest/prs' }, // Placeholder
-            { type: 'Live Demo', url: '#' } // Placeholder
-          ]
-        },
-        {
           id: 'seec',
-          title: 'SEEC',
-          shortDescription: 'Public Transport app for the visually impaired',
-          longDescription: 'SEEC (Secure Email Encryption Client) is a desktop application focused on enhancing email privacy through end-to-end encryption. It integrates seamlessly with popular email services and employs [Encryption standard, e.g., AES-256, RSA] to protect sensitive communications. Built with [Technologies like Electron, Node.js, OpenSSL].',
+          title: "SEEC/ May 25'",
+          shortDescription: 'Public Transport app for the visually impaired (Made for Journeo)',
+          longDescription: 'A Public Transport App for the Visually Impaired.<br><br>SEEC is a voice-controlled mobile application built for Journeo Plc using React Native (Expo), Node.js, and Express.js. It seamlessly integrates Google Maps/Directions API and real-time location tracking via Expo Location, achieving a remarkable 95% accuracy in route generation and 90% adherence to turn-by-turn guidance. The app also features an advanced image-to-text capability using Google Vision API, providing 98% OCR accuracy to convert physical signs into audible formats. User acceptance testing demonstrated a 30% improvement in ease of following transit instructions and a 25% reduction in reported navigational anxiety, thanks to its dynamic voice feedback system.',
           links: [
-            { type: 'GitHub Repo', url: 'https://github.com/enosh-earnest/seec' } // Placeholder
+            { type: 'GitHub', url: 'https://github.com/es2323/SEEC' } // Placeholder
           ]
         },
         {
           id: 'snapback',
-          title: 'SnapBack',
-          shortDescription: 'Web app tracking employee fatigue through cognitive games and wellness surveys.',
-          longDescription: 'SnapBack is an intuitive mobile application designed to help users track and revert progress on tasks with ease. Ideal for managing personal projects or small team workflows, it features a unique "snap-to-previous-state" functionality. Developed for [Platform, e.g., iOS/Android] using [Technologies like React Native, Firebase].',
+          title: "SnapBack/ May 25'",
+          shortDescription: 'Web app tracking employee fatigue via cognitive games and wellness surveys',
+          longDescription: 'An Employee Fatigue Monitoring Platform.<br><br>Uncover the power of real-time insights with SnapBack, developed with Python Flask and SQLite. This innovative, role-based web app features distinct dashboards for employees, managers, and HR, integrating fatigue scoring from 4 engaging cognitive games (engineered using Pygame) and daily wellness surveys. It accurately tracks real-time fatigue for 25+ users across 3 teams, logging over 500+ session metrics like reaction time and accuracy. Managers gain immediate insights with Chart.js analytics, offering dynamic SQL joins and threshold-based alerts, all with dashboard render times under 150 ms and 100% session log retention.',
           links: [
-            { type: 'App Store', url: '#' }, // Placeholder
-            { type: 'Google Play', url: '#' } // Placeholder
+            { type: 'GitHub', url: 'https://github.com/es2323/SnapBack' } // Placeholder
+          ]
+        },
+        {
+          id: 'prs',
+          title: "PRS/ May 25'",
+          shortDescription: 'Web platform for pandemic data management',
+          longDescription: 'Web Platform for pandemic data management.<br><br>Dive into a world where public safety meets cutting-edge technology. This secure, role-based web platform, meticulously engineered with Python Flask, leverages a hybrid data architecture combining SQL Server for compliance-critical data and MongoDB Atlas for dynamic, semi-structured information. With over 20+ endpoints and 3 intuitive dashboards, it powers 500+ dynamic data operations across structured and unstructured sources, all while maintaining sub-100 ms query response times under load. It boasts 100% password encryption compliance using PBKDF2 via Werkzeug and significantly boosts error handling and data consistency by approximately 80%, ensuring robust pandemic response management.',          links: [
+            { type: 'GitHub', url: 'https://github.com/enosh-earnest/prs' }, 
+            
           ]
         },
         {
           id: 'ssh',
-          title: 'SSH',
-          shortDescription: ' secure client-server system for smart home communication.',
-          longDescription: 'SSH (Smart Home Hub) is a centralized control system for various smart home devices, designed for ease of use and interoperability. It provides a unified interface for managing lighting, climate, security, and entertainment systems, offering both local and remote access. Implemented with [Technologies like Raspberry Pi, Home Assistant, MQTT].',
+          title: "SSH/ Dec 24'",
+          shortDescription: 'Secure client-server system for smart home communication',
+          longDescription: 'Secure Smart Home Client-Server System.<br><br>Experience the next generation of secure smart home connectivity with this high-performance client-server system built with Python, asyncio, and SQLite. Engineered for robust communication, it utilizes AES-CBC encryption and Diffie-Hellman key exchange, handling 10+ concurrent clients and encrypting 500+ messages with zero errors. Advanced features like 30-second idle disconnection and a heartbeat mechanism ensure 98% reliability in maintaining active client-server communication, even under extensive testing, processing over 100 client requests per second with 99.9% accuracy during 48-hour stress tests.',
           links: [
-            { type: 'GitHub Repo', url: 'https://github.com/enosh-earnest/ssh' } // Placeholder
+            { type: 'GitHub', url: 'https://github.com/es2323/Client_Server-' } // Placeholder
           ]
         }
       ]
@@ -209,7 +206,7 @@ export default {
 /* --- Hero Section Specific Styles --- */
 .hero-section {
   min-height: 100vh;
-  background-color: #0d0d0d;
+  background-color: #161616;
   display: flex;
   align-items: center;
   padding: 20px;
@@ -220,8 +217,8 @@ export default {
   display: flex;
   flex-grow: 1;
   width: 100%;
-  background-color: #1a1a1a;
-  border: 1px solid #333;
+  background-color: #000000;
+  border: 1px solid #acacac;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   padding: 40px;
   box-sizing: border-box;
@@ -247,7 +244,7 @@ export default {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  color: #f0f0f0;
+  color: #ffffff;
 }
 
 .left-column h1 {
@@ -361,7 +358,7 @@ export default {
 
 .project-list-view .project-item h3 {
   font-size: 3.8rem;
-  font-weight: 100;
+  font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
   color: #f0f0f0;
@@ -369,6 +366,7 @@ export default {
 }
 
 .project-list-view .project-short-description {
+  font-weight: 400;
   font-size: 0.9rem;
   color: #ffffff;
   line-height: 1.4;
@@ -392,7 +390,7 @@ export default {
 }
 
 .project-detail-view h2 {
-  font-size: 2rem;
+  font-size: 3rem;
   margin-bottom: 0.5rem;
   color: #f0f0f0;
   text-align: left;
@@ -407,7 +405,7 @@ export default {
 }
 
 .project-detail-view p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.6;
   color: #aaa;
   max-width: none;
@@ -417,7 +415,7 @@ export default {
 .project-links ul {
   list-style: none;
   padding-left: 0;
-  margin-top: 0.5rem;
+  margin-top: 0.05rem;
 }
 
 .project-links li {
@@ -426,8 +424,7 @@ export default {
 }
 
 .project-links a {
-  color: #f0f0f0;
-  text-decoration: underline;
+  color: #3058f5;
   transition: opacity 0.2s ease;
 }
 
@@ -439,8 +436,8 @@ export default {
 .back-button {
   background: none;
   border: none;
-  color: #aaa;
-  font-size: 1rem;
+  color: #ffffff;
+  font-size: 0.9rem;
   cursor: pointer;
   text-align: left;
   padding: 0;
