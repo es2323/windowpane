@@ -61,7 +61,7 @@
               <div class="project-item" v-for="project in projects" :key="project.id" @click="showProjectDetails(project)">
                 <h3>{{ project.title }}</h3>
                 <p class="project-short-description">{{ project.shortDescription }}</p>
-                </div>
+              </div>
             </div>
 
             <div v-else class="project-detail-view">
@@ -146,10 +146,9 @@ export default {
   data() {
     return {
       activeSection: 'home', // Default to home
-      selectedProject: null, // NEW: Holds the currently selected project for detail view
+      selectedProject: null, // Holds the currently selected project for detail view
 
       projects: [
-        // NEW: Updated project data with shortDescription, longDescription, and links
         {
           id: 'prs',
           title: 'PRS',
@@ -188,20 +187,17 @@ export default {
             { type: 'GitHub Repo', url: 'https://github.com/enosh-earnest/ssh' } // Placeholder
           ]
         }
-        // Removed old project data
       ]
     }
   },
   methods: {
     setActiveSection(section) {
       this.activeSection = section;
-      this.selectedProject = null; // IMPORTANT: Reset selected project when changing main sections
+      this.selectedProject = null; // Reset selected project when changing main sections
     },
-    // NEW: Method to show project details
     showProjectDetails(project) {
       this.selectedProject = project;
     },
-    // NEW: Method to go back to the project list
     backToProjectList() {
       this.selectedProject = null;
     }
@@ -210,69 +206,71 @@ export default {
 </script>
 
 <style scoped>
-/* REMOVED: All body and global font-family rules from here. They are now assumed to be in App.vue */
-
 /* --- Hero Section Specific Styles --- */
 .hero-section {
-  min-height: 100vh; /* Ensures it takes at least the full viewport height */
-  background-color: #0d0d0d; /* Specific background for hero section */
-  display: flex; /* Make hero-section a flex container */
-  align-items: center; /* Vertically centers the content (container) within the viewport */
-  padding: 20px; /* This creates the "little room outside" around the main content box */
-  box-sizing: border-box; /* Include padding in element's total width/height */
+  min-height: 100vh;
+  background-color: #0d0d0d;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .container {
-  display: flex; /* Make container a flex container */
-  flex-grow: 1; /* Allows it to grow to fill hero-section's height */
-  width: 100%; /* Ensures it takes full width within hero-section's padding */
-  background-color: #1a1a1a; /* Slightly lighter dark for the 'box' effect */
-  border: 1px solid #333; /* Border for the 'box' */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
-  margin: 0; /* No auto margin needed, padding handles spacing */
-  padding: 40px; /* Internal padding within the bordered box */
-  box-sizing: border-box; /* Include padding in element's total width/height */
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  box-sizing: border-box;
+
+  /* MODIFIED: Center the container and give it more overall width */
+  max-width: 1500px; /* Increased overall width for content */
+  margin-left: auto; /* Center the container horizontally */
+  margin-right: auto; /* Center the container horizontally */
 }
 
 .two-column {
   display: flex;
-  flex-grow: 1; /* Allows it to grow to fill container's height */
-  justify-content: space-between;
-  gap: 40px; /* Space between columns */
-  flex-wrap: nowrap; /* Prevent wrapping by default on large screens */
-  width: 100%; /* Ensures it takes full width of container */
-  align-items: stretch; /* Ensures flex children (left/right columns) stretch to fill height */
+  flex-grow: 1;
+  gap: 20px; /* This reduced gap helps in softening the "diving line" effect */
+  flex-wrap: nowrap;
+  width: 100%;
+  align-items: stretch;
 }
 
 .left-column {
-  flex: 1; /* Allows the left column to grow */
-  min-width: 250px; /* Adjusted minimum width for left column */
-  max-width: 350px; /* Max width to control its size */
-  display: flex; /* Make it a flex container */
-  flex-direction: column; /* Stack content vertically */
-  padding-right: 20px; /* Add some space to the right of left column */
-  color: #f0f0f0; /* Light text color for left column content */
+  /* MODIFIED: Make left column wider for name/nav */
+  width: 300px; /* Adjust this value (e.g., 250px-350px) to your preference */
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  color: #f0f0f0;
 }
 
 .left-column h1 {
-  font-size: 2.5rem; /* Specific font size for this h1 */
+  font-size: 3rem;
   margin-bottom: 0.5rem;
-  color: #f0f0f0; /* Ensure title is light */
+  color: #f0f0f0;
+  text-align: left;
 }
 
 .left-column .large-text {
-  font-size: 0.9rem; /* Specific font size for this large-text */
+  font-size: 0.9rem;
   line-height: 1.6;
-  color: #aaa; /* Slightly subdued text */
+  color: #aaa;
   margin-top: 0;
+  text-align: left;
 }
 
 .right-column {
-  flex: 2; /* Allows the right column to grow more than the left */
-  display: flex; /* Make it a flex container */
-  flex-direction: column; /* Stack content vertically */
-  min-height: 400px; /* Gives it a minimum height for visual balance if content is short */
-  color: #f0f0f0; /* Light text color for right column content */
+  flex-grow: 1; /* Allows the right column to take up the remaining space */
+  min-height: 400px;
+  color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Common Styles for Dynamic Content Sections */
@@ -288,34 +286,37 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Keeps content at the bottom */
   padding-bottom: 10px;
 }
 
+/* MODIFIED: .about-para for true "bottom left" within its space */
 .about-para {
   font-size: 0.8rem;
   line-height: 1.5;
   color: #aaa;
-  max-width: 200px;
-  margin-bottom: 0;
-  margin-left: auto;
-  text-align: left;
-  padding-right: 10px;
+  max-width: 180px; /* Constrain width to allow it to be pushed right */
+  margin-top: auto;    /* Pushes content to the center vertically */
+  margin-bottom: 100; /* Pushes content to the center vertically */
+  margin-left: auto;   /* Pushes content to the right horizontally */
+  margin-right: 0;     /* Aligns flush right within its parent */
 }
 
 /* Main Navigation Styles */
 .main-navigation {
   margin-top: 1rem;
+  text-align: left;
 }
 
 .nav-item {
   display: block;
   margin-bottom: 0.8rem;
-  font-size: 1rem; /* Adjusted from 1.1rem to 1rem */
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.2s ease;
   text-transform: capitalize;
-  color: #f0f0f0; /* Ensure nav items are light */
+  color: #f0f0f0;
+  text-align: left;
 }
 
 .nav-item:hover {
@@ -333,49 +334,68 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  text-align: left;
+
+  /* NEW: Positioning for "center right" */
+  max-width: 450px; /* Constrain width to allow it to be pushed right */
+  margin-top: auto;    /* Pushes content to the center vertically */
+  margin-bottom: auto; /* Pushes content to the center vertically */
+  margin-left: auto;   /* Pushes content to the right horizontally */
+  margin-right: 0;     /* Aligns flush right within its parent */
 }
 
-.project-list-view .project-item { /* Target project items specifically in the list view */
-  border-bottom: 1px solid #333; /* Darker border for projects */
-  padding-bottom: 1.5rem;
-  cursor: pointer; /* Indicate clickability */
+.project-list-view .project-item {
+  /* REMOVED: border-bottom: 1px solid #333; */ /* This horizontal line was removed */
+  padding-bottom: 0.5rem;
+  cursor: pointer;
   transition: opacity 0.2s ease;
 }
 
 .project-list-view .project-item:last-child {
-  border-bottom: none;
+  border-bottom: none; /* This rule is now redundant as no border is applied above */
 }
 
 .project-list-view .project-item:hover {
-  opacity: 0.7; /* Slight hover effect */
+  opacity: 0.7;
 }
 
 .project-list-view .project-item h3 {
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: 3.5rem;
+  font-weight: 100;
   margin-bottom: 0.5rem;
-  line-height: 1.2;
+  line-height: 1;
   color: #f0f0f0;
+  text-align: left;
 }
 
 .project-list-view .project-short-description {
   font-size: 0.9rem;
   color: #aaa;
   line-height: 1.4;
-  margin-bottom: 0; /* Remove default paragraph margin */
+  margin-bottom: 0;
+  text-align: left;
 }
 
 /* Project Detail View */
 .project-detail-view {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Spacing between elements in detail view */
+  gap: 1.5rem;
+  text-align: left;
+
+  /* NEW: Positioning for "center right" similar to project list */
+  max-width: 450px; /* Apply similar width constraint */
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .project-detail-view h2 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
   color: #f0f0f0;
+  text-align: left;
 }
 
 .project-detail-view h3 {
@@ -383,28 +403,32 @@ export default {
   margin-top: 2rem;
   margin-bottom: 0.8rem;
   color: #f0f0f0;
+  text-align: left;
 }
 
 .project-detail-view p {
   font-size: 1rem;
   line-height: 1.6;
   color: #aaa;
-  max-width: none; /* Ensure text fills container */
+  max-width: none;
+  text-align: left;
 }
 
 .project-links ul {
-  list-style: none; /* Remove bullet points */
+  list-style: none;
   padding-left: 0;
   margin-top: 0.5rem;
 }
 
 .project-links li {
   margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 .project-links a {
   color: #f0f0f0;
-  text-decoration: underline; /* Underline links for clarity */
+  text-decoration: underline;
+  transition: opacity 0.2s ease;
 }
 
 .project-links a:hover {
@@ -420,7 +444,7 @@ export default {
   cursor: pointer;
   text-align: left;
   padding: 0;
-  margin-bottom: 2rem; /* Space below button */
+  margin-bottom: 2rem;
   transition: color 0.2s ease;
 }
 
@@ -429,36 +453,38 @@ export default {
 }
 
 
-/* NEW: Experience Content Styles (inherits most styles but can be customized) */
+/* Experience Content Styles */
 .experience-content {
-  /* Add specific styles here if needed, or it will inherit from global p/h3 */
+  /* No specific text-align needed here if parent is left-aligned */
 }
 
 /* About and Contact Content Styles */
 .about-content h3,
 .contact-content h3,
-.experience-content h3 { /* Added experience-content h3 here */
-  font-size: 1.1rem; /* Specific font size for these h3s */
+.experience-content h3 {
+  font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 0.8rem;
   margin-top: 2rem;
   color: #f0f0f0;
+  text-align: left;
 }
 
 .about-content h3:first-child,
 .contact-content h3:first-child,
-.experience-content h3:first-child { /* Added experience-content h3 here */
+.experience-content h3:first-child {
   margin-top: 0;
 }
 
 .about-content p,
 .contact-content p,
-.experience-content p { /* Added experience-content p here */
+.experience-content p {
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
   max-width: none;
   color: #aaa;
+  text-align: left;
 }
 
 .contact-content a {
@@ -492,19 +518,22 @@ export default {
   .container {
     padding: 20px;
     flex-direction: column;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
   .two-column {
     flex-direction: column;
     gap: 20px;
     flex-wrap: wrap;
   }
-  .left-column, .right-column {
-    min-width: unset;
+  .left-column {
+    width: auto;
+    flex-shrink: 1;
     max-width: 100%;
+  }
+  .right-column {
     min-height: unset;
-    padding-left: 0;
-    padding-right: 0;
-    align-items: flex-start;
   }
 
   .left-column h1, .left-column .large-text {
@@ -523,7 +552,6 @@ export default {
     margin-bottom: 0;
   }
 
-  /* Adjust home content for mobile */
   .home-content {
     justify-content: flex-start;
     padding-bottom: 0;
@@ -534,7 +562,6 @@ export default {
     max-width: 100%;
   }
 
-  /* Adjust project list for mobile */
   .project-list-view {
     gap: 2rem;
   }
@@ -543,7 +570,6 @@ export default {
     padding-bottom: 1rem;
   }
 
-  /* Adjust project detail view for mobile */
   .project-detail-view h2 {
     font-size: 1.8rem;
   }
