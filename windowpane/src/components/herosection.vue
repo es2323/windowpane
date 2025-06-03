@@ -152,7 +152,7 @@ export default {
         {
           id: 'prs',
           title: 'PRS',
-          shortDescription: 'Real-time performance analysis system.',
+          shortDescription: 'Web platform for real-time pandemic data management.',
           longDescription: 'PRS (Performance Reporting System) is a robust application designed to provide instantaneous insights into complex system performance. It leverages advanced data visualization techniques and real-time data streaming to help identify bottlenecks and optimize operations. Developed using [Technologies like Python, Flask, React, D3.js].',
           links: [
             { type: 'GitHub Repo', url: 'https://github.com/enosh-earnest/prs' }, // Placeholder
@@ -162,7 +162,7 @@ export default {
         {
           id: 'seec',
           title: 'SEEC',
-          shortDescription: 'Secure email encryption client.',
+          shortDescription: 'Public Transport app for the visually impaired',
           longDescription: 'SEEC (Secure Email Encryption Client) is a desktop application focused on enhancing email privacy through end-to-end encryption. It integrates seamlessly with popular email services and employs [Encryption standard, e.g., AES-256, RSA] to protect sensitive communications. Built with [Technologies like Electron, Node.js, OpenSSL].',
           links: [
             { type: 'GitHub Repo', url: 'https://github.com/enosh-earnest/seec' } // Placeholder
@@ -171,7 +171,7 @@ export default {
         {
           id: 'snapback',
           title: 'SnapBack',
-          shortDescription: 'Mobile app for task tracking.',
+          shortDescription: 'Web app tracking employee fatigue through cognitive games and wellness surveys.',
           longDescription: 'SnapBack is an intuitive mobile application designed to help users track and revert progress on tasks with ease. Ideal for managing personal projects or small team workflows, it features a unique "snap-to-previous-state" functionality. Developed for [Platform, e.g., iOS/Android] using [Technologies like React Native, Firebase].',
           links: [
             { type: 'App Store', url: '#' }, // Placeholder
@@ -181,7 +181,7 @@ export default {
         {
           id: 'ssh',
           title: 'SSH',
-          shortDescription: 'Smart home automation hub.',
+          shortDescription: ' secure client-server system for smart home communication.',
           longDescription: 'SSH (Smart Home Hub) is a centralized control system for various smart home devices, designed for ease of use and interoperability. It provides a unified interface for managing lighting, climate, security, and entertainment systems, offering both local and remote access. Implemented with [Technologies like Raspberry Pi, Home Assistant, MQTT].',
           links: [
             { type: 'GitHub Repo', url: 'https://github.com/enosh-earnest/ssh' } // Placeholder
@@ -311,7 +311,7 @@ export default {
 .nav-item {
   display: block;
   margin-bottom: 0.8rem;
-  font-size: 1rem;
+  font-size: 0.8rem;
   cursor: pointer;
   transition: all 0.2s ease;
   text-transform: capitalize;
@@ -324,7 +324,7 @@ export default {
 }
 
 .nav-item.active {
-  font-weight: 500;
+  font-weight: 700;
   opacity: 1;
   color: white;
 }
@@ -337,7 +337,7 @@ export default {
   text-align: left;
 
   /* NEW: Positioning for "center right" */
-  max-width: 450px; /* Constrain width to allow it to be pushed right */
+  max-width: 1000px; /* Constrain width to allow it to be pushed right */
   margin-top: auto;    /* Pushes content to the center vertically */
   margin-bottom: auto; /* Pushes content to the center vertically */
   margin-left: auto;   /* Pushes content to the right horizontally */
@@ -360,20 +360,20 @@ export default {
 }
 
 .project-list-view .project-item h3 {
-  font-size: 3.5rem;
+  font-size: 3.8rem;
   font-weight: 100;
   margin-bottom: 0.5rem;
   line-height: 1;
   color: #f0f0f0;
-  text-align: left;
+  text-align: right;
 }
 
 .project-list-view .project-short-description {
   font-size: 0.9rem;
-  color: #aaa;
+  color: #ffffff;
   line-height: 1.4;
   margin-bottom: 0;
-  text-align: left;
+  text-align: right;
 }
 
 /* Project Detail View */
