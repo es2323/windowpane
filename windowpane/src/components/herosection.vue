@@ -560,7 +560,7 @@ export default {
 }
 
 .experience-list-view .experience-company-duration {
-  font-weight: 450;
+  font-weight: 500;
   font-size: 1rem;
   color: #ffffff;
   margin-bottom: 0.5rem;
@@ -568,7 +568,7 @@ export default {
 }
 
 .experience-list-view .experience-short-description {
-  font-weight: 200;
+  font-weight: 400;
   font-size: 0.9rem;
   color: #ffffff;
   line-height: 1.4;
