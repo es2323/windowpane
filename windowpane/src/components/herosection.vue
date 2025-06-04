@@ -82,14 +82,31 @@
               </div>
           </div>
           <div v-if="activeSection === 'experience'" class="content-section fade-in visible">
-            <div class="experience-content">
-              <h3>Professional Experience</h3>
-              <p>
-                List your internships, part-time jobs, academic roles, etc. here.
-                Include dates, company/institution names, and brief descriptions of your responsibilities and achievements.
-              </p>
-              <h3>Skills Gained</h3>
-              <p>Highlight specific technologies, methodologies, or soft skills developed.</p>
+            <div v-if="!selectedExperience" class="experience-list-view">
+              <div class="experience-item" v-for="exp in experiences" :key="exp.id" @click="showExperienceDetails(exp)">
+                <h3>{{ exp.title }}</h3>
+                <p class="experience-company-duration">{{ exp.company }} | {{ exp.duration }}</p>
+                <p class="experience-short-description">{{ exp.shortDescription }}</p>
+              </div>
+            </div>
+
+            <div v-else class="experience-detail-view">
+              <button class="back-button" @click="backToExperienceList()">
+                &larr; Back to Experience
+              </button>
+              <h2>{{ selectedExperience.title }}</h2>
+              <p class="experience-company-duration">{{ selectedExperience.company }} | {{ selectedExperience.duration }}</p>
+              
+              <div class="experience-description">
+                <ul>
+                  <li v-for="(point, index) in selectedExperience.longDescription" :key="index">{{ point }}</li>
+                </ul>
+              </div>
+
+              <div v-if="selectedExperience.skills && selectedExperience.skills.length > 0" class="experience-skills">
+                <h3>Skills</h3>
+                <p>{{ selectedExperience.skills.join(', ') }}</p>
+              </div>
             </div>
           </div>
 
@@ -146,6 +163,8 @@ export default {
     return {
       activeSection: 'home', // Default to home
       selectedProject: null, // Holds the currently selected project for detail view
+      selectedExperience: null, // NEW: Holds the currently selected experience for detail view
+
 
       projects: [
         {
@@ -182,7 +201,37 @@ export default {
           longDescription: 'Secure Smart Home Client-Server System.<br><br>Experience the next generation of secure smart home connectivity with this high-performance client-server system built with Python, asyncio, and SQLite. Engineered for robust communication, it utilizes AES-CBC encryption and Diffie-Hellman key exchange, handling 10+ concurrent clients and encrypting 500+ messages with zero errors. Advanced features like 30-second idle disconnection and a heartbeat mechanism ensure 98% reliability in maintaining active client-server communication, even under extensive testing, processing over 100 client requests per second with 99.9% accuracy during 48-hour stress tests.',
           links: [
             { type: 'GitHub', url: 'https://github.com/es2323/Client_Server-' } // Placeholder
+
           ]
+        }
+      ],
+            // NEW: Experience Data
+      experiences: [
+        {
+          id: 'designer',
+          title: 'Designer',
+          company: 'Journeo Plc',
+          duration: 'Aug 2023 – Present',
+          shortDescription: 'Created UI/UX solutions for diverse clients and developed design systems.',
+          longDescription: [
+            'Worked with senior designer to create UI/UX solutions for clients in a range of sectors (public transport, local government, law enforcement) resulting in 15+ successful product roll-outs.',
+            'Contributed to the development of design systems, style guides, and component libraries, improving design consistency by 30% across projects and speeding up design iterations by 20%.',
+            'Collaborated with cross-functional teams (product managers, engineers, marketing) to ensure design feasibility and alignment with business goals, leading to successful product launches within deadlines.'
+          ],
+          skills: ['UI/UX Design', 'Design Systems', 'Figma', 'Adobe Creative Suite', 'Cross-functional Collaboration']
+        },
+        {
+          id: 'marketing-intern',
+          title: 'Marketing Intern',
+          company: 'Journeo Plc',
+          duration: 'June 2023 – Aug 2023',
+          shortDescription: 'Assisted in marketing campaigns and conducted market research.',
+          longDescription: [
+            'Assisted in developing and executing marketing campaigns for digital platforms and print media, reaching over 100,000 potential customers and contributing to a 15% increase in lead generation.',
+            'Conducted market research and competitive analysis to identify emerging trends and opportunities, informing strategic decisions for new product positioning.',
+            'Managed social media content scheduling and engagement across multiple platforms (LinkedIn, Twitter), increasing organic reach by 20% and follower growth by 10%.'
+          ],
+          skills: ['Marketing Strategy', 'Market Research', 'Social Media Management', 'Campaign Management', 'Content Creation']
         }
       ]
     }
@@ -191,12 +240,21 @@ export default {
     setActiveSection(section) {
       this.activeSection = section;
       this.selectedProject = null; // Reset selected project when changing main sections
+      this.selectedExperience = null; // NEW: Reset selected experience when changing main sections
+
     },
     showProjectDetails(project) {
       this.selectedProject = project;
     },
     backToProjectList() {
       this.selectedProject = null;
+          },
+    // NEW: Experience Methods
+    showExperienceDetails(exp) {
+      this.selectedExperience = exp;
+    },
+    backToExperienceList() {
+      this.selectedExperience = null;
     }
   }
 }
@@ -450,15 +508,118 @@ export default {
 }
 
 
-/* Experience Content Styles */
-.experience-content {
-  /* No specific text-align needed here if parent is left-aligned */
+/* NEW: Experience List View Styles */
+.experience-list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* Space between experience items */
+  text-align: left;
+
+  /* Positioning: Same as projects to be "center right" */
+  max-width: 450px; /* Constrain width */
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: 0;
 }
+
+.experience-list-view .experience-item {
+  padding-bottom: 1.5rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.experience-list-view .experience-item:last-child {
+  border-bottom: none;
+}
+
+.experience-list-view .experience-item:hover {
+  opacity: 0.7;
+}
+
+/* NEW: Big Titles for Experience List */
+.experience-list-view .experience-item h3 {
+  font-size: 1.75rem; /* Larger font size for main titles */
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  color: #f0f0f0;
+}
+
+.experience-list-view .experience-company-duration {
+  font-size: 0.95rem;
+  color: #aaa;
+  margin-bottom: 0.5rem;
+}
+
+.experience-list-view .experience-short-description {
+  font-size: 0.9rem;
+  color: #aaa;
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+
+/* NEW: Experience Detail View Styles */
+.experience-detail-view {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Spacing between elements in detail view */
+  text-align: left;
+
+  /* Positioning: Same as projects to be "center right" */
+  max-width: 450px; /* Apply similar width constraint */
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* NEW: Big Title for Experience Detail */
+.experience-detail-view h2 {
+  font-size: 2rem; /* Consistent with project detail H2 */
+  margin-bottom: 0.5rem;
+  color: #f0f0f0;
+}
+
+.experience-detail-view .experience-company-duration {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 1rem;
+}
+
+.experience-detail-view .experience-description ul {
+  list-style: disc; /* Use disc for bullet points */
+  padding-left: 20px;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.experience-detail-view .experience-description li {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #aaa;
+  margin-bottom: 0.5rem;
+}
+
+.experience-detail-view .experience-skills h3 {
+  font-size: 1.2rem;
+  margin-top: 0; /* Adjusted as it's within a specific skills div */
+  margin-bottom: 0.8rem;
+  color: #f0f0f0;
+}
+
+.experience-detail-view .experience-skills p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #aaa;
+  margin-bottom: 0;
+}
+
 
 /* About and Contact Content Styles */
 .about-content h3,
-.contact-content h3,
-.experience-content h3 {
+.contact-content h3 {
+
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 0.8rem;
@@ -468,14 +629,12 @@ export default {
 }
 
 .about-content h3:first-child,
-.contact-content h3:first-child,
-.experience-content h3:first-child {
+.contact-content h3:first-child{
   margin-top: 0;
 }
 
 .about-content p,
-.contact-content p,
-.experience-content p {
+.contact-content p{
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
@@ -559,15 +718,18 @@ export default {
     max-width: 100%;
   }
 
-  .project-list-view {
+  .project-list-view, .experience-list-view, .project-detail-view, .experience-detail-view {
     gap: 2rem;
+    max-width: 100%; /* Ensure it takes full width on mobile */
+    margin-left: 0;
+    margin-right: 0;
   }
 
-  .project-list-view .project-item {
+  .project-list-view .project-item, .experience-list-view .experience-item {
     padding-bottom: 1rem;
   }
 
-  .project-detail-view h2 {
+  .project-detail-view h2, .experience-detail-view h2 {
     font-size: 1.8rem;
   }
 }
