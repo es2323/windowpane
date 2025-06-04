@@ -207,30 +207,42 @@ export default {
       ],
             // NEW: Experience Data
       experiences: [
-        {
-          id: 'designer',
-          title: 'Designer',
-          company: 'Journeo Plc',
-          duration: 'Aug 2023 – Present',
-          shortDescription: 'Created UI/UX solutions for diverse clients and developed design systems.',
-          longDescription: [
-            'Worked with senior designer to create UI/UX solutions for clients in a range of sectors (public transport, local government, law enforcement) resulting in 15+ successful product roll-outs.',
-            'Contributed to the development of design systems, style guides, and component libraries, improving design consistency by 30% across projects and speeding up design iterations by 20%.',
-            'Collaborated with cross-functional teams (product managers, engineers, marketing) to ensure design feasibility and alignment with business goals, leading to successful product launches within deadlines.'
-          ],
-          skills: ['UI/UX Design', 'Design Systems', 'Figma', 'Adobe Creative Suite', 'Cross-functional Collaboration']
-        },
+            {
+      "id": "designer-intern",
+      "title": "Designer",
+      "company": "University of Derby Enterprise Centre",
+      "duration": "Mar 2024 – July 2024",
+      "shortDescription": "Created digital content templates, optimized CRM processes, and managed databases to enhance operational efficiency.",
+      "longDescription": [
+        "Created an average of 13 new digital content templates for various platforms (newsletters, chats, LinkedIn feeds, presentations), significantly streamlining future content creation efforts.",
+        "Optimized CRM records for up to 400 individuals, enhancing data organization and efficiency for smoother client management processes.",
+        "Refined and updated 8 databases to ensure accuracy, consistency, and data normalization, improving user-friendliness, accessibility options, and encryption."
+      ],
+      "skills": [
+        "Digital Content Design/",
+        "Template Creation",
+        "Content Creation",
+        "Database Management",
+        "CRM Optimization",
+        "Data Normalization",
+        "Process Efficiency",
+        "DaVinci Resolve",
+        "Canva",
+        "MS Excel",
+        "Microsoft Dynamics 365"
+      ]
+    },
         {
           id: 'marketing-intern',
           title: 'Marketing Intern',
-          company: 'Journeo Plc',
-          duration: 'June 2023 – Aug 2023',
-          shortDescription: 'Assisted in marketing campaigns and conducted market research.',
+          company: 'Not Another Agency',
+          duration: 'Jan 2023 – June 2023',
+          shortDescription: 'Managed social media presence, optimized performance marketing, and analyzed ad campaign performance for diverse clients.',
           longDescription: [
-            'Assisted in developing and executing marketing campaigns for digital platforms and print media, reaching over 100,000 potential customers and contributing to a 15% increase in lead generation.',
-            'Conducted market research and competitive analysis to identify emerging trends and opportunities, informing strategic decisions for new product positioning.',
-            'Managed social media content scheduling and engagement across multiple platforms (LinkedIn, Twitter), increasing organic reach by 20% and follower growth by 10%.'
-          ],
+        "Managed social media presence for up to 6 organizations across various platforms (Facebook, Instagram, Twitter, LinkedIn, YouTube, TikTok), including an NGO focused on postpartum depression.",
+        "Achieved a 30% increase in follower count for a luxury villa through strategic content creation and targeted campaigns.",
+        "Curated a 3x increase in ad frequency for an NGO dedicated to under-privileged youth, significantly boosting engagement and helping the organization reach a wider, more relevant audience."
+      ],
           skills: ['Marketing Strategy', 'Market Research', 'Social Media Management', 'Campaign Management', 'Content Creation']
         }
       ]
@@ -524,7 +536,7 @@ export default {
 }
 
 .experience-list-view .experience-item {
-  padding-bottom: 1.5rem;
+  padding-bottom: .5rem;
   cursor: pointer;
   transition: opacity 0.2s ease;
 }
@@ -539,24 +551,29 @@ export default {
 
 /* NEW: Big Titles for Experience List */
 .experience-list-view .experience-item h3 {
-  font-size: 1.75rem; /* Larger font size for main titles */
-  font-weight: 500;
+  font-size: 3.80rem; /* Larger font size for main titles */
+  font-weight: 50;
   margin-bottom: 0.5rem;
-  line-height: 1.2;
+  line-height: 1;
   color: #f0f0f0;
+  text-align: right;
 }
 
 .experience-list-view .experience-company-duration {
-  font-size: 0.95rem;
-  color: #aaa;
+  font-weight: 450;
+  font-size: 1rem;
+  color: #ffffff;
   margin-bottom: 0.5rem;
+  text-align: right;
 }
 
 .experience-list-view .experience-short-description {
+  font-weight: 200;
   font-size: 0.9rem;
-  color: #aaa;
+  color: #ffffff;
   line-height: 1.4;
   margin-bottom: 0;
+  text-align: right;
 }
 
 /* NEW: Experience Detail View Styles */
@@ -576,42 +593,49 @@ export default {
 
 /* NEW: Big Title for Experience Detail */
 .experience-detail-view h2 {
-  font-size: 2rem; /* Consistent with project detail H2 */
+  font-size: 3rem;
   margin-bottom: 0.5rem;
   color: #f0f0f0;
+  text-align: left;
 }
 
 .experience-detail-view .experience-company-duration {
-  font-size: 1rem;
-  color: #aaa;
-  margin-bottom: 1rem;
+  font-weight: 450;
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 0.05rem;
+  text-align: left;
 }
 
 .experience-detail-view .experience-description ul {
-  list-style: disc; /* Use disc for bullet points */
-  padding-left: 20px;
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-}
-
-.experience-detail-view .experience-description li {
   font-size: 1rem;
   line-height: 1.6;
   color: #aaa;
+  max-width: none;
+  text-align: left;
+}
+
+.experience-detail-view .experience-description li {
+  font-weight: 600;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
 .experience-detail-view .experience-skills h3 {
+  font-weight: 450;
   font-size: 1.2rem;
-  margin-top: 0; /* Adjusted as it's within a specific skills div */
-  margin-bottom: 0.8rem;
-  color: #f0f0f0;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 .experience-detail-view .experience-skills p {
-  font-size: 1rem;
+  font-weight: 450;
+  font-size: 0.85rem;
   line-height: 1.6;
-  color: #aaa;
+  color: #ffffff;
   margin-bottom: 0;
 }
 
