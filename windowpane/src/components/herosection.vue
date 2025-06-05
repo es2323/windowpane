@@ -112,22 +112,23 @@
 
           <div v-if="activeSection === 'about'" class="content-section fade-in visible">
             <div class="about-content">
-              <h3>Background</h3>
+              <h3>Beyond the Code</h3>
               <p>
-                I'm a web designer and developer focused on creating unique digital experiences.
-                I specialize in WebGL, Three.js, and experimental web technologies.
+                Hi! I'm Enosh, a Computer Science student and AI enthusiast based in the rocky midlands of the UK. With a passion for computational mathematics, I specialize in crafting intelligent applications, focusing on backend development, intuitive UI/UX design, and robust database solutions, all whilst drawing on my experience across digital content creation and performance marketing.              </p>
+              <p>
+                When I'm not immersed in code, you'll find me captivated by the intriguing aesthetics of liminal spaces, exploring the hidden corners of new cities, or unwinding to the smooth rhythms of jazz. I thrive on learning, building, and engaging with fellow innovators and curious minds.              </p>
+
+              <h3>Education</h3>
+              <p>
+                <strong>University of Derby</strong><br>
+                Bachelor of Science (Honours) in Computer Science  | Expected: Sep 2026<br>
               </p>
 
-              <h3>Skills</h3>
+              <h3>Resume</h3>
               <p>
-                Frontend Development, WebGL/GLSL, Three.js, Vue.js, Creative Coding,
-                UI/UX Design, Motion Graphics
-              </p>
-
-              <h3>Awards</h3>
-              <p>
-                - Awwwards Site of the Day<br>
-                - Independent Designer of the Year Nominee
+                <a href="C:\Users\enosh\Downloads\Enosh Earnest's Resumé (1).pdf" download="Enosh_Earnest_Resume.pdf" class="resume-download">
+                  Download Resume (PDF)
+                </a>
               </p>
             </div>
           </div>
@@ -532,7 +533,7 @@ export default {
   margin-top: auto;
   margin-bottom: auto;
   margin-left: auto;
-  margin-right: 0;
+  margin-right: 2000;
 }
 
 .experience-list-view .experience-item {
@@ -640,33 +641,55 @@ export default {
 }
 
 
-/* About and Contact Content Styles */
-.about-content h3,
-.contact-content h3 {
-
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin-bottom: 0.8rem;
-  margin-top: 2rem;
+/* About Styles */
+.about-content {
+  max-width: 300px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: 0;
+  text-align: left;
+}
+.about-content h3 {
+  font-size: 2.0rem; /* Larger font size for main titles */
+  font-weight: 50;
+  margin-bottom: 0.5rem;
+  line-height: 1;
   color: #f0f0f0;
   text-align: left;
 }
-
-.about-content h3:first-child,
-.contact-content h3:first-child{
-  margin-top: 0;
-}
-
-.about-content p,
-.contact-content p{
-  font-size: 1rem;
+.about-content p {
+  font-size: 0.9rem;
   line-height: 1.6;
+  color: #ffffff;
   margin-bottom: 1.5rem;
-  max-width: none;
-  color: #aaa;
-  text-align: left;
 }
 
+.about-content p strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Resume Download Link Styles */
+.resume-download {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #583fca;
+  color: white !important;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.resume-download:hover {
+  background-color: #4068ff;
+  opacity: 1 !important;
+  transform: translateY(-1px);
+}
+
+
+/*Contact Section Styling */
 .contact-content a {
   color: #f0f0f0;
   text-decoration: none;
