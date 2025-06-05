@@ -118,20 +118,23 @@
               <p>
                 When I'm not immersed in code, you'll find me captivated by the intriguing aesthetics of liminal spaces, exploring the hidden corners of new cities, or unwinding to the smooth rhythms of jazz. I thrive on learning, building, and engaging with fellow innovators and curious minds.              </p>
 
-              <h3>Education</h3>
-              <p>
-                <strong>University of Derby</strong><br>
-                Bachelor of Science (Honours) in Computer Science  | Expected: Sep 2026<br>
-              </p>
-
               <h3>Resume</h3>
               <p>
-                <a href="C:\Users\enosh\Downloads\Enosh Earnest's Resumé (1).pdf" download="Enosh_Earnest_Resume.pdf" class="resume-download">
+                <a href="/Enosh_Earnest_Resume.pdf" download="Enosh_Earnest_Resume.pdf" class="resume-download">
                   Download Resume (PDF)
                 </a>
               </p>
-            </div>
           </div>
+
+            <!-- Separate Education section positioned at center bottom -->
+              <div class="education-section">
+                <h3>Education</h3>
+                <p>
+                  <strong>University of Derby</strong><br>
+                  BSc (Honours) in Computer Science <br>  Expected: Sep 2026<br>    
+                </p>
+              </div>
+            </div>
 
           <div v-if="activeSection === 'contact'" class="content-section fade-in visible">
             <div class="contact-content">
@@ -654,10 +657,17 @@ export default {
   font-size: 2.0rem; /* Larger font size for main titles */
   font-weight: 50;
   margin-bottom: 0.5rem;
+  margin-top: 2rem;
   line-height: 1;
   color: #f0f0f0;
   text-align: left;
 }
+
+
+.about-content h3:first-child {
+  margin-top: 0;
+}
+
 .about-content p {
   font-size: 0.9rem;
   line-height: 1.6;
@@ -688,6 +698,60 @@ export default {
   transform: translateY(-1px);
 }
 
+/* Education section positioned at center bottom */
+.education-section {
+  position: absolute;
+  bottom: 40px;
+  left: 20%;
+  transform: translateX(-50%);
+  text-align: left;
+  max-width: 400px;
+}
+
+.education-section h3 {
+  font-size: 2.0rem; /* Larger font size for main titles */
+  font-weight: 50;
+  margin-bottom: 0.5rem;
+  margin-top: 2rem;
+  line-height: 1;
+  color: #f0f0f0;
+  text-align: left;
+}
+
+.education-section p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #aaa;
+  margin-bottom: 0;
+}
+
+.education-section p strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Contact Content Styles */
+.contact-content h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+  margin-top: 2rem;
+  color: #f0f0f0;
+  text-align: left;
+}
+
+.contact-content h3:first-child {
+  margin-top: 0;
+}
+
+.contact-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  max-width: none;
+  color: #aaa;
+  text-align: left;
+}
 
 /*Contact Section Styling */
 .contact-content a {
