@@ -117,21 +117,23 @@
                 Hi! I'm Enosh, a Computer Science student and AI enthusiast based in the rocky midlands of the UK. With a passion for computational mathematics, I specialize in crafting intelligent applications, focusing on backend development, intuitive UI/UX design, and robust database solutions, all whilst drawing on my experience across digital content creation and performance marketing.              </p>
               <p>
                 When I'm not immersed in code, you'll find me captivated by the intriguing aesthetics of liminal spaces, exploring the hidden corners of new cities, or unwinding to the smooth rhythms of jazz. I thrive on learning, building, and engaging with fellow innovators and curious minds.              </p>
+            </div>
 
-              <h3>Resume</h3>
-              <p>
-                <a href="/Enosh_Earnest_Resume.pdf" download="Enosh_Earnest_Resume.pdf" class="resume-download">
-                  Download Resume (PDF)
-                </a>
-              </p>
-          </div>
+              <div class="resume-section">
+                <h3>Resume</h3>
+                <p>
+                  <a href="/Enosh_Earnest_Resume.pdf" download="Enosh_Earnest_Resume.pdf" class="resume-download">
+                    Download Resume (PDF)
+                  </a>
+                </p>
+              </div>
 
             <!-- Separate Education section positioned at center bottom -->
               <div class="education-section">
                 <h3>Education</h3>
                 <p>
                   <strong>University of Derby</strong><br>
-                  BSc (Honours) in Computer Science <br>  Expected: Sep 2026<br>    
+                  BSc (Honours) in Computer Science<br>Expected: Sep 2026<br>    
                 </p>
               </div>
             </div>
@@ -342,6 +344,7 @@ export default {
   color: #f0f0f0;
   display: flex;
   flex-direction: column;
+  position: relative; 
 }
 
 /* Common Styles for Dynamic Content Sections */
@@ -684,10 +687,11 @@ export default {
 .resume-download {
   display: inline-block;
   padding: 8px 16px;
-  background-color: #583fca;
+  background-color: #8a8383;
   color: white !important;
   text-decoration: none;
   border-radius: 4px;
+  border-color: #f0f0f0;
   transition: all 0.2s ease;
   font-weight: 500;
 }
@@ -698,14 +702,42 @@ export default {
   transform: translateY(-1px);
 }
 
-/* Education section positioned at center bottom */
-.education-section {
+/* NEW: Resume section positioned at center */
+.resume-section {
   position: absolute;
-  bottom: 40px;
+  bottom: 75px;
   left: 20%;
   transform: translateX(-50%);
   text-align: left;
   max-width: 400px;
+}
+
+.resume-section h3 {
+  font-size: 2.0rem; /* Consistent with other section titles */
+  font-weight: 50;
+  margin-bottom: 0.5rem;
+  margin-top: 2rem; /* Keep this if you want some top margin relative to its new position */
+  line-height: 1;
+  color: #f0f0f0;
+  text-align: left;
+}
+
+.resume-section p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #aaa; /* Or #ffffff if preferred for the download link context */
+  margin-bottom: 0;
+}
+
+
+/* Education section positioned at center bottom */
+.education-section {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centering trick */
+  text-align: left;
+  max-width: 300px; /* Adjust as needed */
 }
 
 .education-section h3 {
