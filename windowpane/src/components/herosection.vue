@@ -5,7 +5,7 @@
         <div class="left-column">
           <h1>Enosh Earnest</h1>
           <p class="large-text">
-            CS Undergrad & AI Aficionado 
+            CS Undergrad & AI Explorer 
           </p>
 
           <nav class="main-navigation">
@@ -272,7 +272,7 @@ export default {
 /* --- Hero Section Specific Styles --- */
 .hero-section {
   min-height: 100vh;
-  background-color: #161616;
+  background-color: #F5F5F5;
   display: flex;
   align-items: center;
   padding: 20px;
@@ -283,9 +283,9 @@ export default {
   display: flex;
   flex-grow: 1;
   width: 100%;
-  background-color: #000000;
-  border: 1px solid #acacac;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  background-color: #F5F5F5;
+  border: 1px solid #E0E0E0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   padding: 40px;
   box-sizing: border-box;
 
@@ -310,20 +310,20 @@ export default {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  color: #ffffff;
+  color: #333333;
 }
 
 .left-column h1 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
-  color: #f0f0f0;
+  color: #333333;
   text-align: left;
 }
 
 .left-column .large-text {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #aaa;
+  color: #777777;
   margin-top: 0;
   text-align: left;
 }
@@ -331,7 +331,7 @@ export default {
 .right-column {
   flex-grow: 1; /* Allows the right column to take up the remaining space */
   min-height: 400px;
-  color: #f0f0f0;
+  color: #333333;
   display: flex;
   flex-direction: column;
   position: relative; 
@@ -358,7 +358,7 @@ export default {
 .about-para {
   font-size: 0.8rem;
   line-height: 1.5;
-  color: #aaa;
+  color: #777777;
   max-width: 180px; /* Constrain width to allow it to be pushed right */
   margin-top: auto;    /* Pushes content to the center vertically */
   margin-bottom: 100; /* Pushes content to the center vertically */
@@ -379,18 +379,19 @@ export default {
   cursor: pointer;
   transition: all 0.2s ease;
   text-transform: capitalize;
-  color: #f0f0f0;
+  color: #333333;
   text-align: left;
 }
 
 .nav-item:hover {
   opacity: 0.6;
+  color: #3498DB; /* Hover/Interactive Accent (Sky Blue) */
 }
 
 .nav-item.active {
   font-weight: 700;
   opacity: 1;
-  color: white;
+  color: #2C3E50;
 }
 
 /* Project List Styles (List View) */
@@ -428,14 +429,14 @@ export default {
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #f0f0f0;
+  color: #333333;
   text-align: right;
 }
 
 .project-list-view .project-short-description {
   font-weight: 400;
   font-size: 0.9rem;
-  color: #ffffff;
+  color: #777777;
   line-height: 1.4;
   margin-bottom: 0;
   text-align: right;
@@ -459,7 +460,7 @@ export default {
 .project-detail-view h2 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
-  color: #f0f0f0;
+  color: #333333;
   text-align: left;
 }
 
@@ -467,14 +468,14 @@ export default {
   font-size: 1.2rem;
   margin-top: 2rem;
   margin-bottom: 0.8rem;
-  color: #f0f0f0;
+  color: #333333;
   text-align: left;
 }
 
 .project-detail-view p {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #aaa;
+  color: #777777;
   max-width: none;
   text-align: left;
 }
@@ -491,19 +492,19 @@ export default {
 }
 
 .project-links a {
-  color: #3058f5;
+  color: #2C3E50;
   transition: opacity 0.2s ease;
 }
 
 .project-links a:hover {
   opacity: 0.8;
-  color: white;
+  color: #3498DB;
 }
 
 .back-button {
   background: none;
   border: none;
-  color: #ffffff;
+  color: #333333;
   font-size: 0.9rem;
   cursor: pointer;
   text-align: left;
@@ -513,7 +514,7 @@ export default {
 }
 
 .back-button:hover {
-  color: white;
+  color: 2C3E50;
 }
 
 
@@ -552,14 +553,14 @@ export default {
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #f0f0f0;
+  color: #333333;
   text-align: right;
 }
 
 .experience-list-view .experience-company-duration {
   font-weight: 500;
   font-size: 1rem;
-  color: #ffffff;
+  color: #777777;
   margin-bottom: 0.5rem;
   text-align: right;
 }
@@ -567,7 +568,7 @@ export default {
 .experience-list-view .experience-short-description {
   font-weight: 400;
   font-size: 0.9rem;
-  color: #ffffff;
+  color: #777777;
   line-height: 1.4;
   margin-bottom: 0;
   text-align: right;
@@ -592,14 +593,14 @@ export default {
 .experience-detail-view h2 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
-  color: #f0f0f0;
+  color: #333333;
   text-align: left;
 }
 
 .experience-detail-view .experience-company-duration {
   font-weight: 450;
   font-size: 1.2rem;
-  color: #ffffff;
+  color: #777777;
   margin-bottom: 0.05rem;
   text-align: left;
 }
@@ -607,7 +608,7 @@ export default {
 .experience-detail-view .experience-description ul {
   font-size: 1rem;
   line-height: 1.6;
-  color: #aaa;
+  color: #777777;
   max-width: none;
   text-align: left;
 }
@@ -616,14 +617,14 @@ export default {
   font-weight: 600;
   font-size: 0.85rem;
   line-height: 1.6;
-  color: #ffffff;
+  color: #333333;
   margin-bottom: 0.5rem;
 }
 
 .experience-detail-view .experience-skills h3 {
   font-weight: 450;
   font-size: 1.2rem;
-  color: #ffffff;
+  color: #333333;
   margin-bottom: 0.5rem;
   text-align: left;
 }
@@ -632,7 +633,7 @@ export default {
   font-weight: 450;
   font-size: 0.85rem;
   line-height: 1.6;
-  color: #ffffff;
+  color: #777777;
   margin-bottom: 0;
 }
 
@@ -652,7 +653,7 @@ export default {
   margin-bottom: 0.5rem;
   margin-top: 2rem;
   line-height: 1;
-  color: #f0f0f0;
+  color: #333333;
   text-align: left;
 }
 
@@ -664,12 +665,12 @@ export default {
 .about-content p {
   font-size: 0.85rem;
   line-height: 1.6;
-  color: #ffffff;
+  color: #777777;
   margin-bottom: 1.5rem;
 }
 
 .about-content p strong {
-  color: #ffffff;
+  color: #333333;
   font-weight: 600;
 }
 
@@ -677,16 +678,17 @@ export default {
 .resume-download {
   display: inline-block;
   padding: 7px 10px;
-  color: white !important;
+  color: #2C3E50 !important;
   text-decoration: none;
   border-radius: 10px;
-  border-color: #f0f0f0;
-  transition: all 0.2s ease;
+  /* TWEAKED: Added border style and width, and transparent background */
+  border: 3px solid #2C3E50; /* Sets a 1px solid border with the specified color */
+  background-color: transparent; /* Makes the background transparent */  transition: all 0.2s ease;
   font-weight: 500;
 }
 
 .resume-download:hover {
-  background-color: #4068ff;
+  background-color: #3498DB;
   opacity: 1 !important;
   transform: translateY(-1px);
 }
@@ -705,7 +707,7 @@ export default {
 .resume-section p {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #aaa; /* Or #ffffff if preferred for the download link context */
+  color: #777777; /* Or #ffffff if preferred for the download link context */
   margin-bottom: 0;
   text-align: left;
 }
@@ -727,19 +729,19 @@ export default {
   margin-bottom: 0.5rem;
   margin-top: 2rem;
   line-height: 1;
-  color: #f0f0f0;
+  color: #333333;
   text-align: left;
 }
 
 .education-section p {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #aaa;
+  color:#777777;
   margin-bottom: 0;
 }
 
 .education-section p strong {
-  color: #ffffff;
+  color: #333333;
   font-weight: 600;
 }
 
@@ -756,7 +758,7 @@ export default {
 
 /* Apply specific styles to the links for prominence and consistent formatting */
 .contact-content.centered-links a {
-  color: #f0f0f0; /* Text color */
+  color: #2C3E50; /* Text color */
   text-decoration: none; /* No underline by default */
   transition: opacity 0.2s ease; /* Smooth hover effect */
   font-size: 0.9rem; /* Slightly larger font size for the links */
@@ -765,7 +767,7 @@ export default {
 
 .contact-content.centered-links a:hover {
   opacity: 0.6;
-  color: white; /* Brighter on hover */
+  color: #3498DB; /* Brighter on hover */
 }
 
 /* Fade-in Animation */
