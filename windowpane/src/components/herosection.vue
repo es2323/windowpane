@@ -120,10 +120,9 @@
             </div>
 
               <div class="resume-section">
-                <h3>Resume</h3>
                 <p>
                   <a href="/Enosh_Earnest_Resume.pdf" download="Enosh_Earnest_Resume.pdf" class="resume-download">
-                    Download Resume (PDF)
+                    Download My Resume!
                   </a>
                 </p>
               </div>
@@ -649,11 +648,11 @@ export default {
 
 /* About Styles */
 .about-content {
-  max-width: 300px;
+  max-width: 600px;
   margin-top: auto;
-  margin-bottom: auto;
-  margin-left: auto;
-  margin-right: 0;
+  margin-bottom: 10;
+  margin-left: 200;
+  margin-right: 100;
   text-align: left;
 }
 .about-content h3 {
@@ -686,11 +685,11 @@ export default {
 /* Resume Download Link Styles */
 .resume-download {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 7px 10px;
   background-color: #8a8383;
   color: white !important;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 10px;
   border-color: #f0f0f0;
   transition: all 0.2s ease;
   font-weight: 500;
@@ -705,36 +704,28 @@ export default {
 /* NEW: Resume section positioned at center */
 .resume-section {
   position: absolute;
-  bottom: 75px;
-  left: 20%;
+  top: 35%;
+  left: 82%;
   transform: translateX(-50%);
   text-align: left;
   max-width: 400px;
 }
 
-.resume-section h3 {
-  font-size: 2.0rem; /* Consistent with other section titles */
-  font-weight: 50;
-  margin-bottom: 0.5rem;
-  margin-top: 2rem; /* Keep this if you want some top margin relative to its new position */
-  line-height: 1;
-  color: #f0f0f0;
-  text-align: left;
-}
 
 .resume-section p {
   font-size: 0.9rem;
   line-height: 1.6;
   color: #aaa; /* Or #ffffff if preferred for the download link context */
   margin-bottom: 0;
+  text-align: left;
 }
 
 
 /* Education section positioned at center bottom */
 .education-section {
   position: absolute;
-  top: 45%;
-  left: 50%;
+  top: 1%;
+  left: 55%;
   transform: translate(-50%, -50%); /* Centering trick */
   text-align: left;
   max-width: 300px; /* Adjust as needed */
