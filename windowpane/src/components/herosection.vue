@@ -66,7 +66,7 @@
 
             <div v-else class="project-detail-view">
               <button class="back-button" @click="backToProjectList()">
-                &larr; Back to Projects
+                ↞ Back to Projects
               </button>
               <h2>{{ selectedProject.title }}</h2>
               <p v-html="selectedProject.longDescription"></p>
@@ -74,7 +74,7 @@
               <div v-if="selectedProject.links && selectedProject.links.length > 0" class="project-links">
                 <ul>
                   <li v-for="(link, index) in selectedProject.links.filter(l => l.type === 'GitHub')" :key="index">
-                    <a :href="link.url" target="_blank">GitHub</a>
+                    <a :href="link.url" target="_blank">GitHub➚</a>
                   </li>
                 </ul>
               </div>
@@ -139,20 +139,11 @@
 
           <div v-if="activeSection === 'contact'" class="content-section fade-in visible">
             <div class="contact-content">
-              <h3>Get in Touch</h3>
-              <p>
-                <a href="mailto:your@email.com">your@email.com</a>
-              </p>
-
-              <h3>Social</h3>
-              <p>
-                <a href="#" target="_blank">Twitter</a><br>
-                <a href="#" target="_blank">GitHub</a><br>
-                <a href="#" target="_blank">Instagram</a>
-              </p>
-
-              <h3>Location</h3>
-              <p>Your City, Country</p>
+            <div class="contact-content centered-links">
+              <a href="mailto:youremail@example.com" target="_blank">Email➚</a>
+              <a href="https://www.linkedin.com/in/yourlinkedinprofile/" target="_blank">LinkedIn➚</a>
+              <a href="https://github.com/yourgithubusername" target="_blank">GitHub➚</a>
+            </div>
             </div>
           </div>
         </div>
@@ -656,7 +647,7 @@ export default {
   text-align: left;
 }
 .about-content h3 {
-  font-size: 2.0rem; /* Larger font size for main titles */
+  font-size: 1.5rem; /* Larger font size for main titles */
   font-weight: 50;
   margin-bottom: 0.5rem;
   margin-top: 2rem;
@@ -671,7 +662,7 @@ export default {
 }
 
 .about-content p {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   line-height: 1.6;
   color: #ffffff;
   margin-bottom: 1.5rem;
@@ -686,7 +677,6 @@ export default {
 .resume-download {
   display: inline-block;
   padding: 7px 10px;
-  background-color: #8a8383;
   color: white !important;
   text-decoration: none;
   border-radius: 10px;
@@ -732,7 +722,7 @@ export default {
 }
 
 .education-section h3 {
-  font-size: 2.0rem; /* Larger font size for main titles */
+  font-size: 1.5rem; /* Larger font size for main titles */
   font-weight: 50;
   margin-bottom: 0.5rem;
   margin-top: 2rem;
@@ -754,38 +744,28 @@ export default {
 }
 
 /* Contact Content Styles */
-.contact-content h3 {
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin-bottom: 0.8rem;
-  margin-top: 2rem;
-  color: #f0f0f0;
-  text-align: left;
+.contact-content.centered-links {
+  display: flex;
+  flex-direction: column; /* Stack the links vertically */
+  align-items: left; /* Center items horizontally */
+  height: 100%; /* Make sure it takes the full height of its parent (.content-section) */
+  gap: 0.2rem; /* Space between the links */
+  margin-top: 19%;
+  margin-left: 45%;
 }
 
-.contact-content h3:first-child {
-  margin-top: 0;
+/* Apply specific styles to the links for prominence and consistent formatting */
+.contact-content.centered-links a {
+  color: #f0f0f0; /* Text color */
+  text-decoration: none; /* No underline by default */
+  transition: opacity 0.2s ease; /* Smooth hover effect */
+  font-size: 0.9rem; /* Slightly larger font size for the links */
+  font-weight: 500; /* Medium font weight */
 }
 
-.contact-content p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  max-width: none;
-  color: #aaa;
-  text-align: left;
-}
-
-/*Contact Section Styling */
-.contact-content a {
-  color: #f0f0f0;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.contact-content a:hover {
+.contact-content.centered-links a:hover {
   opacity: 0.6;
-  color: white;
+  color: white; /* Brighter on hover */
 }
 
 /* Fade-in Animation */
