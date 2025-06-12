@@ -1,11 +1,11 @@
 <template>
   <section class="hero-section">
     <div class="container">
-      <div class="two-column">
+      <div class="two-column" :class="{ 'about-full-layout': activeSection === 'about' }">
         <div class="left-column">
           <h1>Enosh Earnest</h1>
           <p class="large-text">
-            CS Undergrad & AI Explorer 
+            CS Undergrad & AI Aficionado
           </p>
 
           <nav class="main-navigation">
@@ -51,7 +51,7 @@
           <div v-if="activeSection === 'home'" class="content-section fade-in visible">
             <div class="home-content">
               <p class="about-para">
-                Firm believer in leveraging computational mathematics to build intelligent applications—from accessibility focused mobile apps to autonomous resource allocation systems. My work thrives where mathematical rigour meets human complexity, crafting systems that amplify rather than automate judgement. Based in the UK. 
+                Firm believer in leveraging computational mathematics to build intelligent applications—from accessibility focused mobile apps to autonomous resource allocation systems. My work thrives where mathematical rigour meets human complexity, crafting systems that amplify rather than automate judgement. Based in the UK.
               </p>
             </div>
           </div>
@@ -70,7 +70,7 @@
               </button>
               <h2>{{ selectedProject.title }}</h2>
               <p v-html="selectedProject.longDescription"></p>
-              
+
               <div v-if="selectedProject.links && selectedProject.links.length > 0" class="project-links">
                 <ul>
                   <li v-for="(link, index) in selectedProject.links.filter(l => l.type === 'GitHub')" :key="index">
@@ -78,9 +78,9 @@
                   </li>
                 </ul>
               </div>
-
-              </div>
+            </div>
           </div>
+
           <div v-if="activeSection === 'experience'" class="content-section fade-in visible">
             <div v-if="!selectedExperience" class="experience-list-view">
               <div class="experience-item" v-for="exp in experiences" :key="exp.id" @click="showExperienceDetails(exp)">
@@ -96,7 +96,7 @@
               </button>
               <h2>{{ selectedExperience.title }}</h2>
               <p class="experience-company-duration">{{ selectedExperience.company }} | {{ selectedExperience.duration }}</p>
-              
+
               <div class="experience-description">
                 <ul>
                   <li v-for="(point, index) in selectedExperience.longDescription" :key="index">{{ point }}</li>
@@ -114,36 +114,35 @@
             <div class="about-content">
               <h3>Beyond the Code</h3>
               <p>
-                Hi! I'm Enosh, a Computer Science student and AI enthusiast based in the rocky midlands of the UK. With a passion for computational mathematics, I specialize in crafting intelligent applications, focusing on backend development, intuitive UI/UX design, and robust database solutions, all whilst drawing on my experience across digital content creation and performance marketing.              </p>
+                Hi! I'm Enosh, a Computer Science student and AI enthusiast based in the rocky midlands of the UK. With a passion for computational mathematics, I specialize in crafting intelligent applications, focusing on backend development, intuitive UI/UX design, and robust database solutions, all whilst drawing on my experience across digital content creation and performance marketing.
+              </p>
               <p>
-                When I'm not immersed in code, you'll find me captivated by the intriguing aesthetics of liminal spaces, exploring the hidden corners of new cities, or unwinding to the smooth rhythms of jazz. I thrive on learning, building, and engaging with fellow innovators and curious minds.              </p>
+                When I'm not immersed in code, you'll find me captivated by the intriguing aesthetics of liminal spaces, exploring the hidden corners of new cities, or unwinding to the smooth rhythms of jazz. I thrive on learning, building, and engaging with fellow innovators and curious minds.
+              </p>
             </div>
 
-              <div class="resume-section">
-                <p>
-                  <a href="/Enosh_Earnest_Resume.pdf" download="Enosh_Earnest_Resume.pdf" class="resume-download">
-                    Download My Resume!
-                  </a>
-                </p>
-              </div>
-
-            <!-- Separate Education section positioned at center bottom -->
-              <div class="education-section">
-                <h3>Education</h3>
-                <p>
-                  <strong>University of Derby</strong><br>
-                  BSc (Honours) in Computer Science<br>Expected: Sep 2026<br>    
-                </p>
-              </div>
+            <div class="resume-section">
+              <p>
+                <a href="/Enosh_Earnest_Resume.pdf" download="Enosh_Earnest_Resume.pdf" class="resume-download">
+                  Download My Resume!
+                </a>
+              </p>
             </div>
+
+            <div class="education-section">
+              <h3>Education</h3>
+              <p>
+                <strong>University of Derby</strong><br>
+                BSc (Honours) in Computer Science<br>Expected: Sep 2026<br>
+              </p>
+            </div>
+          </div>
 
           <div v-if="activeSection === 'contact'" class="content-section fade-in visible">
-            <div class="contact-content">
             <div class="contact-content centered-links">
-              <a href="mailto:youremail@example.com" target="_blank">Email➚</a>
-              <a href="https://www.linkedin.com/in/yourlinkedinprofile/" target="_blank">LinkedIn➚</a>
-              <a href="https://github.com/yourgithubusername" target="_blank">GitHub➚</a>
-            </div>
+              <a href="mailto:youremail@example.com" target="_blank">Email</a>
+              <a href="https://www.linkedin.com/in/yourlinkedinprofile/" target="_blank">LinkedIn</a>
+              <a href="https://github.com/yourgithubusername" target="_blank">GitHub</a>
             </div>
           </div>
         </div>
@@ -185,9 +184,9 @@ export default {
           id: 'prs',
           title: "PRS/ May 25'",
           shortDescription: 'Web platform for pandemic data management',
-          longDescription: 'Web Platform for pandemic data management.<br><br>Dive into a world where public safety meets cutting-edge technology. This secure, role-based web platform, meticulously engineered with Python Flask, leverages a hybrid data architecture combining SQL Server for compliance-critical data and MongoDB Atlas for dynamic, semi-structured information. With over 20+ endpoints and 3 intuitive dashboards, it powers 500+ dynamic data operations across structured and unstructured sources, all while maintaining sub-100 ms query response times under load. It boasts 100% password encryption compliance using PBKDF2 via Werkzeug and significantly boosts error handling and data consistency by approximately 80%, ensuring robust pandemic response management.',          links: [
-            { type: 'GitHub', url: 'https://github.com/enosh-earnest/prs' }, 
-            
+          longDescription: 'Web Platform for pandemic data management.<br><br>Dive into a world where public safety meets cutting-edge technology. This secure, role-based web platform, meticulously engineered with Python Flask, leverages a hybrid data architecture combining SQL Server for compliance-critical data and MongoDB Atlas for dynamic, semi-structured information. With over 20+ endpoints and 3 intuitive dashboards, it powers 500+ dynamic data operations across structured and unstructured sources, all while maintaining sub-100 ms query response times under load. It boasts 100% password encryption compliance using PBKDF2 via Werkzeug and significantly boosts error handling and data consistency by approximately 80%, ensuring robust pandemic response management.', links: [
+            { type: 'GitHub', url: 'https://github.com/enosh-earnest/prs' },
+
           ]
         },
         {
@@ -201,33 +200,33 @@ export default {
           ]
         }
       ],
-            // NEW: Experience Data
+      // NEW: Experience Data
       experiences: [
-            {
-      "id": "designer-intern",
-      "title": "Designer",
-      "company": "University of Derby Enterprise Centre",
-      "duration": "Mar 2024 – July 2024",
-      "shortDescription": "Created digital content templates, optimized CRM processes, and managed databases to enhance operational efficiency.",
-      "longDescription": [
-        "Created an average of 13 new digital content templates for various platforms (newsletters, chats, LinkedIn feeds, presentations), significantly streamlining future content creation efforts.",
-        "Optimized CRM records for up to 400 individuals, enhancing data organization and efficiency for smoother client management processes.",
-        "Refined and updated 8 databases to ensure accuracy, consistency, and data normalization, improving user-friendliness, accessibility options, and encryption."
-      ],
-      "skills": [
-        "Digital Content Design/",
-        "Template Creation",
-        "Content Creation",
-        "Database Management",
-        "CRM Optimization",
-        "Data Normalization",
-        "Process Efficiency",
-        "DaVinci Resolve",
-        "Canva",
-        "MS Excel",
-        "Microsoft Dynamics 365"
-      ]
-    },
+        {
+          "id": "designer-intern",
+          "title": "Designer",
+          "company": "University of Derby Enterprise Centre",
+          "duration": "Mar 2024 – July 2024",
+          "shortDescription": "Created digital content templates, optimized CRM processes, and managed databases to enhance operational efficiency.",
+          "longDescription": [
+            "Created an average of 13 new digital content templates for various platforms (newsletters, chats, LinkedIn feeds, presentations), significantly streamlining future content creation efforts.",
+            "Optimized CRM records for up to 400 individuals, enhancing data organization and efficiency for smoother client management processes.",
+            "Refined and updated 8 databases to ensure accuracy, consistency, and data normalization, improving user-friendliness, accessibility options, and encryption."
+          ],
+          "skills": [
+            "Digital Content Design/",
+            "Template Creation",
+            "Content Creation",
+            "Database Management",
+            "CRM Optimization",
+            "Data Normalization",
+            "Process Efficiency",
+            "DaVinci Resolve",
+            "Canva",
+            "MS Excel",
+            "Microsoft Dynamics 365"
+          ]
+        },
         {
           id: 'marketing-intern',
           title: 'Marketing Intern',
@@ -235,10 +234,10 @@ export default {
           duration: 'Jan 2023 – June 2023',
           shortDescription: 'Managed social media presence, optimized performance marketing, and analyzed ad campaign performance for diverse clients.',
           longDescription: [
-        "Managed social media presence for up to 6 organizations across various platforms (Facebook, Instagram, Twitter, LinkedIn, YouTube, TikTok), including an NGO focused on postpartum depression.",
-        "Achieved a 30% increase in follower count for a luxury villa through strategic content creation and targeted campaigns.",
-        "Curated a 3x increase in ad frequency for an NGO dedicated to under-privileged youth, significantly boosting engagement and helping the organization reach a wider, more relevant audience."
-      ],
+            "Managed social media presence for up to 6 organizations across various platforms (Facebook, Instagram, Twitter, LinkedIn, YouTube, TikTok), including an NGO focused on postpartum depression.",
+            "Achieved a 30% increase in follower count for a luxury villa through strategic content creation and targeted campaigns.",
+            "Curated a 3x increase in ad frequency for an NGO dedicated to under-privileged youth, significantly boosting engagement and helping the organization reach a wider, more relevant audience."
+          ],
           skills: ['Marketing Strategy', 'Market Research', 'Social Media Management', 'Campaign Management', 'Content Creation']
         }
       ]
@@ -256,7 +255,7 @@ export default {
     },
     backToProjectList() {
       this.selectedProject = null;
-          },
+    },
     // NEW: Experience Methods
     showExperienceDetails(exp) {
       this.selectedExperience = exp;
@@ -272,7 +271,7 @@ export default {
 /* --- Hero Section Specific Styles --- */
 .hero-section {
   min-height: 100vh;
-  background-color: #F5F5F5;
+  background-color: #06202B; /* Main background */
   display: flex;
   align-items: center;
   padding: 20px;
@@ -283,58 +282,57 @@ export default {
   display: flex;
   flex-grow: 1;
   width: 100%;
-  background-color: #F5F5F5;
-  border: 1px solid #E0E0E0;
+  background-color: #017d82; /* Main background */
+  border: 1px solid #B9D4AA; /* Container border */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   padding: 40px;
   box-sizing: border-box;
 
   /* MODIFIED: Center the container and give it more overall width */
-  max-width: 1500px; /* Increased overall width for content */
-  margin-left: auto; /* Center the container horizontally */
-  margin-right: auto; /* Center the container horizontally */
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .two-column {
   display: flex;
   flex-grow: 1;
-  gap: 20px; /* This reduced gap helps in softening the "diving line" effect */
+  gap: 20px;
   flex-wrap: nowrap;
   width: 100%;
   align-items: stretch;
 }
 
 .left-column {
-  /* MODIFIED: Make left column wider for name/nav */
-  width: 300px; /* Adjust this value (e.g., 250px-350px) to your preference */
+  width: 300px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  color: #333333;
+  color: #EFE4D2; /* Primary text */
 }
 
 .left-column h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 0.5rem;
-  color: #333333;
+  color: #B9D4AA; /* Primary text */
   text-align: left;
 }
 
 .left-column .large-text {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #777777;
+  color: #06202B; /* Secondary text */
   margin-top: 0;
   text-align: left;
 }
 
 .right-column {
-  flex-grow: 1; /* Allows the right column to take up the remaining space */
+  flex-grow: 1;
   min-height: 400px;
-  color: #333333;
+  color: #06202B; /* Primary text */
   display: flex;
   flex-direction: column;
-  position: relative; 
+  position: relative;
 }
 
 /* Common Styles for Dynamic Content Sections */
@@ -350,20 +348,19 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Keeps content at the bottom */
+  justify-content: flex-end;
   padding-bottom: 10px;
 }
 
-/* MODIFIED: .about-para for true "bottom left" within its space */
 .about-para {
   font-size: 0.8rem;
   line-height: 1.5;
-  color: #777777;
-  max-width: 180px; /* Constrain width to allow it to be pushed right */
-  margin-top: auto;    /* Pushes content to the center vertically */
-  margin-bottom: 100; /* Pushes content to the center vertically */
-  margin-left: auto;   /* Pushes content to the right horizontally */
-  margin-right: 0;     /* Aligns flush right within its parent */
+  color: #06202B; /* Secondary text */
+  max-width: 180px;
+  margin-top: auto;
+  margin-bottom: 100;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 /* Main Navigation Styles */
@@ -379,19 +376,19 @@ export default {
   cursor: pointer;
   transition: all 0.2s ease;
   text-transform: capitalize;
-  color: #333333;
+  color: #B9D4AA; /* Primary text */
   text-align: left;
 }
 
 .nav-item:hover {
-  opacity: 0.6;
-  color: #3498DB; /* Hover/Interactive Accent (Sky Blue) */
+  opacity: 0.8;
+  color: #06202B; /* "The rest" (now matches secondary text) */
 }
 
 .nav-item.active {
   font-weight: 700;
   opacity: 1;
-  color: #2C3E50;
+  color: #06202B; /* "The rest" (now matches secondary text) */
 }
 
 /* Project List Styles (List View) */
@@ -401,23 +398,21 @@ export default {
   gap: 2.5rem;
   text-align: left;
 
-  /* NEW: Positioning for "center right" */
-  max-width: 1000px; /* Constrain width to allow it to be pushed right */
-  margin-top: auto;    /* Pushes content to the center vertically */
-  margin-bottom: auto; /* Pushes content to the center vertically */
-  margin-left: auto;   /* Pushes content to the right horizontally */
-  margin-right: 0;     /* Aligns flush right within its parent */
+  max-width: 1000px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .project-list-view .project-item {
-  /* REMOVED: border-bottom: 1px solid #333; */ /* This horizontal line was removed */
   padding-bottom: 0.5rem;
   cursor: pointer;
   transition: opacity 0.2s ease;
 }
 
 .project-list-view .project-item:last-child {
-  border-bottom: none; /* This rule is now redundant as no border is applied above */
+  border-bottom: none;
 }
 
 .project-list-view .project-item:hover {
@@ -429,14 +424,14 @@ export default {
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #333333;
+  color: #06202B; /* Primary text */
   text-align: right;
 }
 
 .project-list-view .project-short-description {
   font-weight: 400;
   font-size: 0.9rem;
-  color: #777777;
+  color: #06202B; /* Secondary text */
   line-height: 1.4;
   margin-bottom: 0;
   text-align: right;
@@ -449,8 +444,7 @@ export default {
   gap: 1.5rem;
   text-align: left;
 
-  /* NEW: Positioning for "center right" similar to project list */
-  max-width: 450px; /* Apply similar width constraint */
+  max-width: 450px;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: auto;
@@ -460,7 +454,7 @@ export default {
 .project-detail-view h2 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
-  color: #333333;
+  color: #06202B; /* Primary text */
   text-align: left;
 }
 
@@ -468,14 +462,14 @@ export default {
   font-size: 1.2rem;
   margin-top: 2rem;
   margin-bottom: 0.8rem;
-  color: #333333;
+  color: #B9D4AA; /* Primary text */
   text-align: left;
 }
 
 .project-detail-view p {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #777777;
+  color: #06202B; /* Secondary text */
   max-width: none;
   text-align: left;
 }
@@ -492,19 +486,19 @@ export default {
 }
 
 .project-links a {
-  color: #2C3E50;
+  color: #B9D4AA; /* "The rest" */
   transition: opacity 0.2s ease;
 }
 
 .project-links a:hover {
   opacity: 0.8;
-  color: #3498DB;
+  color: #06202B; /* "The rest" */
 }
 
 .back-button {
   background: none;
   border: none;
-  color: #333333;
+  color: #B9D4AA; /* Primary text */
   font-size: 0.9rem;
   cursor: pointer;
   text-align: left;
@@ -514,19 +508,17 @@ export default {
 }
 
 .back-button:hover {
-  color: 2C3E50;
+  color: #06202B; /* "The rest" */
 }
-
 
 /* NEW: Experience List View Styles */
 .experience-list-view {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem; /* Space between experience items */
+  gap: 2.5rem;
   text-align: left;
 
-  /* Positioning: Same as projects to be "center right" */
-  max-width: 450px; /* Constrain width */
+  max-width: 450px;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: auto;
@@ -549,18 +541,18 @@ export default {
 
 /* NEW: Big Titles for Experience List */
 .experience-list-view .experience-item h3 {
-  font-size: 3.80rem; /* Larger font size for main titles */
+  font-size: 3.80rem;
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #333333;
+  color: #06202B; /* Primary text */
   text-align: right;
 }
 
 .experience-list-view .experience-company-duration {
   font-weight: 500;
   font-size: 1rem;
-  color: #777777;
+  color: #06202B; /* Secondary text */
   margin-bottom: 0.5rem;
   text-align: right;
 }
@@ -568,7 +560,7 @@ export default {
 .experience-list-view .experience-short-description {
   font-weight: 400;
   font-size: 0.9rem;
-  color: #777777;
+  color: #B9D4AA; /* Secondary text */
   line-height: 1.4;
   margin-bottom: 0;
   text-align: right;
@@ -578,11 +570,10 @@ export default {
 .experience-detail-view {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Spacing between elements in detail view */
+  gap: 1.5rem;
   text-align: left;
 
-  /* Positioning: Same as projects to be "center right" */
-  max-width: 450px; /* Apply similar width constraint */
+  max-width: 450px;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: auto;
@@ -593,14 +584,14 @@ export default {
 .experience-detail-view h2 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
-  color: #333333;
+  color: #06202B; /* Primary text */
   text-align: left;
 }
 
 .experience-detail-view .experience-company-duration {
   font-weight: 450;
   font-size: 1.2rem;
-  color: #777777;
+  color: #06202B; /* Secondary text */
   margin-bottom: 0.05rem;
   text-align: left;
 }
@@ -608,7 +599,7 @@ export default {
 .experience-detail-view .experience-description ul {
   font-size: 1rem;
   line-height: 1.6;
-  color: #777777;
+  color: #B9D4AA; /* Secondary text */
   max-width: none;
   text-align: left;
 }
@@ -617,14 +608,14 @@ export default {
   font-weight: 600;
   font-size: 0.85rem;
   line-height: 1.6;
-  color: #333333;
+  color: #06202B; /* Primary text */
   margin-bottom: 0.5rem;
 }
 
 .experience-detail-view .experience-skills h3 {
   font-weight: 450;
   font-size: 1.2rem;
-  color: #333333;
+  color: #B9D4AA; /* Primary text */
   margin-bottom: 0.5rem;
   text-align: left;
 }
@@ -633,7 +624,7 @@ export default {
   font-weight: 450;
   font-size: 0.85rem;
   line-height: 1.6;
-  color: #777777;
+  color: #B9D4AA; /* Secondary text */
   margin-bottom: 0;
 }
 
@@ -648,12 +639,12 @@ export default {
   text-align: left;
 }
 .about-content h3 {
-  font-size: 1.5rem; /* Larger font size for main titles */
+  font-size: 1.5rem;
   font-weight: 50;
   margin-bottom: 0.5rem;
   margin-top: 2rem;
   line-height: 1;
-  color: #333333;
+  color: #06202B; /* Primary text */
   text-align: left;
 }
 
@@ -665,12 +656,12 @@ export default {
 .about-content p {
   font-size: 0.85rem;
   line-height: 1.6;
-  color: #777777;
+  color: #B9D4AA; /* Secondary text */
   margin-bottom: 1.5rem;
 }
 
 .about-content p strong {
-  color: #333333;
+  color: #06202B; /* Primary text */
   font-weight: 600;
 }
 
@@ -678,17 +669,17 @@ export default {
 .resume-download {
   display: inline-block;
   padding: 7px 10px;
-  color: #2C3E50 !important;
+  color: #B9D4AA !important; /* "The rest" */
   text-decoration: none;
   border-radius: 10px;
-  /* TWEAKED: Added border style and width, and transparent background */
-  border: 3px solid #2C3E50; /* Sets a 1px solid border with the specified color */
-  background-color: transparent; /* Makes the background transparent */  transition: all 0.2s ease;
+  border: 3px solid #B9D4AA; /* "The rest" */
+  background-color: transparent;
+  transition: all 0.2s ease;
   font-weight: 500;
 }
 
 .resume-download:hover {
-  background-color: #3498DB;
+  background-color: #B9D4AA; /* "The rest" */
   opacity: 1 !important;
   transform: translateY(-1px);
 }
@@ -707,7 +698,7 @@ export default {
 .resume-section p {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #777777; /* Or #ffffff if preferred for the download link context */
+  color: #B9D4AA; /* Secondary text */
   margin-bottom: 0;
   text-align: left;
 }
@@ -718,56 +709,58 @@ export default {
   position: absolute;
   top: 1%;
   left: 55%;
-  transform: translate(-50%, -50%); /* Centering trick */
+  transform: translate(-50%, -50%);
   text-align: left;
-  max-width: 300px; /* Adjust as needed */
+  max-width: 300px;
 }
 
 .education-section h3 {
-  font-size: 1.5rem; /* Larger font size for main titles */
+  font-size: 1.5rem;
   font-weight: 50;
   margin-bottom: 0.5rem;
   margin-top: 2rem;
   line-height: 1;
-  color: #333333;
+  color: #06202B; /* Primary text */
   text-align: left;
 }
 
 .education-section p {
   font-size: 0.9rem;
   line-height: 1.6;
-  color:#777777;
+  color: #B9D4AA; /* Secondary text */
   margin-bottom: 0;
 }
 
 .education-section p strong {
-  color: #333333;
+  color: #06202B; /* Primary text */
   font-weight: 600;
 }
 
 /* Contact Content Styles */
 .contact-content.centered-links {
   display: flex;
-  flex-direction: column; /* Stack the links vertically */
-  align-items: left; /* Center items horizontally */
-  height: 100%; /* Make sure it takes the full height of its parent (.content-section) */
-  gap: 0.2rem; /* Space between the links */
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  gap: 0.2rem;
   margin-top: 19%;
-  margin-left: 45%;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
 }
 
 /* Apply specific styles to the links for prominence and consistent formatting */
 .contact-content.centered-links a {
-  color: #2C3E50; /* Text color */
-  text-decoration: none; /* No underline by default */
-  transition: opacity 0.2s ease; /* Smooth hover effect */
-  font-size: 0.9rem; /* Slightly larger font size for the links */
-  font-weight: 500; /* Medium font weight */
+  color: #B9D4AA; /* "The rest" */
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .contact-content.centered-links a:hover {
-  opacity: 0.6;
-  color: #3498DB; /* Brighter on hover */
+  opacity: 0.8;
+  color: #B9D4AA; /* "The rest" */
 }
 
 /* Fade-in Animation */
@@ -836,7 +829,7 @@ export default {
 
   .project-list-view, .experience-list-view, .project-detail-view, .experience-detail-view {
     gap: 2rem;
-    max-width: 100%; /* Ensure it takes full width on mobile */
+    max-width: 100%;
     margin-left: 0;
     margin-right: 0;
   }
@@ -847,6 +840,46 @@ export default {
 
   .project-detail-view h2, .experience-detail-view h2 {
     font-size: 1.8rem;
+  }
+
+  /* Ensure the full width layout on mobile also works for About */
+  .two-column.about-full-layout {
+      flex-direction: column;
+      gap: 20px;
+  }
+
+  .two-column.about-full-layout .left-column,
+  .two-column.about-full-layout .right-column {
+      width: 100%;
+      margin: 0;
+  }
+
+  /* Contact centering on mobile */
+  .contact-content.centered-links {
+    margin-left: 0;
+    margin-top: 10%;
+    align-items: center;
+  }
+
+  /* Resume and Education sections absolute positioning adjustments for mobile */
+  .resume-section {
+    position: static;
+    top: unset;
+    left: unset;
+    transform: none;
+    text-align: center;
+    margin-top: 2rem;
+    max-width: 100%;
+  }
+
+  .education-section {
+    position: static;
+    top: unset;
+    left: unset;
+    transform: none;
+    text-align: center;
+    margin-top: 2rem;
+    max-width: 100%;
   }
 }
 </style>
