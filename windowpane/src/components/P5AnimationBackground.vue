@@ -36,15 +36,15 @@ export default {
     sketch(p) {
       let particles = [];
       // Adjust particle count for screen size for performance
-      const numParticles = window.innerWidth > 768 ? 120 : 40;
-      const connectDistance = 120;
+      const numParticles = window.innerWidth > 768 ? 150 : 40;
+      const connectDistance = 150;
 
       // The Particle class is defined inside the sketch to have access to 'p'
       class Particle {
         constructor() {
           this.pos = p.createVector(p.random(p.width), p.random(p.height));
-          this.vel = p.createVector(p.random(-0.5, 0.5), p.random(-0.5, 0.5));
-          this.size = 2;
+          this.vel = p.createVector(p.random(-0.4, 0.4), p.random(-0.4, 0.4));
+          this.size = 0.5;
         }
 
         update() {
@@ -91,6 +91,7 @@ export default {
               const alpha = p.map(d, 0, connectDistance, 255, 0);
               const lineColorWithAlpha = p.color(this.lineColor);
               lineColorWithAlpha.setAlpha(alpha);
+              p.strokeWeight(0.2);
               p.stroke(lineColorWithAlpha);
               p.line(particles[i].pos.x, particles[i].pos.y, particles[j].pos.x, particles[j].pos.y);
             }
@@ -104,6 +105,7 @@ export default {
               const alpha = p.map(d, 0, connectDistance + 30, 200, 0);
               const lineColorWithAlpha = p.color(this.lineColor);
               lineColorWithAlpha.setAlpha(alpha);
+              p.strokeWeight(0.2);
               p.stroke(lineColorWithAlpha);
               p.line(p.mouseX, p.mouseY, particle.pos.x, particle.pos.y);
             }

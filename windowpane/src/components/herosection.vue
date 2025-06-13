@@ -1,9 +1,9 @@
 <template>
   <section class="hero-section">
         <P5AnimationBackground
-      :background-color="'#000000'"
-      :particle-color="'#FFFFFF'"
-      :line-color="'#FFFFFF'"
+      :background-color="'#121212'"
+      :particle-color="'#EFF3EA'"
+      :line-color="'#EFF3EA'"
     />
     <div class="container">
       <div class="two-column" :class="{ 'about-full-layout': activeSection === 'about' }">
@@ -323,20 +323,20 @@ export default {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  color: #FFFFFF; /* Primary text */
+  color: #D9DFC6; /* Primary text */
 }
 
 .left-column h1 {
   font-size: 4rem;
   margin-bottom: 0.5rem;
-  color: #FFFFFF; /* Primary text */
+  color: #D9DFC6; /* Primary text */
   text-align: left;
 }
 
 .left-column .large-text {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #FFFFFF; /* Secondary text */
+  color: #D9DFC6; /* Secondary text */
   margin-top: 0;
   text-align: left;
 }
@@ -344,7 +344,7 @@ export default {
 .right-column {
   flex-grow: 1;
   min-height: 400px;
-  color: #FFFFFF; /* Primary text */
+  color: #D9DFC6; /* Primary text */
   display: flex;
   flex-direction: column;
   position: relative;
@@ -370,7 +370,7 @@ export default {
 .about-para {
   font-size: 0.8rem;
   line-height: 1.5;
-  color: #FFFFFF; /* Secondary text */
+  color: #D9DFC6; /* Secondary text */
   max-width: 180px;
   margin-top: auto;
   margin-bottom: 100;
@@ -391,19 +391,19 @@ export default {
   cursor: pointer;
   transition: all 0.2s ease;
   text-transform: capitalize;
-  color: #FFFFFF; /* Primary text */
+  color: #D9DFC6; /* Primary text */
   text-align: left;
 }
 
 .nav-item:hover {
   opacity: 0.8;
-  color: #FFFFFF; /* "The rest" (now matches secondary text) */
+  color: #D9DFC6; /* "The rest" (now matches secondary text) */
 }
 
 .nav-item.active {
   font-weight: 700;
   opacity: 1;
-  color: #FFFFFF; /* "The rest" (now matches secondary text) */
+  color: #D9DFC6; /* "The rest" (now matches secondary text) */
 }
 
 /* Project List Styles (List View) */
@@ -439,14 +439,14 @@ export default {
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #FFFFFF; /* Primary text */
+  color: #D9DFC6; /* Primary text */
   text-align: right;
 }
 
 .project-list-view .project-short-description {
   font-weight: 400;
   font-size: 0.9rem;
-  color: #FFFFFF; /* Secondary text */
+  color: #D9DFC6; /* Secondary text */
   line-height: 1.4;
   margin-bottom: 0;
   text-align: right;
@@ -469,7 +469,7 @@ export default {
 .project-detail-view h2 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
-  color: #FFFFFF; /* Primary text */
+  color: #D9DFC6; /* Primary text */
   text-align: left;
 }
 
@@ -477,14 +477,14 @@ export default {
   font-size: 1.2rem;
   margin-top: 2rem;
   margin-bottom: 0.8rem;
-  color: #FFFFFF; /* Primary text */
+  color: #D9DFC6; /* Primary text */
   text-align: left;
 }
 
 .project-detail-view p {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #FFFFFF; /* Secondary text */
+  color: #D9DFC6; /* Secondary text */
   max-width: none;
   text-align: left;
 }
@@ -501,19 +501,19 @@ export default {
 }
 
 .project-links a {
-  color: #FFFFFF; /* "The rest" */
+  color: #D9DFC6; /* "The rest" */
   transition: opacity 0.2s ease;
 }
 
 .project-links a:hover {
   opacity: 0.8;
-  color: #FFFFFF; /* "The rest" */
+  color: #D9DFC6; /* "The rest" */
 }
 
 .back-button {
   background: none;
   border: none;
-  color: #FFFFFF; /* Primary text */
+  color: #D9DFC6; /* Primary text */
   font-size: 0.9rem;
   cursor: pointer;
   text-align: left;
@@ -523,7 +523,7 @@ export default {
 }
 
 .back-button:hover {
-  color: #FFFFFF; /* "The rest" */
+  color: #D9DFC6; /* "The rest" */
 }
 
 /* NEW: Experience List View Styles */
@@ -560,14 +560,14 @@ export default {
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #FFFFFF; /* Primary text */
+  color: #D9DFC6; /* Primary text */
   text-align: right;
 }
 
 .experience-list-view .experience-company-duration {
   font-weight: 500;
   font-size: 1rem;
-  color: #FFFFFF; /* Secondary text */
+  color: #D9DFC6; /* Secondary text */
   margin-bottom: 0.5rem;
   text-align: right;
 }
@@ -575,7 +575,7 @@ export default {
 .experience-list-view .experience-short-description {
   font-weight: 400;
   font-size: 0.9rem;
-  color: #FFFFFF; /* Secondary text */
+  color: #D9DFC6; /* Secondary text */
   line-height: 1.4;
   margin-bottom: 0;
   text-align: right;
@@ -599,14 +599,14 @@ export default {
 .experience-detail-view h2 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
-  color: #FFFFFF; /* Primary text */
+  color: #D9DFC6; /* Primary text */
   text-align: left;
 }
 
 .experience-detail-view .experience-company-duration {
   font-weight: 450;
   font-size: 1.2rem;
-  color: #FFFFFF; /* Secondary text */
+  color: #D9DFC6; /* Secondary text */
   margin-bottom: 0.05rem;
   text-align: left;
 }
@@ -614,7 +614,7 @@ export default {
 .experience-detail-view .experience-description ul {
   font-size: 1rem;
   line-height: 1.6;
-  color: #FFFFFF; /* Secondary text */
+  color: #D9DFC6; /* Secondary text */
   max-width: none;
   text-align: left;
 }
@@ -623,14 +623,14 @@ export default {
   font-weight: 600;
   font-size: 0.85rem;
   line-height: 1.6;
-  color: #FFFFFF; /* Primary text */
+  color: #D9DFC6; /* Primary text */
   margin-bottom: 0.5rem;
 }
 
 .experience-detail-view .experience-skills h3 {
   font-weight: 450;
   font-size: 1.2rem;
-  color: #FFFFFF; /* Primary text */
+  color: #D9DFC6; /* Primary text */
   margin-bottom: 0.5rem;
   text-align: left;
 }
@@ -639,7 +639,7 @@ export default {
   font-weight: 450;
   font-size: 0.85rem;
   line-height: 1.6;
-  color: #FFFFFF; /* Secondary text */
+  color: #D9DFC6; /* Secondary text */
   margin-bottom: 0;
 }
 
@@ -659,7 +659,7 @@ export default {
   margin-bottom: 0.5rem;
   margin-top: 2rem;
   line-height: 1;
-  color: #FFFFFF; /* Primary text */
+  color: #D9DFC6; /* Primary text */
   text-align: left;
 }
 
@@ -671,12 +671,12 @@ export default {
 .about-content p {
   font-size: 0.85rem;
   line-height: 1.6;
-  color: #FFFFFF; /* Secondary text */
+  color: #D9DFC6; /* Secondary text */
   margin-bottom: 1.5rem;
 }
 
 .about-content p strong {
-  color: #FFFFFF; /* Primary text */
+  color: #D9DFC6; /* Primary text */
   font-weight: 600;
 }
 
@@ -684,17 +684,17 @@ export default {
 .resume-download {
   display: inline-block;
   padding: 7px 10px;
-  color: #FFFFFF !important; /* "The rest" */
+  color: #D9DFC6 !important; /* "The rest" */
   text-decoration: none;
   border-radius: 10px;
-  border: 3px solid #FFFFFF; /* "The rest" */
+  border: 3px solid #D9DFC6; /* "The rest" */
   background-color: transparent;
   transition: all 0.2s ease;
   font-weight: 500;
 }
 
 .resume-download:hover {
-  background-color: #FFFFFF; /* "The rest" */
+  background-color: #D9DFC6; /* "The rest" */
   opacity: 1 !important;
   transform: translateY(-1px);
 }
@@ -713,7 +713,7 @@ export default {
 .resume-section p {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #FFFFFF; /* Secondary text */
+  color: #D9DFC6; /* Secondary text */
   margin-bottom: 0;
   text-align: left;
 }
@@ -735,19 +735,19 @@ export default {
   margin-bottom: 0.5rem;
   margin-top: 2rem;
   line-height: 1;
-  color: #FFFFFF; /* Primary text */
+  color: #D9DFC6; /* Primary text */
   text-align: left;
 }
 
 .education-section p {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #FFFFFF; /* Secondary text */
+  color: #D9DFC6; /* Secondary text */
   margin-bottom: 0;
 }
 
 .education-section p strong {
-  color: #FFFFFF; /* Primary text */
+  color: #D9DFC6; /* Primary text */
   font-weight: 600;
 }
 
@@ -766,7 +766,7 @@ export default {
 
 /* Apply specific styles to the links for prominence and consistent formatting */
 .contact-content.centered-links a {
-  color: #FFFFFF; /* "The rest" */
+  color: #D9DFC6; /* "The rest" */
   text-decoration: none;
   transition: opacity 0.2s ease;
   font-size: 0.9rem;
@@ -775,7 +775,7 @@ export default {
 
 .contact-content.centered-links a:hover {
   opacity: 0.8;
-  color: #FFFFFF; /* "The rest" */
+  color: #D9DFC6; /* "The rest" */
 }
 
 /* Fade-in Animation */
