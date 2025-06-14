@@ -56,7 +56,7 @@
           <div v-if="activeSection === 'home'" class="content-section fade-in visible">
             <div class="home-content">
               <p class="about-para">
-                Firm believer in leveraging computational mathematics to build intelligent applications—from accessibility focused mobile apps to autonomous resource allocation systems. My work thrives where mathematical rigour meets human complexity, crafting systems that amplify rather than automate judgement. Based in the UK.
+                Firm believer in leveraging computational mathematics to build intelligent applications—from accessibility focused mobile apps to autonomous resource allocation systems. My work thrives where mathematical rigour meets human complexity, crafting systems that amplify rather than automate judgement.<br>Based in the UK.
               </p>
             </div>
           </div>
@@ -90,17 +90,17 @@
             <div v-if="!selectedExperience" class="experience-list-view">
               <div class="experience-item" v-for="exp in experiences" :key="exp.id" @click="showExperienceDetails(exp)">
                 <h3>{{ exp.title }}</h3>
-                <p class="experience-company-duration">{{ exp.company }} | {{ exp.duration }}</p>
+                <p class="experience-company-duration">{{ exp.company }}/ {{ exp.duration }}</p>
                 <p class="experience-short-description">{{ exp.shortDescription }}</p>
               </div>
             </div>
 
             <div v-else class="experience-detail-view">
               <button class="back-button" @click="backToExperienceList()">
-                &larr; Back to Experience
+                &larr; Back to Experiences
               </button>
               <h2>{{ selectedExperience.title }}</h2>
-              <p class="experience-company-duration">{{ selectedExperience.company }} | {{ selectedExperience.duration }}</p>
+              <p class="experience-company-duration">{{ selectedExperience.company }}/ {{ selectedExperience.duration }}</p>
 
               <div class="experience-description">
                 <ul>
@@ -178,7 +178,7 @@ export default {
           id: 'seec',
           title: "SEEC/ May 25'",
           shortDescription: 'Public Transport app for the visually impaired (Made for Journeo)',
-          longDescription: 'A Public Transport App for the Visually Impaired.<br><br>SEEC is a voice-controlled mobile application built for Journeo Plc using React Native (Expo), Node.js, and Express.js. It seamlessly integrates Google Maps/Directions API and real-time location tracking via Expo Location, achieving a remarkable 95% accuracy in route generation and 90% adherence to turn-by-turn guidance. The app also features an advanced image-to-text capability using Google Vision API, providing 98% OCR accuracy to convert physical signs into audible formats. User acceptance testing demonstrated a 30% improvement in ease of following transit instructions and a 25% reduction in reported navigational anxiety, thanks to its dynamic voice feedback system.',
+          longDescription: "A public transport app for the visually impaired.<br>Partnering with Journeo Plc, we developed SEEC. This voice-first mobile app uses the Google Vision API to read street signs aloud and delivers routes with 95% accuracy. The result: a tool that doesn't just give directions, but slashes navigational anxiety by 25%, empowering independent travel.",
           links: [
             { type: 'GitHub', url: 'https://github.com/es2323/SEEC' } // Placeholder
           ]
@@ -187,7 +187,7 @@ export default {
           id: 'snapback',
           title: "SnapBack/ May 25'",
           shortDescription: 'Web app tracking employee fatigue via cognitive games and wellness surveys',
-          longDescription: 'An Employee Fatigue Monitoring Platform.<br><br>Uncover the power of real-time insights with SnapBack, developed with Python Flask and SQLite. This innovative, role-based web app features distinct dashboards for employees, managers, and HR, integrating fatigue scoring from 4 engaging cognitive games (engineered using Pygame) and daily wellness surveys. It accurately tracks real-time fatigue for 25+ users across 3 teams, logging over 500+ session metrics like reaction time and accuracy. Managers gain immediate insights with Chart.js analytics, offering dynamic SQL joins and threshold-based alerts, all with dashboard render times under 150 ms and 100% session log retention.',
+          longDescription: "An employee fatigue monitoring platform.<br>What if you could measure team burnout with a game? That's SnapBack. This web app uses Python Flask and Pygame to turn cognitive challenges into a live measure of employee fatigue. It gives managers a real-time dashboard (loading in <150ms) to track team wellbeing, offering proactive insights long before burnout becomes a problem.",
           links: [
             { type: 'GitHub', url: 'https://github.com/es2323/SnapBack' } // Placeholder
           ]
@@ -196,8 +196,8 @@ export default {
           id: 'prs',
           title: "PRS/ May 25'",
           shortDescription: 'Web platform for pandemic data management',
-          longDescription: 'Web Platform for pandemic data management.<br><br>Dive into a world where public safety meets cutting-edge technology. This secure, role-based web platform, meticulously engineered with Python Flask, leverages a hybrid data architecture combining SQL Server for compliance-critical data and MongoDB Atlas for dynamic, semi-structured information. With over 20+ endpoints and 3 intuitive dashboards, it powers 500+ dynamic data operations across structured and unstructured sources, all while maintaining sub-100 ms query response times under load. It boasts 100% password encryption compliance using PBKDF2 via Werkzeug and significantly boosts error handling and data consistency by approximately 80%, ensuring robust pandemic response management.', links: [
-            { type: 'GitHub', url: 'https://github.com/enosh-earnest/prs' },
+          longDescription: 'Web platform for pandemic data management.<br>Built for public safety under pressure, this platform delivers speed and security. Using Python Flask, and combining SQL Server (for critical compliance data) with MongoDB (for dynamic field reports). With 100% password encryption and query responses under 100ms, the system gives health officials the fast, reliable, and consistent data needed for decisive action.', links: [
+            { type: 'GitHub', url: 'https://github.com/es2323/Pandemic-Resilience-System-' },
 
           ]
         },
@@ -205,7 +205,7 @@ export default {
           id: 'ssh',
           title: "SSH/ Dec 24'",
           shortDescription: 'Secure client-server system for smart home communication',
-          longDescription: 'Secure Smart Home Client-Server System.<br><br>Experience the next generation of secure smart home connectivity with this high-performance client-server system built with Python, asyncio, and SQLite. Engineered for robust communication, it utilizes AES-CBC encryption and Diffie-Hellman key exchange, handling 10+ concurrent clients and encrypting 500+ messages with zero errors. Advanced features like 30-second idle disconnection and a heartbeat mechanism ensure 98% reliability in maintaining active client-server communication, even under extensive testing, processing over 100 client requests per second with 99.9% accuracy during 48-hour stress tests.',
+          longDescription: "Secure smart home client-server system.<br>This is a secure and high-performance communication backbone for smart homes, built with Python's asyncio library. The system uses strong AES encryption to secure every message and was stress-tested for 48 hours straight, effortlessly handling high traffic from multiple clients with near-perfect accuracy.",
           links: [
             { type: 'GitHub', url: 'https://github.com/es2323/Client_Server-' } // Placeholder
 
@@ -218,12 +218,10 @@ export default {
           "id": "designer-intern",
           "title": "Designer",
           "company": "University of Derby Enterprise Centre",
-          "duration": "Mar 2024 – July 2024",
-          "shortDescription": "Created digital content templates, optimized CRM processes, and managed databases to enhance operational efficiency.",
+          "duration": "Mar – July 24'",
+          "shortDescription": "Created digital content templates, optimized CRM processes, and managed databases to enhance operational efficiency",
           "longDescription": [
-            "Created an average of 13 new digital content templates for various platforms (newsletters, chats, LinkedIn feeds, presentations), significantly streamlining future content creation efforts.",
-            "Optimized CRM records for up to 400 individuals, enhancing data organization and efficiency for smoother client management processes.",
-            "Refined and updated 8 databases to ensure accuracy, consistency, and data normalization, improving user-friendliness, accessibility options, and encryption."
+            "Delivered a comprehensive operational upgrade, from front-facing content to backend data. This involved designing 13 digital templates to accelerate content creation, optimizing the CRM for 400 individuals, and refining 8 databases to boost accuracy, accessibility, and security."
           ],
           "skills": [
             "Digital Content Design/",
@@ -623,6 +621,8 @@ export default {
   font-weight: 600;
   font-size: 0.85rem;
   line-height: 1.6;
+  list-style-type: none; /* This removes the bullet point */
+  padding-left: 0; 
   color: #D9DFC6; /* Primary text */
   margin-bottom: 0.5rem;
 }
