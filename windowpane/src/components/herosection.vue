@@ -63,9 +63,12 @@
 
           <div v-if="activeSection === 'projects'" class="content-section fade-in visible">
             <div v-if="!selectedProject" class="project-list-view">
-              <div class="project-item" v-for="project in projects" :key="project.id" @click="showProjectDetails(project)">
-                <h3>{{ project.title }}</h3>
-                <p class="project-short-description">{{ project.shortDescription }}</p>
+              <div class="project-item" 
+                  v-for="(project, index) in projects" 
+                  :key="project.id" 
+                  @click="showProjectDetails(project)"
+                  :style="{ animationDelay: index * 0.3 + 's' }">  <h3>{{ project.title }}</h3>
+                  <p class="project-short-description">{{ project.shortDescription }}</p>
               </div>
             </div>
 
@@ -88,7 +91,7 @@
 
           <div v-if="activeSection === 'experience'" class="content-section fade-in visible">
             <div v-if="!selectedExperience" class="experience-list-view">
-              <div class="experience-item" v-for="exp in experiences" :key="exp.id" @click="showExperienceDetails(exp)">
+              <div class="experience-item" v-for="(exp, index) in experiences" :key="exp.id" @click="showExperienceDetails(exp)" :style="{ animationDelay: index * 0.3 + 's' }">
                 <h3>{{ exp.title }}</h3>
                 <p class="experience-company-duration">{{ exp.company }}/ {{ exp.duration }}</p>
                 <p class="experience-short-description">{{ exp.shortDescription }}</p>
@@ -145,9 +148,9 @@
 
           <div v-if="activeSection === 'contact'" class="content-section fade-in visible">
             <div class="contact-content centered-links">
-              <a href="mailto:youremail@example.com" target="_blank">Email</a>
-              <a href="https://www.linkedin.com/in/yourlinkedinprofile/" target="_blank">LinkedIn</a>
-              <a href="https://github.com/yourgithubusername" target="_blank">GitHub</a>
+              <a href="mailto:enoshsolomonn@gmail.com" target="_blank">Email</a>
+              <a href="https://www.linkedin.com/in/enosh-solomon-3370321bb/" target="_blank">LinkedIn</a>
+              <a href="https://github.com/es2323" target="_blank">GitHub</a>
             </div>
           </div>
         </div>
@@ -177,7 +180,7 @@ export default {
         {
           id: 'seec',
           title: "SEEC/ May 25'",
-          shortDescription: 'Public Transport app for the visually impaired (Made for Journeo)',
+          shortDescription: 'Public Transport app for the visually impaired/ Made for Journeo',
           longDescription: "A public transport app for the visually impaired.<br>Partnering with Journeo Plc, we developed SEEC. This voice-first mobile app uses the Google Vision API to read street signs aloud and delivers routes with 95% accuracy. The result: a tool that doesn't just give directions, but slashes navigational anxiety by 25%, empowering independent travel.",
           links: [
             { type: 'GitHub', url: 'https://github.com/es2323/SEEC' } // Placeholder
@@ -353,7 +356,7 @@ export default {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  animation: fadeIn 0.4s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
 }
 
 /* Specific Styles for Home Content & About Paragraph */
@@ -380,6 +383,7 @@ export default {
 .main-navigation {
   margin-top: 1rem;
   text-align: left;
+  
 }
 
 .nav-item {
@@ -391,11 +395,13 @@ export default {
   text-transform: capitalize;
   color: #D9DFC6; /* Primary text */
   text-align: left;
+  
 }
 
 .nav-item:hover {
   opacity: 0.8;
-  color: #D9DFC6; /* "The rest" (now matches secondary text) */
+  color: #B89A6A; /* "The rest" (now matches secondary text) */
+  transform: translateX(5px); 
 }
 
 .nav-item.active {
@@ -404,13 +410,12 @@ export default {
   color: #D9DFC6; /* "The rest" (now matches secondary text) */
 }
 
-/* Project List Styles (List View) */
 .project-list-view {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
   text-align: left;
-
+  animation: fadeIn 1s ease-in-out;
   max-width: 1000px;
   margin-top: auto;
   margin-bottom: auto;
@@ -421,15 +426,23 @@ export default {
 .project-list-view .project-item {
   padding-bottom: 0.5rem;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  
+  /* FIX #1: The two 'transition' properties were combined into one. */
+  transition: all 0.3s ease-out; 
+  
+  /* Your waterfall animation is correct */
+  animation: fadeIn 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 
 .project-list-view .project-item:last-child {
   border-bottom: none;
 }
 
-.project-list-view .project-item:hover {
-  opacity: 0.7;
+/* FIX #2: The old hover rule is replaced by the one below, which is more specific. */
+.project-list-view .project-item:hover h3 {
+  color: #B89A6A; /* Your desired hover color */
 }
 
 .project-list-view .project-item h3 {
@@ -439,6 +452,19 @@ export default {
   line-height: 1;
   color: #D9DFC6; /* Primary text */
   text-align: right;
+  
+  /* This part was perfect! It makes the color change smooth. */
+  transition: color 0.3s ease;
+}
+
+.project-list-view .project-item h3 {
+  font-size: 3.8rem;
+  font-weight: 50;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+  color: #D9DFC6; /* Primary text */
+  text-align: right;
+  transition: color 0.3s ease;
 }
 
 .project-list-view .project-short-description {
@@ -456,6 +482,7 @@ export default {
   flex-direction: column;
   gap: 1.5rem;
   text-align: left;
+  animation: fadeIn 1s ease-in-out;
 
   max-width: 450px;
   margin-top: auto;
@@ -491,6 +518,7 @@ export default {
   list-style: none;
   padding-left: 0;
   margin-top: 0.05rem;
+  animation: fadeIn 3s ease-in-out;
 }
 
 .project-links li {
@@ -505,7 +533,7 @@ export default {
 
 .project-links a:hover {
   opacity: 0.8;
-  color: #D9DFC6; /* "The rest" */
+  color: #B89A6A; /* "The rest" */
 }
 
 .back-button {
@@ -517,11 +545,11 @@ export default {
   text-align: left;
   padding: 0;
   margin-bottom: 2rem;
-  transition: color 0.2s ease;
+  transition: color 1s ease;
 }
 
 .back-button:hover {
-  color: #D9DFC6; /* "The rest" */
+  color: #B89A6A; /* "The rest" */
 }
 
 /* NEW: Experience List View Styles */
@@ -542,14 +570,23 @@ export default {
   padding-bottom: .5rem;
   cursor: pointer;
   transition: opacity 0.2s ease;
+    /* Defines the animation that will be delayed */
+  animation: fadeIn 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+  
+  /* Makes the items invisible before the animation starts */
+  opacity: 0;
+
 }
 
 .experience-list-view .experience-item:last-child {
   border-bottom: none;
 }
 
-.experience-list-view .experience-item:hover {
-  opacity: 0.7;
+.experience-list-view .experience-item:hover h3 {
+  
+  opacity: 0.8;
+  color: #B89A6A;
 }
 
 /* NEW: Big Titles for Experience List */
@@ -585,6 +622,7 @@ export default {
   flex-direction: column;
   gap: 1.5rem;
   text-align: left;
+  animation: fadeIn 1s ease-in-out;
 
   max-width: 450px;
   margin-top: auto;
@@ -775,7 +813,7 @@ export default {
 
 .contact-content.centered-links a:hover {
   opacity: 0.8;
-  color: #D9DFC6; /* "The rest" */
+  color: #B89A6A; /* "The rest" */
 }
 
 /* Fade-in Animation */
