@@ -74,7 +74,7 @@
 
             <div v-else class="project-detail-view">
               <button class="back-button" @click="backToProjectList()">
-                ↞ Back to Projects
+                ⤣ Back to Projects
               </button>
               <h2>{{ selectedProject.title }}</h2>
               <p v-html="selectedProject.longDescription"></p>
@@ -100,7 +100,7 @@
 
             <div v-else class="experience-detail-view">
               <button class="back-button" @click="backToExperienceList()">
-                &larr; Back to Experiences
+                ⤣ Back to Experiences
               </button>
               <h2>{{ selectedExperience.title }}</h2>
               <p class="experience-company-duration">{{ selectedExperience.company }}/ {{ selectedExperience.duration }}</p>
@@ -148,9 +148,9 @@
 
           <div v-if="activeSection === 'contact'" class="content-section fade-in visible">
             <div class="contact-content centered-links">
-              <a href="mailto:enoshsolomonn@gmail.com" target="_blank">Email</a>
-              <a href="https://www.linkedin.com/in/enosh-solomon-3370321bb/" target="_blank">LinkedIn</a>
-              <a href="https://github.com/es2323" target="_blank">GitHub</a>
+              <a href="mailto:enoshsolomonn@gmail.com" target="_blank">Email➚</a>
+              <a href="https://www.linkedin.com/in/enosh-solomon-3370321bb/" target="_blank">LinkedIn➚</a>
+              <a href="https://github.com/es2323" target="_blank">GitHub➚</a>
             </div>
           </div>
         </div>
