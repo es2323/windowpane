@@ -279,7 +279,8 @@ export default {
 <style scoped>
 /* --- Hero Section Specific Styles --- */
 .hero-section {
-  height: 90vh;
+  height: 100vh;
+  overflow: hidden;
   background-color: #000000; /* Main background */
   display: flex;
   align-items: center;
@@ -293,12 +294,14 @@ export default {
   flex-grow: 1;
   width: 100%;
   background-color: transparent; /* Main background */
-  border: 1px solid #ffffff; /* Container border */
+  border: 0.4px solid #D9DFC6; /* Container border */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   padding: 40px;
   box-sizing: border-box;
   position: relative;
   z-index: 1; 
+  max-height: 100%;         /* Prevents the box from growing too tall */
+  overflow-y: auto; 
 
   /* MODIFIED: Center the container and give it more overall width */
   max-width: 1500px;
@@ -529,7 +532,8 @@ export default {
 
 .project-links a:hover {
   opacity: 0.8;
-  color: #B89A6A; /* "The rest" */
+  color: #B89A6A;
+   /* "The rest" */
 }
 
 .back-button {
@@ -735,7 +739,7 @@ export default {
 .resume-download:hover {
   background-color: #D9DFC6; /* "The rest" */
   opacity: 1 !important;
-  transform: translateY(-6px);
+  transform: translateY(-3px);
 }
 
 
@@ -764,7 +768,8 @@ export default {
 
 .contact-content.centered-links a:hover {
   opacity: 0.8;
-  color: #B89A6A; /* "The rest" */
+  color: #B89A6A; 
+  transform: translateY(-1px);/* "The rest" */
 }
 
 /* Fade-in Animation */
