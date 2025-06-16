@@ -10,7 +10,7 @@
         <div class="left-column">
           <h1>Enosh Earnest</h1>
           <p class="large-text">
-            CS Undergrad & AI Aficionado
+            CS Undergrad & AI Explorer
           </p>
 
           <nav class="main-navigation">
@@ -120,29 +120,25 @@
 
           <div v-if="activeSection === 'about'" class="content-section fade-in visible">
             <div class="about-content">
-              <h3>Beyond the Code</h3>
-              <p>
-                Hi! I'm Enosh, a Computer Science student and AI enthusiast based in the rocky midlands of the UK. With a passion for computational mathematics, I specialize in crafting intelligent applications, focusing on backend development, intuitive UI/UX design, and robust database solutions, all whilst drawing on my experience across digital content creation and performance marketing.
-              </p>
-              <p>
-                When I'm not immersed in code, you'll find me captivated by the intriguing aesthetics of liminal spaces, exploring the hidden corners of new cities, or unwinding to the smooth rhythms of jazz. I thrive on learning, building, and engaging with fellow innovators and curious minds.
-              </p>
-            </div>
+              <div class="about-grid">
+                <div class="about-main-text">
+                  <h3>Beyond the Code...</h3>   
+                  <p>
+                    Hi, I'm Enosh, a Computer Science student and AI enthusiast based in the rocky midlands of the UK. With a passion for computational mathematics, I specialize in crafting intelligent applications, focusing on backend development, intuitive UI/UX design, and robust database solutions, all whilst drawing on my experience across digital content creation and performance marketing.
+                  </p>
+                  <p>
+                    <br>When I'm not immersed in code, you'll find me captivated by the intriguing liminal spaces, exploring the hidden corners of new cities, or unwinding to the smooth rhythms of jazz. I thrive on learning, building, and engaging with fellow innovators and curious minds.
+                  </p>
+                </div>
 
-            <div class="resume-section">
-              <p>
-                <a href="/Enosh_Earnest_Resume.pdf" download="Enosh_Earnest_Resume.pdf" class="resume-download">
-                  Download My Resume!
-                </a>
-              </p>
-            </div>
-
-            <div class="education-section">
-              <h3>Education</h3>
-              <p>
-                <strong>University of Derby</strong><br>
-                BSc (Honours) in Computer Science<br>Expected: Sep 2026<br>
-              </p>
+                <div class="about-sidebar">
+                  <p>
+                    <a href="/Enosh_Earnest_Resume.pdf" download="Enosh_Earnest_Resume.pdf" class="resume-download">
+                Download My Resume!
+                    </a>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -283,7 +279,7 @@ export default {
 <style scoped>
 /* --- Hero Section Specific Styles --- */
 .hero-section {
-  min-height: 100vh;
+  height: 90vh;
   background-color: #000000; /* Main background */
   display: flex;
   align-items: center;
@@ -684,110 +680,65 @@ export default {
 
 /* About Styles */
 .about-content {
-  max-width: 600px;
-  margin-top: auto;
-  margin-bottom: 10;
-  margin-left: 200;
-  margin-right: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
   text-align: left;
+  animation: fadeIn 1s ease-in-out;
+  max-width: 400px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: 0;
+  
 }
 .about-content h3 {
-  font-size: 1.5rem;
+  font-size: 3.8rem;
   font-weight: 50;
   margin-bottom: 0.5rem;
-  margin-top: 2rem;
   line-height: 1;
   color: #D9DFC6; /* Primary text */
   text-align: left;
-}
-
-
-.about-content h3:first-child {
-  margin-top: 0;
+  margin-bottom: 1rem;
+  
 }
 
 .about-content p {
-  font-size: 0.85rem;
-  line-height: 1.6;
+  font-weight: 400;
+  font-size: 0.9rem;
   color: #D9DFC6; /* Secondary text */
-  margin-bottom: 1.5rem;
+  line-height: 1.4;
+  margin-bottom: 0;
+  text-align: left;
 }
 
 .about-content p strong {
   color: #D9DFC6; /* Primary text */
   font-weight: 600;
+  margin-top: 1rem;
 }
 
 /* Resume Download Link Styles */
 .resume-download {
   display: inline-block;
   padding: 7px 10px;
-  color: #D9DFC6 !important; /* "The rest" */
+  color: #B89A6A !important; /* "The rest" */
   text-decoration: none;
   border-radius: 10px;
-  border: 3px solid #D9DFC6; /* "The rest" */
+  border: 3px solid #B89A6A; /* "The rest" */
   background-color: transparent;
   transition: all 0.2s ease;
   font-weight: 500;
+  margin-top: 2rem;
 }
 
 .resume-download:hover {
   background-color: #D9DFC6; /* "The rest" */
   opacity: 1 !important;
-  transform: translateY(-1px);
-}
-
-/* NEW: Resume section positioned at center */
-.resume-section {
-  position: absolute;
-  top: 35%;
-  left: 82%;
-  transform: translateX(-50%);
-  text-align: left;
-  max-width: 400px;
+  transform: translateY(-6px);
 }
 
 
-.resume-section p {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: #D9DFC6; /* Secondary text */
-  margin-bottom: 0;
-  text-align: left;
-}
-
-
-/* Education section positioned at center bottom */
-.education-section {
-  position: absolute;
-  top: 1%;
-  left: 55%;
-  transform: translate(-50%, -50%);
-  text-align: left;
-  max-width: 300px;
-}
-
-.education-section h3 {
-  font-size: 1.5rem;
-  font-weight: 50;
-  margin-bottom: 0.5rem;
-  margin-top: 2rem;
-  line-height: 1;
-  color: #D9DFC6; /* Primary text */
-  text-align: left;
-}
-
-.education-section p {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: #D9DFC6; /* Secondary text */
-  margin-bottom: 0;
-}
-
-.education-section p strong {
-  color: #D9DFC6; /* Primary text */
-  font-weight: 600;
-}
 
 /* Contact Content Styles */
 .contact-content.centered-links {
