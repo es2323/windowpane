@@ -133,7 +133,7 @@
 
                 <div class="about-sidebar">
                   <p>
-                    <a href="/Enosh_Earnest_Resume.pdf" download="Enosh_Earnest_Resume.pdf" class="resume-download">
+                    <a href="/Enosh Earnest Resume.pdf" download="Enosh Earnest's Resume.pdf" class="resume-download">
                 Download My Resume!
                     </a>
                   </p>
@@ -749,12 +749,10 @@ export default {
 .contact-content.centered-links {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: 100%;
+  align-items: center;    /* This handles the HORIZONTAL centering */
+  justify-content: center;  /* This new line handles the VERTICAL centering */
+  height: 100%;             /* This is crucial, it gives the container full height */
   gap: 0.2rem;
-  margin-top: 30%;
-  margin-left: 0;
-  margin-right: 0;
   width: 100%;
 }
 
