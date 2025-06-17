@@ -56,7 +56,7 @@
           <div v-if="activeSection === 'home'" class="content-section fade-in visible">
             <div class="home-content">
               <p class="about-para">
-                Firm believer in leveraging computational mathematics to build intelligent applications—from accessibility focused mobile apps to autonomous resource allocation systems. My work thrives where mathematical rigour meets human complexity, crafting systems that amplify rather than automate judgement.<br>Based in the UK.
+                Firm believer in leveraging computational mathematics to build intelligent applications, from accessibility focused mobile apps to autonomous resource allocation systems. My work thrives where mathematical rigour meets human complexity, crafting systems that amplify rather than automate judgement.<br>Based in the UK.
               </p>
             </div>
           </div>
@@ -74,7 +74,7 @@
 
             <div v-else class="project-detail-view">
               <button class="back-button" @click="backToProjectList()">
-                ⤣ Back to Projects
+                ↖ Back to Projects
               </button>
               <h2>{{ selectedProject.title }}</h2>
               <p v-html="selectedProject.longDescription"></p>
@@ -100,7 +100,7 @@
 
             <div v-else class="experience-detail-view">
               <button class="back-button" @click="backToExperienceList()">
-                ⤣ Back to Experiences
+                ↖ Back to Experiences
               </button>
               <h2>{{ selectedExperience.title }}</h2>
               <p class="experience-company-duration">{{ selectedExperience.company }}/ {{ selectedExperience.duration }}</p>
@@ -113,7 +113,7 @@
 
               <div v-if="selectedExperience.skills && selectedExperience.skills.length > 0" class="experience-skills">
                 <h3>Skills</h3>
-                <p>{{ selectedExperience.skills.join(', ') }}</p>
+                <p>{{ selectedExperience.skills.join('/ ') }}</p>
               </div>
             </div>
           </div>
@@ -217,13 +217,13 @@ export default {
           "id": "designer-intern",
           "title": "Designer",
           "company": "University of Derby Enterprise Centre",
-          "duration": "Mar – July 24'",
+          "duration": "Mar to July 24'",
           "shortDescription": "Created digital content templates, optimized CRM processes, and managed databases to enhance operational efficiency",
           "longDescription": [
             "Delivered a comprehensive operational upgrade, from front-facing content to backend data. This involved designing 13 digital templates to accelerate content creation, optimizing the CRM for 400 individuals, and refining 8 databases to boost accuracy, accessibility, and security."
           ],
           "skills": [
-            "Digital Content Design/",
+            "Digital Content Design",
             "Template Creation",
             "Content Creation",
             "Database Management",
@@ -231,23 +231,21 @@ export default {
             "Data Normalization",
             "Process Efficiency",
             "DaVinci Resolve",
-            "Canva",
-            "MS Excel",
-            "Microsoft Dynamics 365"
+            "Microsoft Dynamics 365//"
           ]
         },
         {
           id: 'marketing-intern',
           title: 'Marketing Intern',
           company: 'Not Another Agency',
-          duration: 'Jan 2023 – June 2023',
-          shortDescription: 'Managed social media presence, optimized performance marketing, and analyzed ad campaign performance for diverse clients.',
+          duration: "Jan to June 23'",
+          shortDescription: 'Managed social media presence, optimized performance marketing, and analyzed ad campaign performance for diverse clients',
           longDescription: [
             "Managed social media presence for up to 6 organizations across various platforms (Facebook, Instagram, Twitter, LinkedIn, YouTube, TikTok), including an NGO focused on postpartum depression.",
             "Achieved a 30% increase in follower count for a luxury villa through strategic content creation and targeted campaigns.",
             "Curated a 3x increase in ad frequency for an NGO dedicated to under-privileged youth, significantly boosting engagement and helping the organization reach a wider, more relevant audience."
           ],
-          skills: ['Marketing Strategy', 'Market Research', 'Social Media Management', 'Campaign Management', 'Content Creation']
+          skills: ['Marketing Strategy', 'Market Research', 'Social Media Management', 'Campaign Management', 'Content Creation//']
         }
       ]
     }
@@ -327,14 +325,14 @@ export default {
 }
 
 .left-column h1 {
-  font-size: 4rem;
+  font-size: 3.3rem;
   margin-bottom: 0.5rem;
   color: #D9DFC6; /* Primary text */
   text-align: left;
 }
 
 .left-column .large-text {
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: #D9DFC6; /* Secondary text */
   margin-top: 0;
@@ -355,7 +353,7 @@ export default {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
 /* Specific Styles for Home Content & About Paragraph */
@@ -382,6 +380,7 @@ export default {
 .main-navigation {
   margin-top: 1rem;
   text-align: left;
+  animation: fadeIn 1.5s ease-in-out;
   
 }
 
@@ -517,7 +516,7 @@ export default {
   list-style: none;
   padding-left: 0;
   margin-top: 0.05rem;
-  animation: fadeIn 3s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .project-links li {
@@ -610,7 +609,7 @@ export default {
 .experience-list-view .experience-short-description {
   font-weight: 400;
   font-size: 0.9rem;
-  color: #D9DFC6; /* Secondary text */
+  color: #B89A6A; /* Secondary text */
   line-height: 1.4;
   margin-bottom: 0;
   text-align: right;
@@ -641,9 +640,9 @@ export default {
 
 .experience-detail-view .experience-company-duration {
   font-weight: 450;
-  font-size: 1.2rem;
-  color: #D9DFC6; /* Secondary text */
-  margin-bottom: 0.05rem;
+  font-size: 1.1rem;
+  color: #B89A6A; /* Secondary text */
+  margin-bottom: 0.0rem;
   text-align: left;
 }
 
@@ -656,9 +655,9 @@ export default {
 }
 
 .experience-detail-view .experience-description li {
-  font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   line-height: 1.6;
+  font-weight: 400;
   list-style-type: none; /* This removes the bullet point */
   padding-left: 0; 
   color: #D9DFC6; /* Primary text */
@@ -667,15 +666,16 @@ export default {
 
 .experience-detail-view .experience-skills h3 {
   font-weight: 450;
-  font-size: 1.2rem;
-  color: #D9DFC6; /* Primary text */
+  font-size: 1.1rem;
+  color: #B89A6A; /* Primary text */
   margin-bottom: 0.5rem;
   text-align: left;
 }
 
 .experience-detail-view .experience-skills p {
   font-weight: 450;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 400;
   line-height: 1.6;
   color: #D9DFC6; /* Secondary text */
   margin-bottom: 0;
@@ -711,7 +711,7 @@ export default {
   font-weight: 400;
   font-size: 0.9rem;
   color: #D9DFC6; /* Secondary text */
-  line-height: 1.4;
+  line-height: 1.6;
   margin-bottom: 0;
   text-align: left;
 }
@@ -737,7 +737,8 @@ export default {
 }
 
 .resume-download:hover {
-  background-color: #D9DFC6; /* "The rest" */
+  background-color: #121212;
+  color: #121212; /* "The rest" */
   opacity: 1 !important;
   transform: translateY(-3px);
 }
@@ -751,7 +752,7 @@ export default {
   align-items: center;
   height: 100%;
   gap: 0.2rem;
-  margin-top: 19%;
+  margin-top: 30%;
   margin-left: 0;
   margin-right: 0;
   width: 100%;
@@ -761,7 +762,7 @@ export default {
 .contact-content.centered-links a {
   color: #D9DFC6; /* "The rest" */
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  transition: opacity 01s ease;
   font-size: 0.9rem;
   font-weight: 500;
 }
