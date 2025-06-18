@@ -292,7 +292,6 @@ export default {
   flex-grow: 1;
   width: 100%;
   background-color: transparent; /* Main background */
-  border: 0.4px solid #F4F4F4; /* Container border */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   padding: 40px;
   box-sizing: border-box;
@@ -393,7 +392,24 @@ export default {
   text-transform: capitalize;
   color: #F4F4F4; /* Primary text */
   text-align: left;
+  position: relative; /* Needed for the pseudo-element */
+  padding-bottom: 5px;
   
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0; /* Starts with zero width */
+  height: 1px;
+  background-color: #B89A6A; /* Your new accent color */
+  transition: width 0.3s ease; /* Animate the width change */
+}
+
+.nav-item:hover::after {
+  width: 40%; /* Expands to full width on hover */
 }
 
 .nav-item:hover {
@@ -736,6 +752,42 @@ export default {
   margin-top: 2rem;
 }
 
+/* This creates the TOP and LEFT border lines */
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  box-sizing: border-box; /* Important for border calculations */
+  
+  /* The visible border style. Use your new accent color! */
+  border-top: 1px solid #F4F4F4;
+  border-left: 1px solid #F4F4F4;
+
+  /* Apply the animation */
+  animation: draw-border 1s ease-out forwards;
+}
+
+/* This creates the BOTTOM and RIGHT border lines */
+.container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  box-sizing: border-box;
+
+  /* The visible border style */
+  border-bottom: 1px solid #F4F4F4;
+  border-right: 1px solid #F4F4F4;
+  
+  /* Apply the animation with a delay so it starts after the first two lines */
+  animation: draw-border 1s ease-out 1s forwards;
+}
+
 .resume-download:hover {
   background-color: #222831;
   color: #222831; /* "The rest" */
@@ -769,6 +821,17 @@ export default {
   opacity: 0.8;
   color: #B89A6A; 
   transform: translateY(-1px);/* "The rest" */
+}
+
+@keyframes draw-border {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 /* Fade-in Animation */
