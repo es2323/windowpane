@@ -393,7 +393,7 @@ export default {
   color: #F4F4F4; /* Primary text */
   text-align: left;
   position: relative; /* Needed for the pseudo-element */
-  padding-bottom: 5px;
+  padding-bottom: 2px;
   
 }
 
