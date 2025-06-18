@@ -1,9 +1,9 @@
 <template>
   <section class="hero-section">
         <P5AnimationBackground
-      :background-color="'#121212'"
-      :particle-color="'#EFF3EA'"
-      :line-color="'#EFF3EA'"
+      :background-color="'#222831'"
+      :particle-color="'#F4F4F4'"
+      :line-color="'#F4F4F4'"
     />
     <div class="container">
       <div class="two-column" :class="{ 'about-full-layout': activeSection === 'about' }">
@@ -279,7 +279,7 @@ export default {
 .hero-section {
   height: 100vh;
   overflow: hidden;
-  background-color: #000000; /* Main background */
+  background-color: #222831; /* Main background */
   display: flex;
   align-items: center;
   padding: 20px;
@@ -292,7 +292,7 @@ export default {
   flex-grow: 1;
   width: 100%;
   background-color: transparent; /* Main background */
-  border: 0.4px solid #D9DFC6; /* Container border */
+  border: 0.4px solid #F4F4F4; /* Container border */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   padding: 40px;
   box-sizing: border-box;
@@ -321,20 +321,20 @@ export default {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  color: #D9DFC6; /* Primary text */
+  color: #F4F4F4; /* Primary text */
 }
 
 .left-column h1 {
   font-size: 3.3rem;
   margin-bottom: 0.5rem;
-  color: #D9DFC6; /* Primary text */
+  color: #F4F4F4; /* Primary text */
   text-align: left;
 }
 
 .left-column .large-text {
   font-size: 1rem;
   line-height: 1.6;
-  color: #D9DFC6; /* Secondary text */
+  color: #F4F4F4; /* Secondary text */
   margin-top: 0;
   text-align: left;
 }
@@ -342,7 +342,7 @@ export default {
 .right-column {
   flex-grow: 1;
   min-height: 400px;
-  color: #D9DFC6; /* Primary text */
+  color: #F4F4F4; /* Primary text */
   display: flex;
   flex-direction: column;
   position: relative;
@@ -368,7 +368,7 @@ export default {
 .about-para {
   font-size: 0.8rem;
   line-height: 1.5;
-  color: #D9DFC6; /* Secondary text */
+  color: #F4F4F4; /* Secondary text */
   max-width: 180px;
   margin-top: auto;
   margin-bottom: 100;
@@ -391,7 +391,7 @@ export default {
   cursor: pointer;
   transition: all 0.2s ease;
   text-transform: capitalize;
-  color: #D9DFC6; /* Primary text */
+  color: #F4F4F4; /* Primary text */
   text-align: left;
   
 }
@@ -405,7 +405,7 @@ export default {
 .nav-item.active {
   font-weight: 700;
   opacity: 1;
-  color: #D9DFC6; /* "The rest" (now matches secondary text) */
+  color: #F4F4F4; /* "The rest" (now matches secondary text) */
 }
 
 .project-list-view {
@@ -448,7 +448,7 @@ export default {
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #D9DFC6; /* Primary text */
+  color: #F4F4F4; /* Primary text */
   text-align: right;
   
   /* This part was perfect! It makes the color change smooth. */
@@ -460,7 +460,7 @@ export default {
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #D9DFC6; /* Primary text */
+  color: #F4F4F4; /* Primary text */
   text-align: right;
   transition: color 0.3s ease;
 }
@@ -468,7 +468,7 @@ export default {
 .project-list-view .project-short-description {
   font-weight: 400;
   font-size: 0.9rem;
-  color: #D9DFC6; /* Secondary text */
+  color: #F4F4F4; /* Secondary text */
   line-height: 1.4;
   margin-bottom: 0;
   text-align: right;
@@ -492,7 +492,7 @@ export default {
 .project-detail-view h2 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
-  color: #D9DFC6; /* Primary text */
+  color: #F4F4F4; /* Primary text */
   text-align: left;
 }
 
@@ -500,14 +500,14 @@ export default {
   font-size: 1.2rem;
   margin-top: 2rem;
   margin-bottom: 0.8rem;
-  color: #D9DFC6; /* Primary text */
+  color: #F4F4F4; /* Primary text */
   text-align: left;
 }
 
 .project-detail-view p {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #D9DFC6; /* Secondary text */
+  color: #F4F4F4; /* Secondary text */
   max-width: none;
   text-align: left;
 }
@@ -525,7 +525,7 @@ export default {
 }
 
 .project-links a {
-  color: #D9DFC6; /* "The rest" */
+  color: #F4F4F4; /* "The rest" */
   transition: opacity 0.2s ease;
 }
 
@@ -538,7 +538,7 @@ export default {
 .back-button {
   background: none;
   border: none;
-  color: #D9DFC6; /* Primary text */
+  color: #F4F4F4; /* Primary text */
   font-size: 0.9rem;
   cursor: pointer;
   text-align: left;
@@ -594,14 +594,14 @@ export default {
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #D9DFC6; /* Primary text */
+  color: #F4F4F4; /* Primary text */
   text-align: right;
 }
 
 .experience-list-view .experience-company-duration {
   font-weight: 500;
   font-size: 1rem;
-  color: #D9DFC6; /* Secondary text */
+  color: #F4F4F4; /* Secondary text */
   margin-bottom: 0.5rem;
   text-align: right;
 }
@@ -634,7 +634,7 @@ export default {
 .experience-detail-view h2 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
-  color: #D9DFC6; /* Primary text */
+  color: #F4F4F4; /* Primary text */
   text-align: left;
 }
 
@@ -649,7 +649,7 @@ export default {
 .experience-detail-view .experience-description ul {
   font-size: 1rem;
   line-height: 1.6;
-  color: #D9DFC6; /* Secondary text */
+  color: #F4F4F4; /* Secondary text */
   max-width: none;
   text-align: left;
 }
@@ -660,7 +660,7 @@ export default {
   font-weight: 400;
   list-style-type: none; /* This removes the bullet point */
   padding-left: 0; 
-  color: #D9DFC6; /* Primary text */
+  color: #F4F4F4; /* Primary text */
   margin-bottom: 0.5rem;
 }
 
@@ -677,7 +677,7 @@ export default {
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
-  color: #D9DFC6; /* Secondary text */
+  color: #F4F4F4; /* Secondary text */
   margin-bottom: 0;
 }
 
@@ -701,7 +701,7 @@ export default {
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #D9DFC6; /* Primary text */
+  color: #F4F4F4; /* Primary text */
   text-align: left;
   margin-bottom: 1rem;
   
@@ -710,14 +710,14 @@ export default {
 .about-content p {
   font-weight: 400;
   font-size: 0.9rem;
-  color: #D9DFC6; /* Secondary text */
+  color: #F4F4F4; /* Secondary text */
   line-height: 1.6;
   margin-bottom: 0;
   text-align: left;
 }
 
 .about-content p strong {
-  color: #D9DFC6; /* Primary text */
+  color: #F4F4F4; /* Primary text */
   font-weight: 600;
   margin-top: 1rem;
 }
@@ -737,8 +737,8 @@ export default {
 }
 
 .resume-download:hover {
-  background-color: #121212;
-  color: #121212; /* "The rest" */
+  background-color: #222831;
+  color: #222831; /* "The rest" */
   opacity: 1 !important;
   transform: translateY(-3px);
 }
@@ -758,7 +758,7 @@ export default {
 
 /* Apply specific styles to the links for prominence and consistent formatting */
 .contact-content.centered-links a {
-  color: #D9DFC6; /* "The rest" */
+  color: #F4F4F4; /* "The rest" */
   text-decoration: none;
   transition: opacity 01s ease;
   font-size: 0.9rem;
