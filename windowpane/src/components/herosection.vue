@@ -50,6 +50,23 @@
               contact
             </div>
           </nav>
+          <div class="liminal-toggle-wrapper">
+              <svg 
+                id="liminal-toggle"
+                width="32" 
+                height="32" 
+                viewBox="0 0 32 32" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="1.5" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Toggle Liminal Mode</title>
+                <rect x="2" y="2" width="28" height="28" />
+                <rect x="6" y="6" width="20" height="20" />
+                <rect x="10" y="10" width="12" height="12" />
+              </svg>
+          </div>
         </div>
 
         <div class="right-column">
@@ -313,6 +330,8 @@ export default {
   flex-wrap: nowrap;
   width: 100%;
   align-items: stretch;
+  position: relative;
+  z-index: 2;
 }
 
 .left-column {
@@ -844,6 +863,21 @@ export default {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.liminal-toggle-wrapper {
+  margin-top: 0.5rem; /* Adds some space between the nav and the icon */
+}
+
+#liminal-toggle {
+  color: #B89A6A; /* Sets the icon color to your Amber accent */
+  cursor: pointer; /* Makes the mouse cursor a pointer on hover */
+  transition: all 0.3s ease; /* Prepares it for hover animations */
+}
+
+/* A simple hover effect to show it's interactive */
+#liminal-toggle:hover {
+  opacity: 0.7;
 }
 
 /* --- Mobile Responsiveness --- */
