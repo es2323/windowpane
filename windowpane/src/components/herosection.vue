@@ -50,11 +50,11 @@
               contact
             </div>
           </nav>
-          <div class="liminal-toggle-wrapper">
+          <div class="liminal-toggle-wrapper" @click="toggleLiminalMode">
               <svg 
   id="liminal-toggle"
-  width="22" 
-  height="22" 
+  width="20" 
+  height="20" 
   viewBox="0 0 338 338" 
   fill="currentColor" 
   xmlns="http://www.w3.org/2000/svg"
@@ -183,7 +183,7 @@ export default {
       activeSection: 'home', // Default to home
       selectedProject: null, // Holds the currently selected project for detail view
       selectedExperience: null, // NEW: Holds the currently selected experience for detail view
-
+      isLiminalMode: false,
 
       projects: [
         {
@@ -282,7 +282,14 @@ export default {
     },
     backToExperienceList() {
       this.selectedExperience = null;
-    }
+    },
+    toggleLiminalMode() {
+    // This flips our state variable between true and false
+    this.isLiminalMode = !this.isLiminalMode;
+    
+    // This adds or removes a class from the main <body> tag of the page
+    document.body.classList.toggle('liminal-mode-active');
+  }
   }
 }
 </script>
