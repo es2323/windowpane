@@ -52,19 +52,15 @@
           </nav>
           <div class="liminal-toggle-wrapper">
               <svg 
-                id="liminal-toggle"
-                width="32" 
-                height="32" 
-                viewBox="0 0 32 32" 
-                fill="none" 
-                stroke="currentColor" 
-                stroke-width="1.5" 
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Toggle Liminal Mode</title>
-                <rect x="2" y="2" width="28" height="28" />
-                <rect x="6" y="6" width="20" height="20" />
-                <rect x="10" y="10" width="12" height="12" />
+  id="liminal-toggle"
+  width="22" 
+  height="22" 
+  viewBox="0 0 338 338" 
+  fill="currentColor" 
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <title>Toggle Liminal Mode</title>
+  <path d="M129.7,135.3H0v24h153.7V5.2h-24V135.3z M207.8,135.1V5.4h-24v153.7H338v-24H207.8z M0,202.7h129.7v130.1h24V178.7H0V202.7z M183.9,332.6h23.9V202.9H338v-24H183.9V332.6z"/>
               </svg>
           </div>
         </div>
@@ -866,7 +862,7 @@ export default {
 }
 
 .liminal-toggle-wrapper {
-  margin-top: 0.5rem; /* Adds some space between the nav and the icon */
+  margin-top: 0.2rem; /* Adds some space between the nav and the icon */
 }
 
 #liminal-toggle {
