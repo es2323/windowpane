@@ -70,46 +70,84 @@ methods: {
       }
     };
 
-    p.draw = () => {
-      p.background(this.backgroundColor);
+    // This is inside the sketch(p) method in P5AnimationBackground.vue
 
-      for (let particle of particles) {
-        particle.update();
-        particle.draw();
-      }
-      
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          
-          // --- OPTIMIZATION 2: Use squared distance to avoid slow square roots ---
-          const dx = particles[i].pos.x - particles[j].pos.x;
-          const dy = particles[i].pos.y - particles[j].pos.y;
-          const d_squared = dx * dx + dy * dy;
+p.draw = () => {
+  // Check if Liminal Mode is active on every frame
+  const isLiminal = document.body.classList.contains('liminal-mode-active');
 
-          if (d_squared < connectDistance_squared) {
-            const d = Math.sqrt(d_squared); // Only calculate sqrt when we absolutely need it
-            const alpha = p.map(d, 0, connectDistance, 255, 0);
-            const lineColorWithAlpha = p.color(this.lineColor);
-            lineColorWithAlpha.setAlpha(alpha);
-            p.strokeWeight(0.2);
-            p.stroke(lineColorWithAlpha);
-            p.line(particles[i].pos.x, particles[i].pos.y, particles[j].pos.x, particles[j].pos.y);
+  // --- 1. Set the Background ---
+  if (isLiminal) {
+    // In Liminal Mode, use a semi-transparent background for a "ghosting" tracer effect
+    p.background (255, 251, 235); // Dark Charcoal with some transparency
+  } else {
+    // In normal mode, use the solid background color prop
+    p.background(this.backgroundColor);
+  }
+
+  // --- 2. Set the Particle and Line Colors ---
+  let particleColorToUse = this.particleColor;
+  let lineColorToUse = this.lineColor;
+
+  if (isLiminal) {
+    // In Liminal Mode, override with fluorescent/digital green colors
+    particleColorToUse = '#FFFBEB'; // Fluorescent Green for particles
+    lineColorToUse = '#B2A4D4';     // Digital Green for lines
+  }
+  
+  // Update and draw all particles (no changes needed here)
+  for (let particle of particles) {
+    particle.update();
+    // We now pass the correct color into the draw method
+    p.noStroke();
+    p.fill(particleColorToUse);
+    p.circle(particle.pos.x, particle.pos.y, particle.size);
+  }
+  
+  // Connect particles to each other (no changes needed in the logic)
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      const dx = particles[i].pos.x - particles[j].pos.x;
+      const dy = particles[i].pos.y - particles[j].pos.y;
+      const d_squared = dx * dx + dy * dy;
+
+      if (d_squared < connectDistance_squared) {
+        const d = Math.sqrt(d_squared);
+        const alpha = p.map(d, 0, connectDistance, 255, 0);
+        
+        // We now use the correct color variable here
+        const lineColorWithAlpha = p.color(lineColorToUse);
+        lineColorWithAlpha.setAlpha(alpha);
+              if (isLiminal) {
+            p.strokeWeight(1.5); // <-- Use a thicker line in Liminal Mode
+          } else {
+            p.strokeWeight(0.2); // <-- Keep the thin line in normal mode
           }
-        }
+        p.stroke(lineColorWithAlpha);
+        p.line(particles[i].pos.x, particles[i].pos.y, particles[j].pos.x, particles[j].pos.y);
       }
-      // The mouse connection part is already efficient enough and doesn't need changes.
-      for (let particle of particles) {
-          const d = p.dist(p.mouseX, p.mouseY, particle.pos.x, particle.pos.y);
-          if (d < connectDistance + 20) {
-            const alpha = p.map(d, 0, connectDistance + 30, 200, 0);
-            const lineColorWithAlpha = p.color(this.lineColor);
-            lineColorWithAlpha.setAlpha(alpha);
-            p.strokeWeight(0.2);
-            p.stroke(lineColorWithAlpha);
-            p.line(p.mouseX, p.mouseY, particle.pos.x, particle.pos.y);
+    }
+  }
+
+  // The mouse connection part also needs to use the correct line color
+  for (let particle of particles) {
+      const d = p.dist(p.mouseX, p.mouseY, particle.pos.x, particle.pos.y);
+      if (d < connectDistance + 30) {
+        const alpha = p.map(d, 0, connectDistance + 30, 200, 0);
+
+        // And here...
+        const lineColorWithAlpha = p.color(lineColorToUse);
+        lineColorWithAlpha.setAlpha(alpha);
+        if (isLiminal) {
+            p.strokeWeight(1); // <-- Use a thicker line in Liminal Mode
+          } else {
+            p.strokeWeight(0.2); // <-- Keep the thin line in normal mode
           }
+        p.stroke(lineColorWithAlpha);
+        p.line(p.mouseX, p.mouseY, particle.pos.x, particle.pos.y);
       }
-    };
+  }
+};
 
     p.windowResized = () => {
       const container = this.$refs.canvasContainer;
@@ -127,6 +165,9 @@ methods: {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0; /* Changed from -1 to 0, ensure hero-section content has z-index: 1 */
+  z-index: 0; 
+  .p5-canvas-container {
+  transition: filter 1s ease-in-out;
+}/* Changed from -1 to 0, ensure hero-section content has z-index: 1 */
 }
 </style>

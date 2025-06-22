@@ -2,8 +2,8 @@
   <section class="hero-section">
         <P5AnimationBackground
       :background-color="'#222831'"
-      :particle-color="'#F4F4F4'"
-      :line-color="'#F4F4F4'"
+      :particle-color="'#FFFBEB'"
+      :line-color="'#FFFBEB'"
     />
     <div class="container">
       <div class="two-column" :class="{ 'about-full-layout': activeSection === 'about' }">
@@ -342,20 +342,20 @@ export default {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  color: #F4F4F4; /* Primary text */
+  color: #FFFBEB; /* Primary text */
 }
 
 .left-column h1 {
   font-size: 3.3rem;
   margin-bottom: 0.5rem;
-  color: #F4F4F4; /* Primary text */
+  color: #FFFBEB; /* Primary text */
   text-align: left;
 }
 
 .left-column .large-text {
   font-size: 1rem;
   line-height: 1.6;
-  color: #F4F4F4; /* Secondary text */
+  color: #FFFBEB; /* Secondary text */
   margin-top: 0;
   text-align: left;
 }
@@ -363,7 +363,7 @@ export default {
 .right-column {
   flex-grow: 1;
   min-height: 400px;
-  color: #F4F4F4; /* Primary text */
+  color: #FFFBEB; /* Primary text */
   display: flex;
   flex-direction: column;
   position: relative;
@@ -389,7 +389,7 @@ export default {
 .about-para {
   font-size: 0.8rem;
   line-height: 1.5;
-  color: #F4F4F4; /* Secondary text */
+  color: #FFFBEB; /* Secondary text */
   max-width: 180px;
   margin-top: auto;
   margin-bottom: 100;
@@ -412,7 +412,7 @@ export default {
   cursor: pointer;
   transition: all 0.2s ease;
   text-transform: capitalize;
-  color: #F4F4F4; /* Primary text */
+  color: #FFFBEB; /* Primary text */
   text-align: left;
   position: relative; /* Needed for the pseudo-element */
   padding-bottom: 2px;
@@ -443,7 +443,7 @@ export default {
 .nav-item.active {
   font-weight: 700;
   opacity: 1;
-  color: #F4F4F4; /* "The rest" (now matches secondary text) */
+  color: #FFFBEB; /* "The rest" (now matches secondary text) */
 }
 
 .project-list-view {
@@ -486,7 +486,7 @@ export default {
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #F4F4F4; /* Primary text */
+  color: #FFFBEB; /* Primary text */
   text-align: right;
   
   /* This part was perfect! It makes the color change smooth. */
@@ -498,7 +498,7 @@ export default {
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #F4F4F4; /* Primary text */
+  color: #FFFBEB; /* Primary text */
   text-align: right;
   transition: color 0.3s ease;
 }
@@ -506,7 +506,7 @@ export default {
 .project-list-view .project-short-description {
   font-weight: 400;
   font-size: 0.9rem;
-  color: #F4F4F4; /* Secondary text */
+  color: #FFFBEB; /* Secondary text */
   line-height: 1.4;
   margin-bottom: 0;
   text-align: right;
@@ -530,7 +530,7 @@ export default {
 .project-detail-view h2 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
-  color: #F4F4F4; /* Primary text */
+  color: #FFFBEB; /* Primary text */
   text-align: left;
 }
 
@@ -538,14 +538,14 @@ export default {
   font-size: 1.2rem;
   margin-top: 2rem;
   margin-bottom: 0.8rem;
-  color: #F4F4F4; /* Primary text */
+  color: #FFFBEB; /* Primary text */
   text-align: left;
 }
 
 .project-detail-view p {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #F4F4F4; /* Secondary text */
+  color: #FFFBEB; /* Secondary text */
   max-width: none;
   text-align: left;
 }
@@ -563,7 +563,7 @@ export default {
 }
 
 .project-links a {
-  color: #F4F4F4; /* "The rest" */
+  color: #FFFBEB; /* "The rest" */
   transition: opacity 0.2s ease;
 }
 
@@ -576,7 +576,7 @@ export default {
 .back-button {
   background: none;
   border: none;
-  color: #F4F4F4; /* Primary text */
+  color: #FFFBEB; /* Primary text */
   font-size: 0.9rem;
   cursor: pointer;
   text-align: left;
@@ -632,14 +632,14 @@ export default {
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #F4F4F4; /* Primary text */
+  color: #FFFBEB; /* Primary text */
   text-align: right;
 }
 
 .experience-list-view .experience-company-duration {
   font-weight: 500;
   font-size: 1rem;
-  color: #F4F4F4; /* Secondary text */
+  color: #FFFBEB; /* Secondary text */
   margin-bottom: 0.5rem;
   text-align: right;
 }
@@ -672,7 +672,7 @@ export default {
 .experience-detail-view h2 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
-  color: #F4F4F4; /* Primary text */
+  color: #FFFBEB; /* Primary text */
   text-align: left;
 }
 
@@ -687,7 +687,7 @@ export default {
 .experience-detail-view .experience-description ul {
   font-size: 1rem;
   line-height: 1.6;
-  color: #F4F4F4; /* Secondary text */
+  color: #FFFBEB; /* Secondary text */
   max-width: none;
   text-align: left;
 }
@@ -698,7 +698,7 @@ export default {
   font-weight: 400;
   list-style-type: none; /* This removes the bullet point */
   padding-left: 0; 
-  color: #F4F4F4; /* Primary text */
+  color: #FFFBEB; /* Primary text */
   margin-bottom: 0.5rem;
 }
 
@@ -715,7 +715,7 @@ export default {
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
-  color: #F4F4F4; /* Secondary text */
+  color: #FFFBEB; /* Secondary text */
   margin-bottom: 0;
 }
 
@@ -739,7 +739,7 @@ export default {
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #F4F4F4; /* Primary text */
+  color: #FFFBEB; /* Primary text */
   text-align: left;
   margin-bottom: 1rem;
   
@@ -748,14 +748,14 @@ export default {
 .about-content p {
   font-weight: 400;
   font-size: 0.9rem;
-  color: #F4F4F4; /* Secondary text */
+  color: #FFFBEB; /* Secondary text */
   line-height: 1.6;
   margin-bottom: 0;
   text-align: left;
 }
 
 .about-content p strong {
-  color: #F4F4F4; /* Primary text */
+  color: #FFFBEB; /* Primary text */
   font-weight: 600;
   margin-top: 1rem;
 }
@@ -785,8 +785,8 @@ export default {
   box-sizing: border-box; /* Important for border calculations */
   
   /* The visible border style. Use your new accent color! */
-  border-top: 1px solid #F4F4F4;
-  border-left: 1px solid #F4F4F4;
+  border-top: 1px solid #FFFBEB;
+  border-left: 1px solid #FFFBEB;
 
   /* Apply the animation */
   animation: draw-border 1s ease-out forwards;
@@ -803,8 +803,8 @@ export default {
   box-sizing: border-box;
 
   /* The visible border style */
-  border-bottom: 1px solid #F4F4F4;
-  border-right: 1px solid #F4F4F4;
+  border-bottom: 1px solid #FFFBEB;
+  border-right: 1px solid #FFFBEB;
   
   /* Apply the animation with a delay so it starts after the first two lines */
   animation: draw-border 1s ease-out 1s forwards;
@@ -832,7 +832,7 @@ export default {
 
 /* Apply specific styles to the links for prominence and consistent formatting */
 .contact-content.centered-links a {
-  color: #F4F4F4; /* "The rest" */
+  color: #FFFBEB; /* "The rest" */
   text-decoration: none;
   transition: opacity 01s ease;
   font-size: 0.9rem;
@@ -882,6 +882,88 @@ export default {
 #liminal-toggle:hover {
   opacity: 0.7;
 }
+
+/* --- Liminal Mode Easter Egg Styles --- */
+
+/* 1. THE GLOBAL COLOR SHIFT
+------------------------------------ */
+
+/* Change all primary text to a fluorescent green */
+.liminal-mode-active .left-column,
+.liminal-mode-active .right-column,
+.liminal-mode-active h1, .liminal-mode-active h2, .liminal-mode-active h3, .liminal-mode-active p,
+.liminal-mode-active .back-button,
+.liminal-mode-active .contact-content.centered-links a {
+  color: #3D304C;
+  transition: color 0.5s ease; /* Smooth color transition */
+  
+}
+
+.liminal-mode-active .hero-section {
+  background-color: #3D304C;
+}
+
+/* Change all accent/hover colors to a digital green */
+.liminal-mode-active .nav-item:hover,
+.liminal-mode-active .project-list-view .project-item:hover h3,
+.liminal-mode-active .experience-list-view .experience-item:hover h3,
+.liminal-mode-active .back-button:hover,
+.liminal-mode-active .project-links a:hover,
+.liminal-mode-active .contact-content.centered-links a:hover {
+  color: #B2A4D4;
+}
+
+/* Change the animated border color */
+.liminal-mode-active .container::before,
+.liminal-mode-active .container::after {
+  border-color: #B2A4D4;
+  transition: border-color 0.5s ease;
+}
+
+/* Invert the resume button's hover state */
+.liminal-mode-active .resume-download:hover {
+  background-color: #B2A4D4; /* Fill with digital green */
+  color: #1a2b20; /* Use a dark, eerie green for the text */
+}
+
+
+/* 2. THE ICON'S NEW STATE
+------------------------------------ */
+
+/* The icon itself glows green when Liminal Mode is on */
+.liminal-mode-active #liminal-toggle {
+  color: #B2A4D4;
+  transform: rotate(45deg); /* Rotate it to an 'X' to signify it's active */
+}
+
+/* A more glitchy hover effect for the icon when active */
+.liminal-mode-active #liminal-toggle:hover {
+  opacity: 1;
+  transform: rotate(45deg) scale(1.1);
+}
+
+
+
+/* --- LIMINAL MODE TEXT COLOR FIXES --- */
+
+/* Force nav items and their active state to dark purple */
+.liminal-mode-active .nav-item,
+.liminal-mode-active .nav-item.active {
+  color: #3D304C; /* Darkened Purple */
+}
+
+/* Force project/experience descriptions to dark purple */
+.liminal-mode-active .project-short-description,
+.liminal-mode-active .experience-short-description,
+.liminal-mode-active .experience-company-duration {
+  color: #3D304C;
+}
+
+/* Ensure the hover color for links is the new Lavender accent */
+.liminal-mode-active .nav-item:hover {
+    color: #B2A4D4; /* Royal Lavender */
+}
+
 
 /* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
