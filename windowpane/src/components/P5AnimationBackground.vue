@@ -46,20 +46,25 @@ methods: {
           this.period = period;
           this.speed = speed;
           this.phase = p.random(p.TWO_PI);
+          this.swell_phase = p.random(p.TWO_PI);
+          this.swell_speed = p.random(0.007, 0.03);
+          this.swell_amplitude = p.random(5, 30);
         }
 
         update() {
           this.phase += this.speed;
+          this.swell_phase += this.swell_speed;
         }
 
         draw(waveColor) {
+          let y_offset = p.sin(this.swell_phase) * this.swell_amplitude;
           p.beginShape();
           p.noStroke();
           p.fill(waveColor);
           p.vertex(0, p.height);
           for (let x = 0; x <= p.width; x += 10) {
             let angle = this.phase + (x / this.period) * p.TWO_PI;
-            let waveY = this.y + p.sin(angle) * this.amplitude;
+            let waveY = this.y + y_offset + p.sin(angle) * this.amplitude;
             p.vertex(x, waveY);
           }
           p.vertex(p.width, p.height);
@@ -77,10 +82,10 @@ methods: {
 
         const waveCount = 3;
         for (let i = 0; i < waveCount; i++) {
-          let y = p.height - p.height * 0.1 + (i * 25);
-          let amplitude = p.random(15, 30);
-          let period = p.random(300, 500);
-          let speed = p.random(0.01, 0.02);
+          let y = p.height - p.height * 0.12 + (i * 20);
+          let amplitude = p.random(15, 8);
+          let period = p.random(500, 500);
+          let speed = p.random(0.02, 0.02);
           waves.push(new Wave(y, amplitude, period, speed));
         }
       };
@@ -95,7 +100,7 @@ methods: {
           p.background(this.backgroundColor); // Default: Dark Charcoal
         }
 
-        const defaultColors = ['#B89A6A55', '#B89A6A88', '#B89A6A'];
+        const defaultColors = ['#205781FF', '#4F959D', '#98D2C0'];
         const liminalColors = ['#B2A4D455', '#B2A4D488', '#B2A4D4'];
 
         for (let i = 0; i < waves.length; i++) {
