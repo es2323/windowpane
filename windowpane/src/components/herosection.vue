@@ -942,26 +942,37 @@ export default {
   transform: rotate(45deg) scale(1.1);
 }
 
+/* --- LIMINAL MODE TEXT COLOR FIXES (V2 - More Specific) --- */
 
-
-/* --- LIMINAL MODE TEXT COLOR FIXES --- */
-
-/* Force nav items and their active state to dark purple */
-.liminal-mode-active .nav-item,
-.liminal-mode-active .nav-item.active {
-  color: #3D304C; /* Darkened Purple */
+/* This specifically targets the titles in the project and experience lists */
+.liminal-mode-active .project-list-view .project-item h3,
+.liminal-mode-active .experience-list-view .experience-item h3 {
+  color: #3D304C !important; /* Darkened Purple */
 }
 
-/* Force project/experience descriptions to dark purple */
+/* This handles the hover state for the titles in liminal mode */
+.liminal-mode-active .project-list-view .project-item:hover h3,
+.liminal-mode-active .experience-list-view .experience-item:hover h3 {
+  color: #B2A4D4 !important; /* Royal Lavender on hover */
+}
+
+/* These are the other general text fixes for descriptions, nav, etc. */
+.liminal-mode-active .nav-item,
+.liminal-mode-active .nav-item.active,
 .liminal-mode-active .project-short-description,
 .liminal-mode-active .experience-short-description,
-.liminal-mode-active .experience-company-duration {
+.liminal-mode-active .experience-company-duration,
+.liminal-mode-active .large-text,
+.liminal-mode-active .about-para,
+.liminal-mode-active .project-detail-view p,
+.liminal-mode-active .experience-description li,
+.liminal-mode-active .experience-skills p {
   color: #3D304C;
 }
 
-/* Ensure the hover color for links is the new Lavender accent */
+/* And the nav hover state */
 .liminal-mode-active .nav-item:hover {
-    color: #B2A4D4; /* Royal Lavender */
+  color: #B2A4D4;
 }
 
 

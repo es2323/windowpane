@@ -34,127 +34,88 @@ export default {
   },
 // In P5AnimationBackground.vue
 methods: {
-  sketch(p) {
-    let particles = [];
-    
-    // --- OPTIMIZATION 1: Reduced particle count ---
-    const numParticles = window.innerWidth > 768 ? 110 : 30;
-    const connectDistance = 150;
-    const connectDistance_squared = connectDistance * connectDistance; // Pre-calculate this
+    sketch(p) {
+      // This array will hold our wave objects. It's declared at the top level.
+      let waves = [];
 
-    class Particle {
-      constructor() {
-        this.pos = p.createVector(p.random(p.width), p.random(p.height));
-        this.vel = p.createVector(p.random(-0.4, 0.4), p.random(-0.4, 0.4));
-        this.size = 0.5;
-      }
-      update() { this.pos.add(this.vel); this.edges(); }
-      draw() { p.noStroke(); p.fill(this.particleColor); p.circle(this.pos.x, this.pos.y, this.size); }
-      edges() {
-        if (this.pos.x < 0) this.pos.x = p.width;
-        if (this.pos.x > p.width) this.pos.x = 0;
-        if (this.pos.y < 0) this.pos.y = p.height;
-        if (this.pos.y > p.height) this.pos.y = 0;
-      }
-    }
+      // This class defines a single, undulating wave layer.
+      class Wave {
+        constructor(y, amplitude, period, speed) {
+          this.y = y;
+          this.amplitude = amplitude;
+          this.period = period;
+          this.speed = speed;
+          this.phase = p.random(p.TWO_PI);
+        }
 
-    p.setup = () => {
-      const container = this.$refs.canvasContainer;
-      p.createCanvas(container.clientWidth, container.clientHeight);
-      
-      // --- OPTIMIZATION 3: Set a stable frame rate ---
-      p.frameRate(30); 
-      
-      for (let i = 0; i < numParticles; i++) {
-        particles.push(new Particle());
-      }
-    };
+        update() {
+          this.phase += this.speed;
+        }
 
-    // This is inside the sketch(p) method in P5AnimationBackground.vue
-
-p.draw = () => {
-  // Check if Liminal Mode is active on every frame
-  const isLiminal = document.body.classList.contains('liminal-mode-active');
-
-  // --- 1. Set the Background ---
-  if (isLiminal) {
-    // In Liminal Mode, use a semi-transparent background for a "ghosting" tracer effect
-    p.background (255, 251, 235); // Dark Charcoal with some transparency
-  } else {
-    // In normal mode, use the solid background color prop
-    p.background(this.backgroundColor);
-  }
-
-  // --- 2. Set the Particle and Line Colors ---
-  let particleColorToUse = this.particleColor;
-  let lineColorToUse = this.lineColor;
-
-  if (isLiminal) {
-    // In Liminal Mode, override with fluorescent/digital green colors
-    particleColorToUse = '#FFFBEB'; // Fluorescent Green for particles
-    lineColorToUse = '#B2A4D4';     // Digital Green for lines
-  }
-  
-  // Update and draw all particles (no changes needed here)
-  for (let particle of particles) {
-    particle.update();
-    // We now pass the correct color into the draw method
-    p.noStroke();
-    p.fill(particleColorToUse);
-    p.circle(particle.pos.x, particle.pos.y, particle.size);
-  }
-  
-  // Connect particles to each other (no changes needed in the logic)
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i + 1; j < particles.length; j++) {
-      const dx = particles[i].pos.x - particles[j].pos.x;
-      const dy = particles[i].pos.y - particles[j].pos.y;
-      const d_squared = dx * dx + dy * dy;
-
-      if (d_squared < connectDistance_squared) {
-        const d = Math.sqrt(d_squared);
-        const alpha = p.map(d, 0, connectDistance, 255, 0);
-        
-        // We now use the correct color variable here
-        const lineColorWithAlpha = p.color(lineColorToUse);
-        lineColorWithAlpha.setAlpha(alpha);
-              if (isLiminal) {
-            p.strokeWeight(1.5); // <-- Use a thicker line in Liminal Mode
-          } else {
-            p.strokeWeight(0.2); // <-- Keep the thin line in normal mode
+        draw(waveColor) {
+          p.beginShape();
+          p.noStroke();
+          p.fill(waveColor);
+          p.vertex(0, p.height);
+          for (let x = 0; x <= p.width; x += 10) {
+            let angle = this.phase + (x / this.period) * p.TWO_PI;
+            let waveY = this.y + p.sin(angle) * this.amplitude;
+            p.vertex(x, waveY);
           }
-        p.stroke(lineColorWithAlpha);
-        p.line(particles[i].pos.x, particles[i].pos.y, particles[j].pos.x, particles[j].pos.y);
+          p.vertex(p.width, p.height);
+          p.endShape(p.CLOSE);
+        }
       }
-    }
-  }
 
-  // The mouse connection part also needs to use the correct line color
-  for (let particle of particles) {
-      const d = p.dist(p.mouseX, p.mouseY, particle.pos.x, particle.pos.y);
-      if (d < connectDistance + 30) {
-        const alpha = p.map(d, 0, connectDistance + 30, 200, 0);
+      // SETUP runs once at the start.
+      p.setup = () => {
+        const container = this.$refs.canvasContainer;
+        p.createCanvas(container.clientWidth, container.clientHeight);
+        p.frameRate(30);
 
-        // And here...
-        const lineColorWithAlpha = p.color(lineColorToUse);
-        lineColorWithAlpha.setAlpha(alpha);
+        waves = []; // Clear the array just in case
+
+        const waveCount = 3;
+        for (let i = 0; i < waveCount; i++) {
+          let y = p.height - p.height * 0.1 + (i * 25);
+          let amplitude = p.random(15, 30);
+          let period = p.random(300, 500);
+          let speed = p.random(0.01, 0.02);
+          waves.push(new Wave(y, amplitude, period, speed));
+        }
+      };
+
+      // DRAW runs on every frame.
+      p.draw = () => {
+        const isLiminal = document.body.classList.contains('liminal-mode-active');
+
         if (isLiminal) {
-            p.strokeWeight(1); // <-- Use a thicker line in Liminal Mode
-          } else {
-            p.strokeWeight(0.2); // <-- Keep the thin line in normal mode
-          }
-        p.stroke(lineColorWithAlpha);
-        p.line(p.mouseX, p.mouseY, particle.pos.x, particle.pos.y);
-      }
-  }
-};
+          p.background(255, 251, 235); // Liminal: Light Cream
+        } else {
+          p.background(this.backgroundColor); // Default: Dark Charcoal
+        }
 
-    p.windowResized = () => {
-      const container = this.$refs.canvasContainer;
-      p.resizeCanvas(container.clientWidth, container.clientHeight);
-    };
+        const defaultColors = ['#B89A6A55', '#B89A6A88', '#B89A6A'];
+        const liminalColors = ['#B2A4D455', '#B2A4D488', '#B2A4D4'];
+
+        for (let i = 0; i < waves.length; i++) {
+          waves[i].update();
+          let colorToUse = isLiminal ? liminalColors[i] : defaultColors[i];
+          waves[i].draw(colorToUse);
+        }
+      };
+
+      // WINDOWRESIZED runs when the browser window changes size.
+      p.windowResized = () => {
+        const container = this.$refs.canvasContainer;
+        p.resizeCanvas(container.clientWidth, container.clientHeight);
+        // We re-run setup to recalculate wave positions for the new size
+        p.setup();
+      };
+    }
   }
-}
+
+// ... don't forget the closing brace for the export default
 }
 </script>
 
