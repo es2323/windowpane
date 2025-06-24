@@ -10,7 +10,7 @@ export default {
   props: {
     backgroundColor: {
       type: String,
-      default: '#000000'
+      default: '#222831'
     },
     particleColor: {
       type: String,
@@ -18,7 +18,7 @@ export default {
     },
     lineColor: {
       type: String,
-      default: '#FFFFFF'
+      default: '#B89A6A'
     }
   },
   data() {
@@ -42,6 +42,8 @@ methods: {
       class Wave {
         constructor(y, amplitude, period, speed) {
           this.y = y;
+          this.original_y = y; 
+          this.target_y = y; 
           this.amplitude = amplitude;
           this.period = period;
           this.speed = speed;
@@ -51,13 +53,32 @@ methods: {
           this.swell_amplitude = p.random(5, 30);
         }
 
-        update() {
+        // Replace the entire update() method with this new version
+        update(isLiminal) {
+          // This part still makes the wave scroll horizontally
           this.phase += this.speed;
-          this.swell_phase += this.swell_speed;
+          this.swell_phase += this.swell_speed; 
+
+          // Check if the wave is very close to its current target
+          if (Math.abs(this.y - this.target_y) < 1) {
+            // If it has arrived, pick a new target
+            if (isLiminal) {
+              // In Liminal Mode, the new target is a random spot on the screen
+              this.target_y = p.random(0, p.height);
+            } else {
+              // In Default Mode, the new target is its original home position
+              this.target_y = this.original_y;
+            }
+          }
+
+          // On every frame, smoothly move (lerp) towards the target position.
+          // A smaller last number (e.g., 0.02) makes the transition slower and smoother.
+          this.y = p.lerp(this.y, this.target_y, 0.02);
         }
 
         draw(waveColor) {
           let y_offset = p.sin(this.swell_phase) * this.swell_amplitude;
+
           p.beginShape();
           p.noStroke();
           p.fill(waveColor);
@@ -78,7 +99,7 @@ methods: {
         p.createCanvas(container.clientWidth, container.clientHeight);
         p.frameRate(30);
 
-        waves = []; // Clear the array just in case
+        waves = []; 
 
         const waveCount = 3;
         for (let i = 0; i < waveCount; i++) {
@@ -95,17 +116,19 @@ methods: {
         const isLiminal = document.body.classList.contains('liminal-mode-active');
 
         if (isLiminal) {
-          p.background(255, 251, 235); // Liminal: Light Cream
+          p.background(1, 22, 39); // Deep Sea Blue
         } else {
-          p.background(this.backgroundColor); // Default: Dark Charcoal
+          p.background(this.backgroundColor);
         }
 
-        const defaultColors = ['#205781FF', '#4F959D', '#98D2C0'];
-        const liminalColors = ['#B2A4D455', '#B2A4D488', '#B2A4D4'];
+        // FIX #4: Updated color arrays to match the new wave count
+        const defaultColors = ['#205781', '#4F959D', '#98D2C0'];
+        
+        const underwaterColors = ['#94B4C1', '#547792', '#213448'];
 
         for (let i = 0; i < waves.length; i++) {
-          waves[i].update();
-          let colorToUse = isLiminal ? liminalColors[i] : defaultColors[i];
+          waves[i].update(isLiminal);
+          let colorToUse = isLiminal ? underwaterColors[i % underwaterColors.length] : defaultColors[i % defaultColors.length];
           waves[i].draw(colorToUse);
         }
       };

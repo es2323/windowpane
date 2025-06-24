@@ -883,48 +883,8 @@ export default {
   opacity: 0.7;
 }
 
-/* --- Liminal Mode Easter Egg Styles --- */
 
-/* 1. THE GLOBAL COLOR SHIFT
------------------------------------- */
 
-/* Change all primary text to a fluorescent green */
-.liminal-mode-active .left-column,
-.liminal-mode-active .right-column,
-.liminal-mode-active h1, .liminal-mode-active h2, .liminal-mode-active h3, .liminal-mode-active p,
-.liminal-mode-active .back-button,
-.liminal-mode-active .contact-content.centered-links a {
-  color: #3D304C;
-  transition: color 0.5s ease; /* Smooth color transition */
-  
-}
-
-.liminal-mode-active .hero-section {
-  background-color: #3D304C;
-}
-
-/* Change all accent/hover colors to a digital green */
-.liminal-mode-active .nav-item:hover,
-.liminal-mode-active .project-list-view .project-item:hover h3,
-.liminal-mode-active .experience-list-view .experience-item:hover h3,
-.liminal-mode-active .back-button:hover,
-.liminal-mode-active .project-links a:hover,
-.liminal-mode-active .contact-content.centered-links a:hover {
-  color: #B2A4D4;
-}
-
-/* Change the animated border color */
-.liminal-mode-active .container::before,
-.liminal-mode-active .container::after {
-  border-color: #B2A4D4;
-  transition: border-color 0.5s ease;
-}
-
-/* Invert the resume button's hover state */
-.liminal-mode-active .resume-download:hover {
-  background-color: #B2A4D4; /* Fill with digital green */
-  color: #1a2b20; /* Use a dark, eerie green for the text */
-}
 
 
 /* 2. THE ICON'S NEW STATE
@@ -940,39 +900,6 @@ export default {
 .liminal-mode-active #liminal-toggle:hover {
   opacity: 1;
   transform: rotate(45deg) scale(1.1);
-}
-
-/* --- LIMINAL MODE TEXT COLOR FIXES (V2 - More Specific) --- */
-
-/* This specifically targets the titles in the project and experience lists */
-.liminal-mode-active .project-list-view .project-item h3,
-.liminal-mode-active .experience-list-view .experience-item h3 {
-  color: #3D304C !important; /* Darkened Purple */
-}
-
-/* This handles the hover state for the titles in liminal mode */
-.liminal-mode-active .project-list-view .project-item:hover h3,
-.liminal-mode-active .experience-list-view .experience-item:hover h3 {
-  color: #B2A4D4 !important; /* Royal Lavender on hover */
-}
-
-/* These are the other general text fixes for descriptions, nav, etc. */
-.liminal-mode-active .nav-item,
-.liminal-mode-active .nav-item.active,
-.liminal-mode-active .project-short-description,
-.liminal-mode-active .experience-short-description,
-.liminal-mode-active .experience-company-duration,
-.liminal-mode-active .large-text,
-.liminal-mode-active .about-para,
-.liminal-mode-active .project-detail-view p,
-.liminal-mode-active .experience-description li,
-.liminal-mode-active .experience-skills p {
-  color: #3D304C;
-}
-
-/* And the nav hover state */
-.liminal-mode-active .nav-item:hover {
-  color: #B2A4D4;
 }
 
 
