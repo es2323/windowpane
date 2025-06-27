@@ -113,20 +113,33 @@ methods: {
         p.push();
         p.translate(this.x, this.y);
         
-        p.fill(fishColor);
-        p.noStroke();
-        
-        // Draw the Ichthys shape using two simple, reliable arcs.
-        // 'this.size' now controls the height of the fish.
-        const fishWidth = this.size * 2.5;
-        const fishHeight = this.size;
+          // --- NEW DRAWING LOGIC ---
+  p.noFill();                 // IMPORTANT: We are not filling a shape.
+  p.stroke(fishColor);      // Instead, we are tracing the lines with color.
+  p.strokeWeight(2);        // This controls the thickness of the fish's outline.
+  p.strokeCap(p.ROUND);     // Makes the line ends look softer.
 
-        // Top arc of the fish
-        p.arc(0, 0, fishWidth, fishHeight, p.PI, p.TWO_PI);
-        // Bottom arc of the fish
-        p.arc(0, 0, fishWidth, fishHeight, 0, p.PI);
+  const fishWidth = this.size * 2.5;
+  const fishHeight = this.size * 2;
+  // This offset is the key to making the arcs cross and form a tail
+  const verticalOffset = this.size * 0.15;
 
-        p.pop();
+  // Draw the top arc, with its center slightly BELOW the midline
+  p.arc(
+    0, verticalOffset, 
+    fishWidth, fishHeight, 
+    -p.PI + 0.4, -0.4  // Start and stop angles
+  );
+  
+  // Draw the bottom arc, with its center slightly ABOVE the midline
+  p.arc(
+    0, -verticalOffset,
+    fishWidth, fishHeight,
+    0.4, p.PI - 0.4  // Start and stop angles                  // Anchor point 2 (tail)
+  );
+  // --- END OF NEW LOGIC ---
+
+  p.pop();
       }
     }
 
