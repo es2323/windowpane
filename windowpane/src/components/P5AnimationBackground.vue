@@ -43,37 +43,48 @@ methods: {
         constructor(y, amplitude, period, speed) {
           this.y = y;
           this.original_y = y; 
-          this.target_y = y; 
+          this.target_y = y;
           this.amplitude = amplitude;
+          this.original_amplitude = amplitude;
           this.period = period;
           this.speed = speed;
           this.phase = p.random(p.TWO_PI);
           this.swell_phase = p.random(p.TWO_PI);
           this.swell_speed = p.random(0.007, 0.03);
-          this.swell_amplitude = p.random(5, 30);
+          this.original_swell_amplitude = p.random(5, 10); // Store the original
+          this.swell_amplitude = this.original_swell_amplitude;
         }
 
         // Replace the entire update() method with this new version
         update(isLiminal) {
           // This part still makes the wave scroll horizontally
           this.phase += this.speed;
-          this.swell_phase += this.swell_speed; 
-
-          // Check if the wave is very close to its current target
-          if (Math.abs(this.y - this.target_y) < 1) {
-            // If it has arrived, pick a new target
-            if (isLiminal) {
-              // In Liminal Mode, the new target is a random spot on the screen
-              this.target_y = p.random(0, p.height);
-            } else {
-              // In Default Mode, the new target is its original home position
-              this.target_y = this.original_y;
-            }
+          this.swell_phase += this.swell_speed;
+          let targetY;
+          if (isLiminal) {
+            // In Liminal Mode, the target is the top of the screen.
+            // We subtract the original Y from the full height to get its distance from the top,
+            // preserving the layered spacing.
+            targetY = p.height - this.original_y + 150;
+          } else {
+            // In Default Mode, the target is its original home position.
+            targetY = this.original_y;
           }
 
           // On every frame, smoothly move (lerp) towards the target position.
-          // A smaller last number (e.g., 0.02) makes the transition slower and smoother.
-          this.y = p.lerp(this.y, this.target_y, 0.02);
+          this.y = p.lerp(this.y, targetY, 0.02);
+          // --- DYNAMIC AMPLITUDE LOGIC ---
+          let targetSwellAmplitude;
+          if (isLiminal) {
+            // In Liminal Mode, let's make the waves taller and more dramatic
+                  targetSwellAmplitude = this.original_swell_amplitude * 7.5; // Much bigger swell
+          } else {
+            // In Default Mode, return to the original amplitude
+            targetSwellAmplitude = this.original_swell_amplitude;
+          }
+          // Smoothly transition the current amplitude towards the target
+            this.swell_amplitude = p.lerp(this.swell_amplitude, targetSwellAmplitude, 0.03);
+
         }
 
         draw(waveColor) {
@@ -104,7 +115,7 @@ methods: {
         const waveCount = 3;
         for (let i = 0; i < waveCount; i++) {
           let y = p.height - p.height * 0.12 + (i * 20);
-          let amplitude = p.random(15, 8);
+          let amplitude = p.random(8, 15);
           let period = p.random(500, 500);
           let speed = p.random(0.02, 0.02);
           waves.push(new Wave(y, amplitude, period, speed));
@@ -123,21 +134,34 @@ methods: {
 
         // FIX #4: Updated color arrays to match the new wave count
         const defaultColors = ['#205781', '#4F959D', '#98D2C0'];
-        
-        const underwaterColors = ['#94B4C1', '#547792', '#213448'];
+        const underwaterColors = ['#8E7DBE', '#A5158C', '#090040'];
 
         for (let i = 0; i < waves.length; i++) {
-          waves[i].update(isLiminal);
-          let colorToUse = isLiminal ? underwaterColors[i % underwaterColors.length] : defaultColors[i % defaultColors.length];
-          waves[i].draw(colorToUse);
+         let wave = waves[i];
+          wave.update(isLiminal);
+
+          // --- NEW COLOR BLENDING LOGIC ---
+          let topTargetY = p.height - wave.original_y;
+
+          // Calculate the wave's progress from bottom to top (a value from 0.0 to 1.0)
+          // The 'true' at the end constrains the value, preventing weird color flashes
+          let progress = p.map(wave.y, wave.original_y, topTargetY, 0, 1, true);
+
+          // Create p5.Color objects from your hex codes
+          let fromColor = p.color(defaultColors[i]);
+          let toColor = p.color(underwaterColors[i]);
+
+          // Blend the two colors based on the wave's vertical progress
+          let blendedColor = p.lerpColor(fromColor, toColor, progress);
+
+          // Draw the wave with the smoothly blended color
+          wave.draw(blendedColor);
         }
       };
 
-      // WINDOWRESIZED runs when the browser window changes size.
       p.windowResized = () => {
         const container = this.$refs.canvasContainer;
         p.resizeCanvas(container.clientWidth, container.clientHeight);
-        // We re-run setup to recalculate wave positions for the new size
         p.setup();
       };
     }
