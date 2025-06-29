@@ -2,15 +2,18 @@
   <section class="hero-section">
         <P5AnimationBackground
       :background-color="'#222831'"
-      :particle-color="'#FFFBEB'"
-      :line-color="'#FFFBEB'"
+      :particle-color="'#e6e1d2'"
+      :line-color="'#e6e1d2'"
     />
     <div class="container">
+      <div class="copyright-footer">
+          <span class="copyright-circle">C</span> Enosh Earnest
+        </div>
       <div class="two-column" :class="{ 'about-full-layout': activeSection === 'about' }">
         <div class="left-column">
           <h1>Enosh Earnest</h1>
           <p class="large-text">
-            CS Undergrad & AI Explorer
+            CS Undergrad & Python Developer 
           </p>
 
           <nav class="main-navigation">
@@ -64,7 +67,6 @@
               </svg>
           </div>
         </div>
-
         <div class="right-column">
           <div v-if="activeSection === 'home'" class="content-section fade-in visible">
             <div class="home-content">
@@ -135,12 +137,11 @@
             <div class="about-content">
               <div class="about-grid">
                 <div class="about-main-text">
-                  <h3>Beyond the Code...</h3>   
+                  <h3>Beyond Binary...</h3>   
                   <p>
-                    Hi, I'm Enosh, a Computer Science student and AI enthusiast based in the rocky midlands of the UK. With a passion for computational mathematics, I specialize in crafting intelligent applications, focusing on backend development, intuitive UI/UX design, and robust database solutions, all whilst drawing on my experience across digital content creation and performance marketing.
-                  </p>
+                      Hi, I'm Enosh, a final year Computer Science student based in the rocky midlands of the UK.  My passion lies in bringing ideas to life through engaging front-end experiences and powerful Python-driven solutions, I specialize in crafting intelligent applications, with a keen focus on intuitive UI/UX design and robust backend development, all whilst drawing on my experience across digital content creation and performance marketing.                  </p>
                   <p>
-                    <br>When I'm not immersed in code, you'll find me captivated by the intriguing liminal spaces, exploring the hidden corners of new cities, or unwinding to the smooth rhythms of jazz. I thrive on learning, building, and engaging with fellow innovators and curious minds.
+                    <br>When I'm not immersed in code, you'll find me captivated by Gothic Cathedrals, exploring the hidden corners of new cities, or unwinding to rhythms of jazz. I thrive on learning, building, and engaging with fellow innovators and curious minds.
                   </p>
                 </div>
 
@@ -244,7 +245,7 @@ export default {
             "Data Normalization",
             "Process Efficiency",
             "DaVinci Resolve",
-            "Microsoft Dynamics 365//"
+            "Microsoft Dynamics 365."
           ]
         },
         {
@@ -258,7 +259,7 @@ export default {
             "Achieved a 30% increase in follower count for a luxury villa through strategic content creation and targeted campaigns.",
             "Curated a 3x increase in ad frequency for an NGO dedicated to under-privileged youth, significantly boosting engagement and helping the organization reach a wider, more relevant audience."
           ],
-          skills: ['Marketing Strategy', 'Market Research', 'Social Media Management', 'Campaign Management', 'Content Creation//']
+          skills: ['Marketing Strategy', 'Market Research', 'Social Media Management', 'Campaign Management', 'Content Creation.']
         }
       ]
     }
@@ -342,28 +343,28 @@ export default {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  color: #FFFBEB; /* Primary text */
+  color: #e6e1d2; /* Primary text */
 }
 
 .left-column h1 {
   font-size: 3.3rem;
   margin-bottom: 0.5rem;
-  color: #FFFBEB; /* Primary text */
+  color: #e6e1d2; /* Primary text */
   text-align: left;
 }
 
 .left-column .large-text {
   font-size: 1rem;
   line-height: 1.6;
-  color: #FFFBEB; /* Secondary text */
+  color: #e6e1d2; /* Secondary text */
   margin-top: 0;
   text-align: left;
 }
 
 .right-column {
   flex-grow: 1;
-  min-height: 400px;
-  color: #FFFBEB; /* Primary text */
+  min-height: 500px;
+  color: #e6e1d2; /* Primary text */
   display: flex;
   flex-direction: column;
   position: relative;
@@ -387,9 +388,9 @@ export default {
 }
 
 .about-para {
-  font-size: 0.8rem;
+  font-size: 0.81rem;
   line-height: 1.5;
-  color: #FFFBEB; /* Secondary text */
+  color: #e6e1d2; /* Secondary text */
   max-width: 180px;
   margin-top: auto;
   margin-bottom: 100;
@@ -412,7 +413,7 @@ export default {
   cursor: pointer;
   transition: all 0.2s ease;
   text-transform: capitalize;
-  color: #FFFBEB; /* Primary text */
+  color: #e6e1d2; /* Primary text */
   text-align: left;
   position: relative; /* Needed for the pseudo-element */
   padding-bottom: 2px;
@@ -443,7 +444,7 @@ export default {
 .nav-item.active {
   font-weight: 700;
   opacity: 1;
-  color: #FFFBEB; /* "The rest" (now matches secondary text) */
+  color: #e6e1d2; /* "The rest" (now matches secondary text) */
 }
 
 .project-list-view {
@@ -486,7 +487,7 @@ export default {
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #FFFBEB; /* Primary text */
+  color: #e6e1d2; /* Primary text */
   text-align: right;
   
   /* This part was perfect! It makes the color change smooth. */
@@ -498,18 +499,19 @@ export default {
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #FFFBEB; /* Primary text */
+  color: #e6e1d2; /* Primary text */
   text-align: right;
   transition: color 0.3s ease;
 }
 
 .project-list-view .project-short-description {
-  font-weight: 400;
   font-size: 0.9rem;
-  color: #FFFBEB; /* Secondary text */
+  color: #B89A6A; /* Secondary text */
   line-height: 1.4;
   margin-bottom: 0;
   text-align: right;
+
+ 
 }
 
 /* Project Detail View */
@@ -530,7 +532,7 @@ export default {
 .project-detail-view h2 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
-  color: #FFFBEB; /* Primary text */
+  color: #B89A6A; /* Primary text */
   text-align: left;
 }
 
@@ -538,14 +540,14 @@ export default {
   font-size: 1.2rem;
   margin-top: 2rem;
   margin-bottom: 0.8rem;
-  color: #FFFBEB; /* Primary text */
+  color: #e6e1d2; /* Primary text */
   text-align: left;
 }
 
 .project-detail-view p {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #FFFBEB; /* Secondary text */
+  color: #e6e1d2; /* Secondary text */
   max-width: none;
   text-align: left;
 }
@@ -563,7 +565,7 @@ export default {
 }
 
 .project-links a {
-  color: #FFFBEB; /* "The rest" */
+  color: #e6e1d2; /* "The rest" */
   transition: opacity 0.2s ease;
 }
 
@@ -576,7 +578,7 @@ export default {
 .back-button {
   background: none;
   border: none;
-  color: #FFFBEB; /* Primary text */
+  color: #e6e1d2; /* Primary text */
   font-size: 0.9rem;
   cursor: pointer;
   text-align: left;
@@ -632,20 +634,19 @@ export default {
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #FFFBEB; /* Primary text */
+  color: #e6e1d2; /* Primary text */
   text-align: right;
 }
 
 .experience-list-view .experience-company-duration {
   font-weight: 500;
   font-size: 1rem;
-  color: #FFFBEB; /* Secondary text */
+  color: #e6e1d2; /* Secondary text */
   margin-bottom: 0.5rem;
   text-align: right;
 }
 
 .experience-list-view .experience-short-description {
-  font-weight: 400;
   font-size: 0.9rem;
   color: #B89A6A; /* Secondary text */
   line-height: 1.4;
@@ -672,12 +673,11 @@ export default {
 .experience-detail-view h2 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
-  color: #FFFBEB; /* Primary text */
+  color: #e6e1d2; /* Primary text */
   text-align: left;
 }
 
 .experience-detail-view .experience-company-duration {
-  font-weight: 450;
   font-size: 1.1rem;
   color: #B89A6A; /* Secondary text */
   margin-bottom: 0.0rem;
@@ -687,7 +687,7 @@ export default {
 .experience-detail-view .experience-description ul {
   font-size: 1rem;
   line-height: 1.6;
-  color: #FFFBEB; /* Secondary text */
+  color: #e6e1d2; /* Secondary text */
   max-width: none;
   text-align: left;
 }
@@ -695,15 +695,14 @@ export default {
 .experience-detail-view .experience-description li {
   font-size: 0.9rem;
   line-height: 1.6;
-  font-weight: 400;
   list-style-type: none; /* This removes the bullet point */
   padding-left: 0; 
-  color: #FFFBEB; /* Primary text */
+  color: #e6e1d2; /* Primary text */
   margin-bottom: 0.5rem;
 }
 
+
 .experience-detail-view .experience-skills h3 {
-  font-weight: 450;
   font-size: 1.1rem;
   color: #B89A6A; /* Primary text */
   margin-bottom: 0.5rem;
@@ -711,11 +710,9 @@ export default {
 }
 
 .experience-detail-view .experience-skills p {
-  font-weight: 450;
   font-size: 0.9rem;
-  font-weight: 400;
   line-height: 1.6;
-  color: #FFFBEB; /* Secondary text */
+  color: #e6e1d2; /* Secondary text */
   margin-bottom: 0;
 }
 
@@ -735,27 +732,26 @@ export default {
   
 }
 .about-content h3 {
-  font-size: 3.8rem;
+  font-size: 3.5rem;
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #FFFBEB; /* Primary text */
+  color: #e6e1d2; /* Primary text */
   text-align: left;
   margin-bottom: 1rem;
   
 }
 
 .about-content p {
-  font-weight: 400;
   font-size: 0.9rem;
-  color: #FFFBEB; /* Secondary text */
+  color: #e6e1d2; /* Secondary text */
   line-height: 1.6;
   margin-bottom: 0;
   text-align: left;
 }
 
 .about-content p strong {
-  color: #FFFBEB; /* Primary text */
+  color: #e6e1d2; /* Primary text */
   font-weight: 600;
   margin-top: 1rem;
 }
@@ -785,8 +781,8 @@ export default {
   box-sizing: border-box; /* Important for border calculations */
   
   /* The visible border style. Use your new accent color! */
-  border-top: 1px solid #FFFBEB;
-  border-left: 1px solid #FFFBEB;
+  border-top: 1px solid #e6e1d2;
+  border-left: 1px solid #e6e1d2;
 
   /* Apply the animation */
   animation: draw-border 1s ease-out forwards;
@@ -803,8 +799,8 @@ export default {
   box-sizing: border-box;
 
   /* The visible border style */
-  border-bottom: 1px solid #FFFBEB;
-  border-right: 1px solid #FFFBEB;
+  border-bottom: 1px solid #e6e1d2;
+  border-right: 1px solid #e6e1d2;
   
   /* Apply the animation with a delay so it starts after the first two lines */
   animation: draw-border 1s ease-out 1s forwards;
@@ -832,7 +828,7 @@ export default {
 
 /* Apply specific styles to the links for prominence and consistent formatting */
 .contact-content.centered-links a {
-  color: #FFFBEB; /* "The rest" */
+  color: #e6e1d2; /* "The rest" */
   text-decoration: none;
   transition: opacity 01s ease;
   font-size: 0.9rem;
@@ -881,6 +877,36 @@ export default {
 /* A simple hover effect to show it's interactive */
 #liminal-toggle:hover {
   opacity: 0.7;
+}
+
+.copyright-footer {
+  position: absolute;
+  bottom: 4px; /* Distance from the bottom of the bordered box */
+  left: 4px;   /* Distance from the left of the bordered box */
+  
+  font-size: 0.6rem;
+  color: #F4F4F4;
+  opacity: 1;
+}
+
+.copyright-circle {
+  /* This turns the span into a circular container */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Size is relative to the font size */
+  width: 1.4em; 
+  height: 1.4em;
+  
+  border: 2px solid #e6e1d2; /* Border with your text color */
+  border-radius: 50%;        /* This makes it a perfect circle */
+  
+  margin-right: 0em; /* Space between the circle and your name */
+  
+  /* A little vertical alignment tweak */
+  position: relative;
+  top: 0.01rem;
 }
 
 
