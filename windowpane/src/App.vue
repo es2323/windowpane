@@ -1,20 +1,35 @@
 <template>
+  <transition name="fade">
+    <div v-if="isLoading" class="preloader">
+      <h1 class="preloader-text">Enosh Earnest Portfolio</h1>
+    </div>
+  </transition>
+
   <div id="app">
     <hero-section />
-    <about-section />
-    <projects-section />
-    <contact-section />
-    <site-footer />
-  </div>
+    </div>
 </template>
 
+// This is the script section of App.vue
 <script>
 import herosection from './components/herosection.vue'
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     'hero-section': herosection,
+  },
+  data() {
+    return {
+      // The preloader is visible by default
+      isLoading: true 
+    }
+  },
+  mounted() {
+    // Set a timer to hide the preloader after 2 seconds
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000); // 2000ms = 2 seconds. You can change this value.
   }
 }
 </script>
@@ -194,5 +209,44 @@ a:hover {
   .container {
     padding: 1.5rem 1rem;
   }
+}
+
+/* Add this to the <style> section of App.vue */
+
+.preloader {
+  /* Positioning to cover the entire screen */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999; /* Ensures it's on top of everything */
+
+  /* Use your "Digital Cathedral" background color */
+  background-color: #222831;
+
+  /* Centering the text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloader-text {
+  /* Use your "Parchment White" text color */
+  color: #e6e1d2;
+  font-size: 2rem; /* Adjust size as needed */
+  font-weight: 200;
+  letter-spacing: 0.5px;
+}
+
+/*
+  --- Vue Transition Classes for the fade effect ---
+*/
+.fade-leave-active {
+  transition: opacity 1s ease;
+}
+
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
