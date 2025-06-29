@@ -1,7 +1,10 @@
 <template>
   <transition name="fade">
     <div v-if="isLoading" class="preloader">
-      <h1 class="preloader-text">Enosh Earnest Portfolio</h1>
+      <h1 class="preloader-text">
+        <span class="preloader-name">Enosh Earnest</span>
+        <span class="preloader-title">Portfolio</span>
+      </h1>
     </div>
   </transition>
 
@@ -231,11 +234,20 @@ a:hover {
   align-items: center;
 }
 
+.preloader-name {
+  font-weight: 400; /* This makes it bold */
+}
+
+.preloader-title {
+  font-weight: 100; /* This makes it a light, normal weight */
+  opacity: 0.8;   /* A slightly lower opacity can look nice too */
+  margin-left: 0.5em;
+}
+
 .preloader-text {
   /* Use your "Parchment White" text color */
   color: #e6e1d2;
-  font-size: 2rem; /* Adjust size as needed */
-  font-weight: 200;
+  font-size: 1.8rem; /* Adjust size as needed */
   letter-spacing: 0.5px;
 }
 
@@ -248,5 +260,33 @@ a:hover {
 
 .fade-leave-to {
   opacity: 0;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.preloader-name,
+.preloader-title {
+  /* This makes them invisible to start, ready for the animation */
+  opacity: 0; 
+  animation-fill-mode: forwards; /* This keeps them visible after animating */
+
+  /* Apply the animation */
+  animation-name: fade-up;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-out;
+}
+
+.preloader-title {
+  /* This makes 'Portfolio' appear just after 'Enosh Earnest' */
+  animation-delay: 0.4s;
 }
 </style>

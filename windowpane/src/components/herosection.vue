@@ -354,7 +354,7 @@ export default {
 }
 
 .left-column .large-text {
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.6;
   color: #e6e1d2; /* Secondary text */
   margin-top: 0;
