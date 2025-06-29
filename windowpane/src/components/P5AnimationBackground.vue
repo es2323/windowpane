@@ -37,7 +37,6 @@ methods: {
     sketch(p) {
       // This array will hold our wave objects. It's declared at the top level.
       let waves = [];
-      let fish;
 
       // This class defines a single, undulating wave layer.
       class Wave {
@@ -66,27 +65,19 @@ methods: {
             // In Liminal Mode, the target is the top of the screen.
             // We subtract the original Y from the full height to get its distance from the top,
             // preserving the layered spacing.
-            targetY = (p.height - this.original_y) + 150;
+            targetY = p.height - this.original_y + 150;
           } else {
             // In Default Mode, the target is its original home position.
             targetY = this.original_y;
           }
 
-          // --- Movement Logic (This part is correct) ---
-          this.y = p.lerp(this.y, targetY, 0.02);
-
-          // --- NEW: Snapping Logic ---
-          // If we are very close to the target, just snap to it to finish the transition.
-          if (Math.abs(this.y - targetY) < 0.5) {
-            this.y = targetY;
-          }
-
           // On every frame, smoothly move (lerp) towards the target position.
-          
+          this.y = p.lerp(this.y, targetY, 0.02);
+          // --- DYNAMIC AMPLITUDE LOGIC ---
           let targetSwellAmplitude;
           if (isLiminal) {
             // In Liminal Mode, let's make the waves taller and more dramatic
-            targetSwellAmplitude = this.original_swell_amplitude * 7.5; // Much bigger swell
+                  targetSwellAmplitude = this.original_swell_amplitude * 7.5; // Much bigger swell
           } else {
             // In Default Mode, return to the original amplitude
             targetSwellAmplitude = this.original_swell_amplitude;
@@ -113,39 +104,11 @@ methods: {
         }
       }
 
-// The Fish class is now defined here, at the top level.
-      class Fish {
-        constructor() {
-          this.x = -50;
-          this.y = p.random(p.height * 0.75, p.height * 0.9);
-          this.speed = p.random(1, 2.5);
-          this.size = 15;
-        }
-
-        update() {
-          this.x += this.speed;
-          if (this.x > p.width + 50) {
-            this.x = -50;
-            this.y = p.random(p.height * 0.7, p.height * 0.9);
-            this.speed = p.random(1, 2.5);
-          }
-        }
-
-        draw(fishColor) {
-          p.push();
-          p.translate(this.x, this.y);
-          p.noStroke();
-          p.fill(fishColor);
-          p.triangle(this.size, 0, -this.size, -this.size / 2, -this.size, this.size / 2);
-          p.triangle(-this.size, 0, -this.size * 1.5, -this.size * 0.7, -this.size * 1.5, this.size * 0.7);
-          p.pop();
-        }
-      }      
+      // SETUP runs once at the start.
       p.setup = () => {
         const container = this.$refs.canvasContainer;
         p.createCanvas(container.clientWidth, container.clientHeight);
         p.frameRate(30);
-        fish = new Fish();
 
         waves = []; 
 
@@ -157,9 +120,6 @@ methods: {
           let speed = p.random(0.02, 0.02);
           waves.push(new Wave(y, amplitude, period, speed));
         }
-
-        // Create the fish object
-        fish = new Fish();
       };
 
       // DRAW runs on every frame.
@@ -174,7 +134,7 @@ methods: {
 
         // FIX #4: Updated color arrays to match the new wave count
         const defaultColors = ['#205781', '#4F959D', '#98D2C0'];
-        const underwaterColors = ['#27548A', '#215B63', '#030637'];
+        const underwaterColors = ['#8E7DBE', '#A5158C', '#090040'];
 
         for (let i = 0; i < waves.length; i++) {
          let wave = waves[i];
@@ -197,13 +157,6 @@ methods: {
           // Draw the wave with the smoothly blended color
           wave.draw(blendedColor);
         }
-
-          // This goes at the end of your p.draw() function
-
-          // --- FISH ANIMATION ---
-        fish.update();
-        let fishColor = isLiminal ? '#B2A4D4' : '#205781';
-        fish.draw(fishColor);
       };
 
       p.windowResized = () => {
@@ -213,9 +166,9 @@ methods: {
       };
     }
   }
-}
-// ... don't forget the closing brace for the export default
 
+// ... don't forget the closing brace for the export default
+}
 </script>
 
 <style scoped>
