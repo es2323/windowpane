@@ -165,7 +165,7 @@ methods: {
         const isLiminal = document.body.classList.contains('liminal-mode-active');
 
         if (isLiminal) {
-          p.background(0, 140, 155); // Deep Sea Blue
+          p.background(33, 33, 33); // Deep Sea Blue
         } else {
           p.background(this.backgroundColor);
         }
@@ -217,7 +217,7 @@ methods: {
 
         // FIX #4: Updated color arrays to match the new wave count
         const defaultColors = ['#205781', '#4F959D', '#98D2C0'];
-        const underwaterColors = ['#003D3266', '#00695C99', '#00796BCC'];
+        const underwaterColors = ['#27548A', '#215B63', '#030637'];
 
         for (let i = 0; i < waves.length; i++) {
          let wave = waves[i];
