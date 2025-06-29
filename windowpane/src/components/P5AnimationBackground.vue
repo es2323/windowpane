@@ -165,7 +165,7 @@ methods: {
         const isLiminal = document.body.classList.contains('liminal-mode-active');
 
         if (isLiminal) {
-          p.background(33, 33, 33); // Deep Sea Blue
+          p.background(228, 224, 225); 
         } else {
           p.background(this.backgroundColor);
         }
@@ -179,14 +179,14 @@ methods: {
 
         if (isLiminal) {
           // You can easily change the delay here (in seconds)
-          const delayInSeconds = 4;
+          const delayInSeconds = 1;
           const frameDelay = delayInSeconds * 30; // Assuming 30fps
 
           // Only start creating and drawing bubbles AFTER the delay has passed
           if (p.frameCount > liminalStartFrame + frameDelay) {
             
             // This is your existing bubble code, now nested inside the timer check
-            if (p.frameCount % 10 === 0) {
+            if (p.frameCount % 8 === 0) {
               bubbles.push(new Bubble());
             }
 
@@ -200,7 +200,7 @@ methods: {
             for (let i = bubbles.length - 1; i >= 0; i--) {
               let bubble = bubbles[i];
               bubble.update();
-              bubble.draw('#F4F4F4');
+              bubble.draw('#2A3663');
               if (bubble.isOffscreen(lowestWaveY)) {
                 bubbles.splice(i, 1);
               }
@@ -217,7 +217,7 @@ methods: {
 
         // FIX #4: Updated color arrays to match the new wave count
         const defaultColors = ['#205781', '#4F959D', '#98D2C0'];
-        const underwaterColors = ['#27548A', '#215B63', '#030637'];
+        const underwaterColors = ['#54779280', '#54779280', '#94B4C180'];
 
         for (let i = 0; i < waves.length; i++) {
          let wave = waves[i];

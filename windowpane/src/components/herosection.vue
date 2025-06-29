@@ -356,7 +356,7 @@ export default {
 .left-column .large-text {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #e6e1d2; /* Secondary text */
+  color: #D87A4A; /* Secondary text */
   margin-top: 0;
   text-align: left;
 }
@@ -427,7 +427,7 @@ export default {
   left: 0;
   width: 0; /* Starts with zero width */
   height: 1px;
-  background-color: #B89A6A; /* Your new accent color */
+  background-color: #D87A4A; /* Your new accent color */
   transition: width 0.3s ease; /* Animate the width change */
 }
 
@@ -437,7 +437,7 @@ export default {
 
 .nav-item:hover {
   opacity: 0.8;
-  color: #B89A6A; /* "The rest" (now matches secondary text) */
+  color: #D87A4A; /* "The rest" (now matches secondary text) */
   transform: translateX(5px); 
 }
 
@@ -479,7 +479,7 @@ export default {
 
 /* FIX #2: The old hover rule is replaced by the one below, which is more specific. */
 .project-list-view .project-item:hover h3 {
-  color: #B89A6A; /* Your desired hover color */
+  color: #D87A4A; /* Your desired hover color */
 }
 
 .project-list-view .project-item h3 {
@@ -506,7 +506,7 @@ export default {
 
 .project-list-view .project-short-description {
   font-size: 0.9rem;
-  color: #B89A6A; /* Secondary text */
+  color: #D87A4A; /* Secondary text */
   line-height: 1.4;
   margin-bottom: 0;
   text-align: right;
@@ -532,7 +532,7 @@ export default {
 .project-detail-view h2 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
-  color: #B89A6A; /* Primary text */
+  color: #D87A4A; /* Primary text */
   text-align: left;
 }
 
@@ -571,7 +571,7 @@ export default {
 
 .project-links a:hover {
   opacity: 0.8;
-  color: #B89A6A;
+  color: #D87A4A;
    /* "The rest" */
 }
 
@@ -588,7 +588,7 @@ export default {
 }
 
 .back-button:hover {
-  color: #B89A6A; /* "The rest" */
+  color: #D87A4A; /* "The rest" */
 }
 
 /* NEW: Experience List View Styles */
@@ -625,7 +625,7 @@ export default {
 .experience-list-view .experience-item:hover h3 {
   
   opacity: 0.8;
-  color: #B89A6A;
+  color: #D87A4A;
 }
 
 /* NEW: Big Titles for Experience List */
@@ -648,7 +648,7 @@ export default {
 
 .experience-list-view .experience-short-description {
   font-size: 0.9rem;
-  color: #B89A6A; /* Secondary text */
+  color: #D87A4A; /* Secondary text */
   line-height: 1.4;
   margin-bottom: 0;
   text-align: right;
@@ -679,7 +679,7 @@ export default {
 
 .experience-detail-view .experience-company-duration {
   font-size: 1.1rem;
-  color: #B89A6A; /* Secondary text */
+  color: #D87A4A; /* Secondary text */
   margin-bottom: 0.0rem;
   text-align: left;
 }
@@ -704,7 +704,7 @@ export default {
 
 .experience-detail-view .experience-skills h3 {
   font-size: 1.1rem;
-  color: #B89A6A; /* Primary text */
+  color: #D87A4A; /* Primary text */
   margin-bottom: 0.5rem;
   text-align: left;
 }
@@ -736,7 +736,7 @@ export default {
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
-  color: #e6e1d2; /* Primary text */
+  color: #D87A4A; /* Primary text */
   text-align: left;
   margin-bottom: 1rem;
   
@@ -760,10 +760,10 @@ export default {
 .resume-download {
   display: inline-block;
   padding: 7px 10px;
-  color: #B89A6A !important; /* "The rest" */
+  color: #D87A4A !important; /* "The rest" */
   text-decoration: none;
   border-radius: 10px;
-  border: 3px solid #B89A6A; /* "The rest" */
+  border: 3px solid #D87A4A; /* "The rest" */
   background-color: transparent;
   transition: all 0.2s ease;
   font-weight: 500;
@@ -837,7 +837,7 @@ export default {
 
 .contact-content.centered-links a:hover {
   opacity: 0.8;
-  color: #B89A6A; 
+  color: #D87A4A; 
   transform: translateY(-1px);/* "The rest" */
 }
 
@@ -869,7 +869,7 @@ export default {
 }
 
 #liminal-toggle {
-  color: #B89A6A; /* Sets the icon color to your Amber accent */
+  color: #D87A4A; /* Sets the icon color to your Amber accent */
   cursor: pointer; /* Makes the mouse cursor a pointer on hover */
   transition: all 0.3s ease; /* Prepares it for hover animations */
 }
@@ -918,7 +918,7 @@ export default {
 
 /* The icon itself glows green when Liminal Mode is on */
 .liminal-mode-active #liminal-toggle {
-  color: #010101;
+  color: #1C325B;
   transform: rotate(45deg); /* Rotate it to an 'X' to signify it's active */
 }
 
@@ -928,6 +928,98 @@ export default {
   transform: rotate(45deg) scale(1.1);
 }
 
+/* --- FINAL "LIGHT" LIMINAL MODE OVERRIDES --- */
+
+/* This targets all the general text elements */
+.liminal-mode-active h1,
+.liminal-mode-active .large-text,
+.liminal-mode-active p {
+  color: #4E1F00 !important;
+}
+
+/* --- Specific overrides for elements that didn't change --- */
+
+/* Nav items */
+.liminal-mode-active .nav-item,
+.liminal-mode-active .nav-item.active {
+  color: #4E1F00 !important;
+}
+.liminal-mode-active .nav-item:hover {
+  color: #1C325B !important;
+}
+.liminal-mode-active .nav-item:hover::after,
+.liminal-mode-active .nav-item.active::after {
+  background-color: #36454F !important;
+}
+
+/* Project List Text */
+.liminal-mode-active .project-list-view .project-item h3,
+.liminal-mode-active .project-list-view .project-short-description {
+  color: #4E1F00 !important;
+}
+.liminal-mode-active .project-list-view .project-item:hover h3 {
+  color: #1C325B !important;
+}
+
+/* Experience List Text */
+.liminal-mode-active .experience-list-view .experience-item h3,
+.liminal-mode-active .experience-list-view .experience-company-duration,
+.liminal-mode-active .experience-list-view .experience-short-description {
+  color: #4E1F00 !important;
+}
+.liminal-mode-active .experience-list-view .experience-item:hover h3 {
+  color: #1C325B !important;
+}
+
+/* Detail View Text */
+.liminal-mode-active .project-detail-view h2,
+.liminal-mode-active .project-detail-view p,
+.liminal-mode-active .experience-detail-view h2,
+.liminal-mode-active .experience-detail-view p,
+.liminal-mode-active .experience-description li,
+.liminal-mode-active .experience-skills p {
+    color: #4E1F00 !important;
+}
+
+.liminal-mode-active .experience-skills h3,
+.liminal-mode-active .experience-company-duration {
+    color: #4E1F00 !important; /* Make these stand out a bit more */
+}
+
+
+/* --- Other UI Elements --- */
+.liminal-mode-active .back-button,
+.liminal-mode-active .project-links a,
+.liminal-mode-active .contact-content.centered-links a {
+  color: #4E1F00 !important;
+}
+.liminal-mode-active .back-button:hover,
+.liminal-mode-active .project-links a:hover,
+.liminal-mode-active .contact-content.centered-links a:hover {
+  color: #1C325B !important;
+}
+
+/* Borders and Icons */
+.liminal-mode-active .container::before,
+.liminal-mode-active .container::after {
+  border-color: #36454F !important;
+}
+.liminal-mode-active #liminal-toggle {
+  color: #4E1F00 !important;
+}
+.liminal-mode-active #liminal-toggle:hover {
+  color: #1C325B !important;
+}
+
+/* Invert the resume button */
+.liminal-mode-active .resume-download {
+  color: #4E1F00 !important;
+  border-color: #4E1F00 !important;
+}
+.liminal-mode-active .resume-download:hover {
+  background-color: #36454F !important;
+  color: #FFFBEB !important;
+}
 
 /* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
