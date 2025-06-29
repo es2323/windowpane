@@ -37,6 +37,9 @@ methods: {
     sketch(p) {
       // This array will hold our wave objects. It's declared at the top level.
       let waves = [];
+      let bubbles = [];
+      let liminalStartFrame = 0;
+      let wasLiminalLastFrame = false;
 
       // This class defines a single, undulating wave layer.
       class Wave {
@@ -104,6 +107,40 @@ methods: {
         }
       }
 
+      class Bubble {
+        constructor() {
+          // Start at the bottom center, with a little horizontal randomness
+          this.x = p.random(p.width * 0.1, p.width * 0.7);
+          this.y = p.height + 10; // Start just off-screen at the bottom
+          
+          this.radius = p.random(2, 8);
+          this.ySpeed = p.random(1, 3); // How fast it rises
+          
+          // Each bubble gets its own wobble pattern
+          this.wobblePhase = p.random(p.TWO_PI);
+        }
+
+        update() {
+          this.y -= this.ySpeed; // Move up
+    
+          // Add a gentle side-to-side wobble using sin()
+          this.x += p.sin(this.wobblePhase) * 0.5;
+          this.wobblePhase += 0.05;
+        }
+
+        draw(bubbleColor) {
+          p.noStroke();
+          p.fill(bubbleColor);
+          p.ellipse(this.x, this.y, this.radius * 2);
+        }
+
+        // A check to see if the bubble should be removed
+        isOffscreen(surfaceY) {
+          // We remove the bubble if it rises above the "surface" (the lowest wave)
+          return this.y < (surfaceY - this.radius);
+        }
+      }
+
       // SETUP runs once at the start.
       p.setup = () => {
         const container = this.$refs.canvasContainer;
@@ -111,6 +148,7 @@ methods: {
         p.frameRate(30);
 
         waves = []; 
+        bubbles = [];
 
         const waveCount = 3;
         for (let i = 0; i < waveCount; i++) {
@@ -127,14 +165,59 @@ methods: {
         const isLiminal = document.body.classList.contains('liminal-mode-active');
 
         if (isLiminal) {
-          p.background(1, 22, 39); // Deep Sea Blue
+          p.background(0, 140, 155); // Deep Sea Blue
         } else {
           p.background(this.backgroundColor);
         }
+        
+        // --- BUBBLE ANIMATION WITH TIMER ---
+
+        // First, check if we have JUST switched into liminal mode this frame
+        if (isLiminal && !wasLiminalLastFrame) {
+          liminalStartFrame = p.frameCount; // If so, start the timer
+        }
+
+        if (isLiminal) {
+          // You can easily change the delay here (in seconds)
+          const delayInSeconds = 4;
+          const frameDelay = delayInSeconds * 30; // Assuming 30fps
+
+          // Only start creating and drawing bubbles AFTER the delay has passed
+          if (p.frameCount > liminalStartFrame + frameDelay) {
+            
+            // This is your existing bubble code, now nested inside the timer check
+            if (p.frameCount % 10 === 0) {
+              bubbles.push(new Bubble());
+            }
+
+            let lowestWaveY = p.height;
+            for (const wave of waves) {
+              if (wave.y < lowestWaveY) {
+                lowestWaveY = wave.y;
+              }
+            }
+
+            for (let i = bubbles.length - 1; i >= 0; i--) {
+              let bubble = bubbles[i];
+              bubble.update();
+              bubble.draw('#F4F4F4');
+              if (bubble.isOffscreen(lowestWaveY)) {
+                bubbles.splice(i, 1);
+              }
+            }
+          }
+        } else {
+          bubbles = []; // Clear bubbles when not in liminal mode
+        }
+
+          wasLiminalLastFrame = isLiminal;
+  // --- END OF BUBBLE ANIMATION BLOCK ---
+
+
 
         // FIX #4: Updated color arrays to match the new wave count
         const defaultColors = ['#205781', '#4F959D', '#98D2C0'];
-        const underwaterColors = ['#8E7DBE', '#A5158C', '#090040'];
+        const underwaterColors = ['#003D3266', '#00695C99', '#00796BCC'];
 
         for (let i = 0; i < waves.length; i++) {
          let wave = waves[i];

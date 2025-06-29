@@ -918,7 +918,7 @@ export default {
 
 /* The icon itself glows green when Liminal Mode is on */
 .liminal-mode-active #liminal-toggle {
-  color: #B2A4D4;
+  color: #010101;
   transform: rotate(45deg); /* Rotate it to an 'X' to signify it's active */
 }
 
