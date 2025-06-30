@@ -129,8 +129,20 @@ methods: {
         }
 
         draw(bubbleColor) {
-          p.noStroke();
-          p.fill(bubbleColor);
+          const baseColor = p.color(bubbleColor);
+
+          // Use a semi-transparent version for the inside of the bubble
+          p.fill(
+            p.red(baseColor),
+            p.green(baseColor),
+            p.blue(baseColor),
+            255 // Opacity for the fill (0-255)
+          );
+
+          // Use a solid version for the outline
+          p.stroke(baseColor);
+          p.strokeWeight(0.5); // The thickness of the outline
+          
           p.ellipse(this.x, this.y, this.radius * 2);
         }
 
@@ -200,7 +212,7 @@ methods: {
             for (let i = bubbles.length - 1; i >= 0; i--) {
               let bubble = bubbles[i];
               bubble.update();
-              bubble.draw('#2A3663');
+              bubble.draw('#123458');
               if (bubble.isOffscreen(lowestWaveY)) {
                 bubbles.splice(i, 1);
               }
