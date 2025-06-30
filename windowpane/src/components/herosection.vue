@@ -71,7 +71,7 @@
           <div v-if="activeSection === 'home'" class="content-section fade-in visible">
             <div class="home-content">
               <p class="about-para">
-                Firm believer in leveraging computational mathematics to build intelligent applications, from accessibility focused mobile apps to autonomous resource allocation systems. My work thrives where mathematical rigour meets human complexity, crafting systems that amplify rather than automate judgement.<br>Based in the UK.
+                A true believer in bringing beauty through code, crafting intelligent applications that are not just functional, but also captivating to use. My passion lies in developing dynamic front-end experiences via UI/ UX design, and building robust backend solutions with Python. My work thrives where technical rigour meets human complexity, crafting systems that amplify rather than automate judgement. <br>Based in the UK.
               </p>
             </div>
           </div>
@@ -89,7 +89,7 @@
 
             <div v-else class="project-detail-view">
               <button class="back-button" @click="backToProjectList()">
-                ↖ Back to Projects
+                ⥃ Back to Projects
               </button>
               <h2>{{ selectedProject.title }}</h2>
               <p v-html="selectedProject.longDescription"></p>
@@ -115,7 +115,7 @@
 
             <div v-else class="experience-detail-view">
               <button class="back-button" @click="backToExperienceList()">
-                ↖ Back to Experiences
+                ⥃ Back to Experiences
               </button>
               <h2>{{ selectedExperience.title }}</h2>
               <p class="experience-company-duration">{{ selectedExperience.company }}/ {{ selectedExperience.duration }}</p>
@@ -391,7 +391,7 @@ export default {
   font-size: 0.81rem;
   line-height: 1.5;
   color: #e6e1d2; /* Secondary text */
-  max-width: 180px;
+  max-width: 210px;
   margin-top: auto;
   margin-bottom: 100;
   margin-left: auto;
@@ -572,6 +572,7 @@ export default {
 .project-links a:hover {
   opacity: 0.8;
   color: #D87A4A;
+  transition: color 0.6s ease;
    /* "The rest" */
 }
 
@@ -580,6 +581,7 @@ export default {
   border: none;
   color: #e6e1d2; /* Primary text */
   font-size: 0.9rem;
+  font-weight: 500;
   cursor: pointer;
   text-align: left;
   padding: 0;
@@ -839,6 +841,7 @@ export default {
   opacity: 0.8;
   color: #D87A4A; 
   transform: translateY(-1px);/* "The rest" */
+  transition: color 0.6s ease;
 }
 
 @keyframes draw-border {
@@ -872,6 +875,7 @@ export default {
   color: #D87A4A; /* Sets the icon color to your Amber accent */
   cursor: pointer; /* Makes the mouse cursor a pointer on hover */
   transition: all 0.3s ease; /* Prepares it for hover animations */
+  animation: rattle 2s ease-in-out 6s infinite;
 }
 
 /* A simple hover effect to show it's interactive */
@@ -913,12 +917,13 @@ export default {
 
 
 
+
 /* 2. THE ICON'S NEW STATE
 ------------------------------------ */
 
 /* The icon itself glows green when Liminal Mode is on */
 .liminal-mode-active #liminal-toggle {
-  color: #1C325B;
+  color: #18230F;
   transform: rotate(45deg); /* Rotate it to an 'X' to signify it's active */
 }
 
@@ -944,12 +949,12 @@ export default {
 .liminal-mode-active .nav-item.active {
   color: #4E1F00 !important;
 }
+
 .liminal-mode-active .nav-item:hover {
-  color: #1C325B !important;
+  color: #18230F !important;
 }
-.liminal-mode-active .nav-item:hover::after,
-.liminal-mode-active .nav-item.active::after {
-  background-color: #36454F !important;
+.liminal-mode-active .nav-item::after {
+  background-color: #18230F !important;
 }
 
 /* Project List Text */
@@ -958,7 +963,7 @@ export default {
   color: #4E1F00 !important;
 }
 .liminal-mode-active .project-list-view .project-item:hover h3 {
-  color: #1C325B !important;
+  color: #18230F !important;
 }
 
 /* Experience List Text */
@@ -968,7 +973,7 @@ export default {
   color: #4E1F00 !important;
 }
 .liminal-mode-active .experience-list-view .experience-item:hover h3 {
-  color: #1C325B !important;
+  color: #18230F !important;
 }
 
 /* Detail View Text */
@@ -985,6 +990,11 @@ export default {
 .liminal-mode-active .experience-company-duration {
     color: #4E1F00 !important; /* Make these stand out a bit more */
 }
+/* Fix for the 'About' section headings in Liminal Mode */
+.liminal-mode-active .about-main-text h3,
+.liminal-mode-active .about-sidebar h3 {
+  color: #4E1F00 !important; /* The dark sepia/brown text color */
+}
 
 
 /* --- Other UI Elements --- */
@@ -996,7 +1006,7 @@ export default {
 .liminal-mode-active .back-button:hover,
 .liminal-mode-active .project-links a:hover,
 .liminal-mode-active .contact-content.centered-links a:hover {
-  color: #1C325B !important;
+  color: #18230F !important;
 }
 
 /* Borders and Icons */
@@ -1008,17 +1018,28 @@ export default {
   color: #4E1F00 !important;
 }
 .liminal-mode-active #liminal-toggle:hover {
-  color: #1C325B !important;
+  color: #18230F !important;
 }
 
 /* Invert the resume button */
 .liminal-mode-active .resume-download {
-  color: #4E1F00 !important;
-  border-color: #4E1F00 !important;
+  color: #18230F !important;
+  border-color: #18230F !important;
 }
 .liminal-mode-active .resume-download:hover {
-  background-color: #36454F !important;
+  background-color: #4E1F00 !important;
   color: #FFFBEB !important;
+  border-color: #4E1F00 !important;
+}
+
+@keyframes rattle {
+  0% { transform: translateX(0) rotate(0); }
+  10% { transform: translateX(-5px) rotate(-3deg); }
+  30% { transform: translateX(5px) rotate(3deg); }
+  50% { transform: translateX(-3px) rotate(-2deg); }
+  70% { transform: translateX(3px) rotate(2deg); }
+  90% { transform: translateX(-1px) rotate(-1deg); }
+  100% { transform: translateX(0) rotate(0); }
 }
 
 /* --- Mobile Responsiveness --- */
