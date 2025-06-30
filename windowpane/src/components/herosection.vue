@@ -1031,7 +1031,9 @@ export default {
   color: #FFFBEB !important;
   border-color: #4E1F00 !important;
 }
-
+.liminal-mode-active #liminal-toggle {
+  animation: none;
+}
 @keyframes rattle {
   0% { transform: translateX(0) rotate(0); }
   10% { transform: translateX(-5px) rotate(-3deg); }

@@ -1,11 +1,11 @@
 <template>
   <transition name="fade">
     <div v-if="isLoading" class="preloader">
-      <h1 class="preloader-text">
-        <span class="preloader-name">Enosh Earnest</span>
-        <span class="preloader-title">Portfolio</span>
-      </h1>
-    </div>
+  <div class="preloader-box"> <h1 class="preloader-text">
+      <span class="preloader-name">Enosh Earnest</span>
+      <span class="preloader-title">Portfolio</span>
+    </h1>
+  </div> </div>
   </transition>
 
   <div id="app">
@@ -214,7 +214,16 @@ a:hover {
   }
 }
 
-/* Add this to the <style> section of App.vue */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .preloader {
   /* Positioning to cover the entire screen */
@@ -234,14 +243,27 @@ a:hover {
   align-items: center;
 }
 
+.preloader-box {
+  position: relative; /* This is the new anchor for the border animation */
+  width: 100%;
+  max-width: 1500px;  /* <-- This now matches your homepage container's size */
+  height: 94%;
+  padding: 40px;      /* <-- This also matches the homepage container's padding */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .preloader-name {
-  font-weight: 400; /* This makes it bold */
+  font-weight: 300; /* This makes it bold */
 }
 
 .preloader-title {
   font-weight: 100; /* This makes it a light, normal weight */
   opacity: 0.8;   /* A slightly lower opacity can look nice too */
   margin-left: 0.5em;
+  color: #D87A4A;
 }
 
 .preloader-text {
@@ -249,6 +271,7 @@ a:hover {
   color: #e6e1d2;
   font-size: 1.8rem; /* Adjust size as needed */
   letter-spacing: 0.5px;
+  margin: 0;
 }
 
 /*
@@ -262,14 +285,16 @@ a:hover {
   opacity: 0;
 }
 
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+
+
+@keyframes draw-border {
+  0% {
+    width: 0;
+    height: 0;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  100% {
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -288,5 +313,41 @@ a:hover {
 .preloader-title {
   /* This makes 'Portfolio' appear just after 'Enosh Earnest' */
   animation-delay: 0.4s;
+}
+
+/* This creates the TOP and LEFT border lines */
+.preloader-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  box-sizing: border-box;
+  
+  /* The border will use your Terracotta accent color */
+  border-top: 2px solid #D87A4A;
+  border-left: 2px solid #D87A4A;
+
+  /* Apply the animation */
+  animation: draw-border 0.5s ease-out forwards;
+}
+
+/* This creates the BOTTOM and RIGHT border lines */
+.preloader-box::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  box-sizing: border-box;
+
+  /* The border will use your Terracotta accent color */
+  border-bottom: 2px solid #D87A4A;
+  border-right: 2px solid #D87A4A;
+  
+  /* Apply the animation with a delay so it starts after the first part */
+  animation: draw-border 0.5s ease-out 0.5s forwards;
 }
 </style>
