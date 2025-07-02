@@ -1045,88 +1045,84 @@ export default {
 }
 
 /* --- CORRECTED MOBILE RESPONSIVENESS --- */
+/* --- NEW 2-COLUMN MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
-    /* 1. Make the main section exactly screen height with no extra padding */
     .hero-section {
-        padding: 10px; /* This creates the outer margin for the box */
+        padding: 10px;
         height: 100vh;
-        box-sizing: border-box; /* Ensures padding is included in the height */
+        box-sizing: border-box;
     }
 
-    .liminal-toggle-wrapper {
-  margin-top: 3rem; /* Pushes the icon down */
-  margin-bottom: 1rem; /* Adds some space below it */
-    }
-
-    /* 2. Make the bordered container fill the available space */
     .container {
         width: 100%;
         height: 100%;
-        padding: 20px;
-        display: flex; /* This is key for the internal scrolling */
-        flex-direction: column;
-    }
-
-    /* 3. Set up the two-column layout to allow for scrolling */
-    .two-column {
-        flex: 1; /* Allows this element to grow */
-        min-height: 0; /* A critical fix for flexbox scrolling */
+        padding: 15px; /* Reduced padding slightly for more screen space */
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
     }
 
-    .left-column {
-        flex-shrink: 0; /* Prevents the top section from shrinking */
-    }
-
-    /* 4. This is the magic part: Make ONLY the right column scrollable */
-    .right-column {
-        flex: 1; /* Allows this column to take the remaining space */
-        overflow-y: auto; /* Adds a scrollbar ONLY here if needed */
+    /* 1. Change the main layout to a side-by-side row */
+    .two-column {
+        flex-direction: row; /* Instead of column */
+        gap: 15px;         /* Space between the two columns */
+        flex: 1;
         min-height: 0;
-        padding-right: 5px;
-        padding-bottom: 20vh;
     }
 
-    .about-main-text h3 {
-        font-size: 2.2rem;
-        line-height: 1.1;
+    /* 2. Give the left column a fixed, narrow width */
+    .left-column {
+        width: 110px;      /* Fixed width for navigation */
+        flex-shrink: 0;    /* Prevents it from shrinking */
+        display: flex;       /* Make this a flex column itself to position its content */
+        flex-direction: column;
     }
 
-    .about-main-text p {
-        font-size: 0.9rem;
+    .left-column h1 {
+      font-size: 2rem; /* Smaller font for the name */
+    }
+    .left-column .large-text {
+      font-size: 0.8rem; /* Smaller font for the subtitle */
     }
 
-    /* --- Your other mobile styles (mostly unchanged) --- */
+    /* 3. The right column will grow, scroll, and hold the content */
+    .right-column {
+        flex: 1;
+        overflow-y: auto; /* This is still key! */
+        min-height: 0;
+    }
+
+    /* --- Adjustments for content inside the new, narrower columns --- */
+
     .main-navigation {
         margin-top: 1.5rem;
-        margin-bottom: 0;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 0.8rem;
     }
     
-    .project-list-view,
-    .experience-list-view,
-    .about-grid {
-        margin: 0;
-        padding-bottom: 2rem;
-    }
-
+    /* 4. Reduce font sizes to fit the new layout */
     .project-list-view .project-item h3,
-    .experience-list-view .experience-item h3 {
-        font-size: 2.5rem;
+    .experience-list-view .experience-item h3,
+    .about-main-text h3 {
+        font-size: 2rem; /* Significantly smaller titles */
+        line-height: 1.1;
         text-align: left;
     }
 
-    .project-list-view .project-short-description,
-    .experience-list-view .experience-company-duration,
-    .experience-list-view .experience-short-description {
-        text-align: left;
+    .project-detail-view h2,
+    .experience-detail-view h2 {
+        font-size: 1.5rem;
     }
 
+    .about-main-text p,
+    .project-short-description,
+    .experience-company-duration,
+    .experience-short-description {
+        text-align: left;
+        font-size: 0.85rem;
+    }
+    
     .contact-content.centered-links {
         height: 100%;
         margin: 0;
