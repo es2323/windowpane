@@ -393,7 +393,7 @@ export default {
   color: #e6e1d2; /* Secondary text */
   max-width: 190px;
   margin-top: auto;
-  margin-bottom``: 40px;
+  margin-bottom: 40px;
   margin-left: auto;
   margin-right: 0;
 }
@@ -1075,7 +1075,8 @@ export default {
     }
     .about-para {
   /* This pushes the paragraph up from the bottom of the screen */
-  margin-bottom: 10vh; /* Use vh for a percentage of the screen height */
+      max-width: 85%;
+      margin-bottom: 10vh; /* Use vh for a percentage of the screen height */
     }
 
     /* FIX 1: Increased title size */
@@ -1084,7 +1085,7 @@ export default {
       line-height: 1.1;
     }
     .left-column .large-text {
-      font-size: 0.9rem;
+      font-size: 1.2rem;
     }
 
     .right-column {
@@ -1102,7 +1103,6 @@ export default {
     }
 
     /* FIX 2 & 3: Make about-para and all other text left-aligned */
-    .about-para,
     .project-list-view,
     .experience-list-view,
     .about-grid,
@@ -1124,7 +1124,7 @@ export default {
     }
     
     .about-main-text p {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
 
     /* FIX 4: Align contact links to the left */
