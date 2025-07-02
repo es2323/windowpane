@@ -245,9 +245,9 @@ a:hover {
 
 .preloader-box {
   position: relative; /* This is the new anchor for the border animation */
-  width: 100%;
+  width: calc(100% - 40px);
   max-width: 1500px;  /* <-- This now matches your homepage container's size */
-  height: 94%;
+  height:calc(100% - 40px);
   padding: 40px;      /* <-- This also matches the homepage container's padding */
   text-align: center;
   display: flex;

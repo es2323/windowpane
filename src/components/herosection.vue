@@ -391,9 +391,9 @@ export default {
   font-size: 0.81rem;
   line-height: 1.5;
   color: #e6e1d2; /* Secondary text */
-  max-width: 210px;
+  max-width: 190px;
   margin-top: auto;
-  margin-bottom: 20px;
+  margin-bottom``: 40px;
   margin-left: auto;
   margin-right: 0;
 }
@@ -1062,7 +1062,7 @@ export default {
 
     .two-column {
         flex-direction: row;
-        gap: 15px;
+        gap: 5px;
         flex: 1;
         min-height: 0;
     }
@@ -1073,6 +1073,10 @@ export default {
         display: flex;
         flex-direction: column;
     }
+    .about-para {
+  /* This pushes the paragraph up from the bottom of the screen */
+  margin-bottom: 10vh; /* Use vh for a percentage of the screen height */
+    }
 
     /* FIX 1: Increased title size */
     .left-column h1 {
@@ -1080,7 +1084,7 @@ export default {
       line-height: 1.1;
     }
     .left-column .large-text {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
     }
 
     .right-column {
@@ -1090,7 +1094,7 @@ export default {
     }
     
     .main-navigation {
-        margin-top: 1.5rem;
+        margin-top: 1.8rem;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -1116,11 +1120,11 @@ export default {
     .project-list-view .project-item h3,
     .experience-list-view .experience-item h3,
     .about-main-text h3 {
-        font-size: 1.8rem; /* Smaller titles for mobile */
+        font-size: 1.5rem; /* Smaller titles for mobile */
     }
     
     .about-main-text p {
-        font-size: 0.9rem;
+        font-size: 0.7rem;
     }
 
     /* FIX 4: Align contact links to the left */
@@ -1130,7 +1134,12 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: center; /* Vertical centering */
-        align-items: flex-start;  /* Horizontal alignment to the left */
+        align-items: center;  /* Horizontal alignment to the left */
+    }
+
+    .liminal-toggle-wrapper {
+  margin-top: 1rem; /* Pushes the icon down */
+  margin-bottom: 1rem; /* Adds some space below it */
     }
 }
 </style>
