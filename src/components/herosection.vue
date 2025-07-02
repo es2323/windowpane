@@ -1044,8 +1044,7 @@ export default {
   100% { transform: translateX(0) rotate(0); }
 }
 
-/* --- CORRECTED MOBILE RESPONSIVENESS --- */
-/* --- NEW 2-COLUMN MOBILE RESPONSIVENESS --- */
+/* --- FINAL CORRECTED MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
     .hero-section {
         padding: 10px;
@@ -1056,43 +1055,40 @@ export default {
     .container {
         width: 100%;
         height: 100%;
-        padding: 15px; /* Reduced padding slightly for more screen space */
+        padding: 15px;
         display: flex;
         flex-direction: column;
     }
 
-    /* 1. Change the main layout to a side-by-side row */
     .two-column {
-        flex-direction: row; /* Instead of column */
-        gap: 15px;         /* Space between the two columns */
+        flex-direction: row;
+        gap: 15px;
         flex: 1;
         min-height: 0;
     }
 
-    /* 2. Give the left column a fixed, narrow width */
     .left-column {
-        width: 110px;      /* Fixed width for navigation */
-        flex-shrink: 0;    /* Prevents it from shrinking */
-        display: flex;       /* Make this a flex column itself to position its content */
+        width: 110px;
+        flex-shrink: 0;
+        display: flex;
         flex-direction: column;
     }
 
+    /* FIX 1: Increased title size */
     .left-column h1 {
-      font-size: 2rem; /* Smaller font for the name */
+      font-size: 2.5rem;
+      line-height: 1.1;
     }
     .left-column .large-text {
-      font-size: 0.8rem; /* Smaller font for the subtitle */
+      font-size: 0.8rem;
     }
 
-    /* 3. The right column will grow, scroll, and hold the content */
     .right-column {
         flex: 1;
-        overflow-y: auto; /* This is still key! */
+        overflow-y: auto;
         min-height: 0;
     }
-
-    /* --- Adjustments for content inside the new, narrower columns --- */
-
+    
     .main-navigation {
         margin-top: 1.5rem;
         display: flex;
@@ -1100,36 +1096,41 @@ export default {
         align-items: flex-start;
         gap: 0.8rem;
     }
-    
-    /* 4. Reduce font sizes to fit the new layout */
+
+    /* FIX 2 & 3: Make about-para and all other text left-aligned */
+    .about-para,
+    .project-list-view,
+    .experience-list-view,
+    .about-grid,
+    .project-list-view .project-item h3,
+    .project-list-view .project-short-description,
+    .experience-list-view .experience-item h3,
+    .experience-list-view .experience-company-duration,
+    .experience-list-view .experience-short-description {
+        text-align: left;
+        margin-left: 0; /* This specifically fixes the about-para */
+        margin-right: 0;
+        max-width: 100%;
+    }
+
     .project-list-view .project-item h3,
     .experience-list-view .experience-item h3,
     .about-main-text h3 {
-        font-size: 2rem; /* Significantly smaller titles */
-        line-height: 1.1;
-        text-align: left;
-    }
-
-    .project-detail-view h2,
-    .experience-detail-view h2 {
-        font-size: 1.5rem;
-    }
-
-    .about-main-text p,
-    .project-short-description,
-    .experience-company-duration,
-    .experience-short-description {
-        text-align: left;
-        font-size: 0.85rem;
+        font-size: 1.8rem; /* Smaller titles for mobile */
     }
     
+    .about-main-text p {
+        font-size: 0.9rem;
+    }
+
+    /* FIX 4: Align contact links to the left */
     .contact-content.centered-links {
         height: 100%;
         margin: 0;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        justify-content: center; /* Vertical centering */
+        align-items: flex-start;  /* Horizontal alignment to the left */
     }
 }
 </style>
