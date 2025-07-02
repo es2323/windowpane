@@ -393,7 +393,7 @@ export default {
   color: #e6e1d2; /* Secondary text */
   max-width: 210px;
   margin-top: auto;
-  margin-bottom: 100;
+  margin-bottom: 20px;
   margin-left: auto;
   margin-right: 0;
 }
@@ -444,7 +444,7 @@ export default {
 .nav-item.active {
   font-weight: 700;
   opacity: 1;
-  color: #e6e1d2; /* "The rest" (now matches secondary text) */
+  color: #D87A4A; /* "The rest" (now matches secondary text) */
 }
 
 .project-list-view {
@@ -1044,92 +1044,80 @@ export default {
   100% { transform: translateX(0) rotate(0); }
 }
 
-/* --- Mobile Responsiveness --- */
+/* --- CORRECTED MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
-  .hero-section {
-    /* Ensure the main section fills the screen without its own padding causing overflow */
-    padding: 0; 
-  }
+    /* 1. Make the main section exactly screen height with no extra padding */
+    .hero-section {
+        padding: 10px; /* This creates the outer margin for the box */
+        height: 100vh;
+        box-sizing: border-box; /* Ensures padding is included in the height */
+    }
 
-  .container {
-    padding: 20px;
-    max-width: 100%;
-    /* Ensure the container itself can be a flexbox for its children */
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    box-sizing: border-box;
-  }
+    /* 2. Make the bordered container fill the available space */
+    .container {
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        display: flex; /* This is key for the internal scrolling */
+        flex-direction: column;
+    }
 
-  .two-column {
-    flex-direction: column;
-    gap: 1.5rem; /* Reduced gap to move lists up slightly */
-    flex: 1; /* Allows the right column to grow and scroll */
-    min-height: 0; /* A key fix for flexbox scrolling */
-  }
+    /* 3. Set up the two-column layout to allow for scrolling */
+    .two-column {
+        flex: 1; /* Allows this element to grow */
+        min-height: 0; /* A critical fix for flexbox scrolling */
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
 
-  .left-column {
-    width: auto;
-    flex-shrink: 0;
-  }
+    .left-column {
+        flex-shrink: 0; /* Prevents the top section from shrinking */
+    }
 
-  .right-column {
-    flex: 1; /* Allows this column to take up remaining space */
-    overflow-y: auto; /* Adds a scrollbar ONLY to this column if content overflows */
-    min-height: 0; /* Another key fix for flexbox scrolling */
-    padding-right: 5px; /* Adds a little space for the scrollbar */
-  }
+    /* 4. This is the magic part: Make ONLY the right column scrollable */
+    .right-column {
+        flex: 1; /* Allows this column to take the remaining space */
+        overflow-y: auto; /* Adds a scrollbar ONLY here if needed */
+        min-height: 0;
+    }
 
-  /* FIX 1: Stack nav items vertically on the left */
-  .main-navigation {
-    margin-top: 1.5rem;
-    margin-bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
-  }
-  
-  .nav-item {
-    margin-bottom: 0;
-  }
+    /* --- Your other mobile styles (mostly unchanged) --- */
+    .main-navigation {
+        margin-top: 1.5rem;
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+    
+    .project-list-view,
+    .experience-list-view,
+    .about-grid {
+        margin: 0;
+        padding-bottom: 2rem;
+    }
 
-  /* FIX 3 & 6: Make project/experience/about content fit the screen */
-  .project-list-view,
-  .experience-list-view,
-  .about-grid {
-    gap: 1.5rem;
-    max-width: 100%;
-    margin: 0;
-    padding-bottom: 2rem; /* Add some space at the end of the scroll */
-  }
+    .project-list-view .project-item h3,
+    .experience-list-view .experience-item h3 {
+        font-size: 2.5rem;
+        text-align: left;
+    }
 
-  /* FIX 2 & 5: Adjust heading sizes and positions */
-  .project-list-view .project-item h3,
-  .experience-list-view .experience-item h3 {
-    font-size: 2.5rem; /* Reduced font size to help content fit */
-    text-align: left;
-  }
+    .project-list-view .project-short-description,
+    .experience-list-view .experience-company-duration,
+    .experience-list-view .experience-short-description {
+        text-align: left;
+    }
 
-  .project-list-view .project-short-description,
-  .experience-list-view .experience-company-duration,
-  .experience-list-view .experience-short-description {
-    text-align: left;
-  }
-
-  .project-detail-view h2,
-  .experience-detail-view h2 {
-    font-size: 1.8rem;
-  }
-
-  /* FIX 7: Perfectly center the contact links */
-  .contact-content.centered-links {
-    height: 100%; /* Make it fill the available space */
-    margin: 0; /* Remove old margin */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Vertical centering */
-    align-items: center;     /* Horizontal centering */
-  }
+    .contact-content.centered-links {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 </style>
