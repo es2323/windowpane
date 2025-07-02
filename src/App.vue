@@ -330,7 +330,7 @@ a:hover {
   border-left: 2px solid #D87A4A;
 
   /* Apply the animation */
-  animation: draw-border 0.5s ease-out forwards;
+  animation: draw-border 2s ease-out forwards;
 }
 
 /* This creates the BOTTOM and RIGHT border lines */

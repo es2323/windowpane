@@ -1047,108 +1047,89 @@ export default {
 /* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
   .hero-section {
-    padding: 10px;
+    /* Ensure the main section fills the screen without its own padding causing overflow */
+    padding: 0; 
   }
+
   .container {
     padding: 20px;
-    flex-direction: column;
     max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+    /* Ensure the container itself can be a flexbox for its children */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
   }
+
   .two-column {
     flex-direction: column;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 1.5rem; /* Reduced gap to move lists up slightly */
+    flex: 1; /* Allows the right column to grow and scroll */
+    min-height: 0; /* A key fix for flexbox scrolling */
   }
+
   .left-column {
     width: auto;
-    flex-shrink: 1;
-    max-width: 100%;
-  }
-  .right-column {
-    min-height: unset;
+    flex-shrink: 0;
   }
 
-  .left-column h1, .left-column .large-text {
-    text-align: left;
+  .right-column {
+    flex: 1; /* Allows this column to take up remaining space */
+    overflow-y: auto; /* Adds a scrollbar ONLY to this column if content overflows */
+    min-height: 0; /* Another key fix for flexbox scrolling */
+    padding-right: 5px; /* Adds a little space for the scrollbar */
+  }
+
+  /* FIX 1: Stack nav items vertically on the left */
+  .main-navigation {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
   }
   
-  .main-navigation {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
   .nav-item {
     margin-bottom: 0;
   }
 
-  .home-content {
-    justify-content: flex-start;
-    padding-bottom: 0;
+  /* FIX 3 & 6: Make project/experience/about content fit the screen */
+  .project-list-view,
+  .experience-list-view,
+  .about-grid {
+    gap: 1.5rem;
+    max-width: 100%;
+    margin: 0;
+    padding-bottom: 2rem; /* Add some space at the end of the scroll */
   }
-  .about-para {
-    margin-left: 0;
+
+  /* FIX 2 & 5: Adjust heading sizes and positions */
+  .project-list-view .project-item h3,
+  .experience-list-view .experience-item h3 {
+    font-size: 2.5rem; /* Reduced font size to help content fit */
     text-align: left;
-    max-width: 100%;
   }
 
-  .project-list-view, .experience-list-view, .project-detail-view, .experience-detail-view {
-    gap: 2rem;
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+  .project-list-view .project-short-description,
+  .experience-list-view .experience-company-duration,
+  .experience-list-view .experience-short-description {
+    text-align: left;
   }
 
-  .project-list-view .project-item, .experience-list-view .experience-item {
-    padding-bottom: 1rem;
-  }
-
-  .project-detail-view h2, .experience-detail-view h2 {
+  .project-detail-view h2,
+  .experience-detail-view h2 {
     font-size: 1.8rem;
   }
 
-  /* Ensure the full width layout on mobile also works for About */
-  .two-column.about-full-layout {
-      flex-direction: column;
-      gap: 20px;
-  }
-
-  .two-column.about-full-layout .left-column,
-  .two-column.about-full-layout .right-column {
-      width: 100%;
-      margin: 0;
-  }
-
-  /* Contact centering on mobile */
+  /* FIX 7: Perfectly center the contact links */
   .contact-content.centered-links {
-    margin-left: 0;
-    margin-top: 10%;
-    align-items: center;
-  }
-
-  /* Resume and Education sections absolute positioning adjustments for mobile */
-  .resume-section {
-    position: static;
-    top: unset;
-    left: unset;
-    transform: none;
-    text-align: center;
-    margin-top: 2rem;
-    max-width: 100%;
-  }
-
-  .education-section {
-    position: static;
-    top: unset;
-    left: unset;
-    transform: none;
-    text-align: center;
-    margin-top: 2rem;
-    max-width: 100%;
+    height: 100%; /* Make it fill the available space */
+    margin: 0; /* Remove old margin */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertical centering */
+    align-items: center;     /* Horizontal centering */
   }
 }
 </style>
