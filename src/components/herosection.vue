@@ -1053,6 +1053,11 @@ export default {
         box-sizing: border-box; /* Ensures padding is included in the height */
     }
 
+    .liminal-toggle-wrapper {
+  margin-top: 3rem; /* Pushes the icon down */
+  margin-bottom: 1rem; /* Adds some space below it */
+    }
+
     /* 2. Make the bordered container fill the available space */
     .container {
         width: 100%;
@@ -1080,6 +1085,17 @@ export default {
         flex: 1; /* Allows this column to take the remaining space */
         overflow-y: auto; /* Adds a scrollbar ONLY here if needed */
         min-height: 0;
+        padding-right: 5px;
+        padding-bottom: 20vh;
+    }
+
+    .about-main-text h3 {
+        font-size: 2.2rem;
+        line-height: 1.1;
+    }
+
+    .about-main-text p {
+        font-size: 0.9rem;
     }
 
     /* --- Your other mobile styles (mostly unchanged) --- */
