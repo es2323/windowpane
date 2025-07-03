@@ -71,7 +71,7 @@
           <div v-if="activeSection === 'home'" class="content-section fade-in visible">
             <div class="home-content">
               <p class="about-para">
-                A true believer in bringing beauty through code, crafting intelligent applications that are not just functional, but also captivating to use. My passion lies in developing dynamic front-end experiences via UI/ UX design, and building robust backend solutions with Python. My work thrives where technical rigour meets human complexity, crafting systems that amplify rather than automate judgement. <br>Based in the UK.
+                A true believer in bringing beauty through code, I craft intelligent applications that are not just functional, but also captivating to use. My passion lies in developing dynamic front-end experiences through instinctive UI/UX design, and building robust backend solutions with Python. My work thrives where technical rigour meets human complexity, crafting systems that amplify rather than automate judgement. <br>Based in the UK.
               </p>
             </div>
           </div>
@@ -391,11 +391,12 @@ export default {
   font-size: 0.81rem;
   line-height: 1.5;
   color: #e6e1d2; /* Secondary text */
-  max-width: 190px;
+  max-width: 200px;
   margin-top: auto;
   margin-bottom: 40px;
   margin-left: auto;
   margin-right: 0;
+  text-align: justify;
 }
 
 /* Main Navigation Styles */
@@ -519,7 +520,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  text-align: left;
+  text-align: justify;
   animation: fadeIn 1s ease-in-out;
 
   max-width: 450px;
@@ -533,7 +534,7 @@ export default {
   font-size: 3rem;
   margin-bottom: 0.5rem;
   color: #D87A4A; /* Primary text */
-  text-align: left;
+  text-align: justify;
 }
 
 .project-detail-view h3 {
@@ -541,7 +542,7 @@ export default {
   margin-top: 2rem;
   margin-bottom: 0.8rem;
   color: #e6e1d2; /* Primary text */
-  text-align: left;
+  text-align: justify;
 }
 
 .project-detail-view p {
@@ -549,7 +550,7 @@ export default {
   line-height: 1.6;
   color: #e6e1d2; /* Secondary text */
   max-width: none;
-  text-align: left;
+  text-align: justify;
 }
 
 .project-links ul {
@@ -561,7 +562,7 @@ export default {
 
 .project-links li {
   margin-bottom: 0.5rem;
-  text-align: left;
+  text-align: justify;
 }
 
 .project-links a {
@@ -661,7 +662,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  text-align: left;
+  text-align: justify;
   animation: fadeIn 1s ease-in-out;
 
   max-width: 450px;
@@ -676,14 +677,14 @@ export default {
   font-size: 3rem;
   margin-bottom: 0.5rem;
   color: #e6e1d2; /* Primary text */
-  text-align: left;
+  text-align: justify;
 }
 
 .experience-detail-view .experience-company-duration {
   font-size: 1.1rem;
   color: #D87A4A; /* Secondary text */
   margin-bottom: 0.0rem;
-  text-align: left;
+  text-align: justify;
 }
 
 .experience-detail-view .experience-description ul {
@@ -691,7 +692,7 @@ export default {
   line-height: 1.6;
   color: #e6e1d2; /* Secondary text */
   max-width: none;
-  text-align: left;
+  text-align: justify;
 }
 
 .experience-detail-view .experience-description li {
@@ -708,7 +709,7 @@ export default {
   font-size: 1.1rem;
   color: #D87A4A; /* Primary text */
   margin-bottom: 0.5rem;
-  text-align: left;
+  text-align: justify;
 }
 
 .experience-detail-view .experience-skills p {
@@ -724,7 +725,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  text-align: left;
+  text-align: justify;
   animation: fadeIn 1s ease-in-out;
   max-width: 400px;
   margin-top: auto;
@@ -739,7 +740,7 @@ export default {
   margin-bottom: 0.5rem;
   line-height: 1;
   color: #D87A4A; /* Primary text */
-  text-align: left;
+  text-align: justify;
   margin-bottom: 1rem;
   
 }
@@ -749,7 +750,7 @@ export default {
   color: #e6e1d2; /* Secondary text */
   line-height: 1.6;
   margin-bottom: 0;
-  text-align: left;
+  text-align: justify;
 }
 
 .about-content p strong {
@@ -1078,12 +1079,14 @@ export default {
       font-size: 0.8rem;    
       max-width: 85%;
       margin-bottom: 10vh; /* Use vh for a percentage of the screen height */
+      text-align: left;
     }
 
     /* FIX 1: Increased title size */
     .left-column h1 {
       font-size: 2.5rem;
       line-height: 1.1;
+      text-align: left;
     }
     .left-column .large-text {
       font-size: 1rem;
@@ -1093,6 +1096,7 @@ export default {
         flex: 1;
         overflow-y: auto;
         min-height: 0;
+        text-align: left;
     }
     
     .main-navigation {
@@ -1122,16 +1126,20 @@ export default {
     .experience-list-view .experience-item h3,
     .about-main-text h3 {
         font-size: 2rem; /* Smaller titles for mobile */
+        text-align: left;
     }
     
     .about-main-text p {
         font-size: 0.8rem;
+        text-align: left;
     }
     .project-list-view .project-short-description,
     .experience-list-view .experience-company-duration,
     .experience-list-view .experience-short-description {
       font-size: 0.8rem; /* Tweak this value for the subheading size */
       line-height: 1.5;   /* Improves readability for smaller text */
+      text-align: left;
+      
     }
     /* FIX 4: Align contact links to the left */
     .contact-content.centered-links {
@@ -1152,35 +1160,40 @@ export default {
 
     /* Scales down the entire project detail view on mobile */
     .project-detail-view {
-      transform: scale(0.8);
+      transform: scale(0.9);
       transform-origin: top left;
       margin-top: 25vh;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: left;
+      text-align: left !important;
       animation: fadeIn 1s ease-in-out;
     }
 
     .experience-detail-view {
-      transform: scale(0.7);
+      transform: scale(0.8);
       transform-origin: top left;
-      margin-top: 10vh;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: left;
+      margin-top: 25vh;
+      margin-left: 0;
+      margin-right: 0;
+      text-align: left !important;
       animation: fadeIn 1s ease-in-out;
       max-width: none;
-      width: 110%;
+      width: 100%;
       height: 100%;
                             }
 
   .experience-detail-view h2{
     font-size: 2.5rem;
+    text-align: left;
               }
 
   .project-detail-view h2{
     font-size: 2.5rem;
+    text-align: left;
               }
+
+.project-detail-view *,
+.experience-detail-view * {
+  text-align: left !important;
+}
 
 }
 </style>
