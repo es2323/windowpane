@@ -1142,6 +1142,7 @@ export default {
         flex-direction: column;
         justify-content: center; /* Vertical centering */
         align-items: center;  /* Horizontal alignment to the left */
+        transform: translateX(-30px);
     }
 
     .liminal-toggle-wrapper {
@@ -1162,7 +1163,7 @@ export default {
 
     .experience-detail-view {
       transform: scale(0.7);
-      transform-origin: center;
+      transform-origin: top left;
       margin-top: 10vh;
       margin-left: auto;
       margin-right: auto;
@@ -1180,5 +1181,6 @@ export default {
   .project-detail-view h2{
     font-size: 2.5rem;
               }
+
 }
 </style>

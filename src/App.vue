@@ -308,6 +308,8 @@ a:hover {
   animation-name: fade-up;
   animation-duration: 0.8s;
   animation-timing-function: ease-out;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .preloader-title {
@@ -331,6 +333,8 @@ a:hover {
 
   /* Apply the animation */
   animation: draw-border 2s ease-out forwards;
+  will-change: width, height;
+  backface-visibility: hidden;
 }
 
 /* This creates the BOTTOM and RIGHT border lines */
@@ -349,5 +353,16 @@ a:hover {
   
   /* Apply the animation with a delay so it starts after the first part */
   animation: draw-border 0.5s ease-out 0.5s forwards;
+  will-change: width, height;
+  backface-visibility: hidden;
+}
+
+/* --- Mobile Styles for Pre-loader --- */
+@media (max-width: 768px) {
+  .preloader-text {
+    font-size: 1.3rem;   /* Smaller font size for mobile */
+    text-align: center;  /* Ensures it stays centered if it wraps to two lines */
+    padding: 0 1rem;     /* Adds a little space on the sides for very narrow screens */
+  }
 }
 </style>
