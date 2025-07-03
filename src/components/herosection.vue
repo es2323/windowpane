@@ -1062,7 +1062,7 @@ export default {
 
     .two-column {
         flex-direction: row;
-        gap: 5px;
+        gap: 20px;
         flex: 1;
         min-height: 0;
     }
@@ -1075,6 +1075,7 @@ export default {
     }
     .about-para {
   /* This pushes the paragraph up from the bottom of the screen */
+      font-size: 0.8rem;    
       max-width: 85%;
       margin-bottom: 10vh; /* Use vh for a percentage of the screen height */
     }
@@ -1085,7 +1086,7 @@ export default {
       line-height: 1.1;
     }
     .left-column .large-text {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
 
     .right-column {
@@ -1120,16 +1121,22 @@ export default {
     .project-list-view .project-item h3,
     .experience-list-view .experience-item h3,
     .about-main-text h3 {
-        font-size: 1.5rem; /* Smaller titles for mobile */
+        font-size: 2rem; /* Smaller titles for mobile */
     }
     
     .about-main-text p {
         font-size: 0.8rem;
     }
-
+    .project-list-view .project-short-description,
+    .experience-list-view .experience-company-duration,
+    .experience-list-view .experience-short-description {
+      font-size: 0.8rem; /* Tweak this value for the subheading size */
+      line-height: 1.5;   /* Improves readability for smaller text */
+    }
     /* FIX 4: Align contact links to the left */
     .contact-content.centered-links {
         height: 100%;
+        font-size: 0.8rem;
         margin: 0;
         display: flex;
         flex-direction: column;
@@ -1138,8 +1145,40 @@ export default {
     }
 
     .liminal-toggle-wrapper {
-  margin-top: 1rem; /* Pushes the icon down */
-  margin-bottom: 1rem; /* Adds some space below it */
+      margin-top: 1rem; /* Pushes the icon down */
+      margin-bottom: 1rem; /* Adds some space below it */
     }
+
+    /* Scales down the entire project detail view on mobile */
+    .project-detail-view {
+      transform: scale(0.8);
+      transform-origin: top left;
+      margin-top: 25vh;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .experience-detail-view {
+      transform: scale(0.7);
+      transform-origin: center;
+      margin-top: 10vh;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+      animation: fadeIn 1s ease-in-out;
+      max-width: none;
+      width: 110%;
+      height: 100%;
+                            }
+
+  .experience-detail-view h2{
+    font-size: 2.5rem;
+              }
+
+  .project-detail-view h2{
+    font-size: 2.5rem;
+              }
 }
 </style>
