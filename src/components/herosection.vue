@@ -139,7 +139,7 @@
                 <div class="about-main-text">
                   <h3>Beyond Binary...</h3>   
                   <p>
-                      Hi, I'm Enosh, a final year Computer Science student based in the rocky midlands of the UK.  My passion lies in bringing ideas to life through engaging front-end experiences and powerful Python driven solutions, I specialize in crafting intelligent applications, with a keen focus on intuitive UI/UX design and robust backend development, all whilst drawing on my experience across digital content creation and performance marketing.                  </p>
+                      Hi, I'm Enosh, a final year Computer Science student based in the rocky Midlands of the UK. My passion lies in bringing ideas to life through engaging front-end experiences and powerful Python driven solutions. I specialize in developing impactful software that bridges complex challenges with user centric design, with a keen focus on intuitive UI/UX design and robust backend development, all while leveraging my experience across digital content creation and performance marketing.                 </p>
                   <p>
                     <br>When I'm not immersed in code, you'll find me captivated by Gothic Cathedrals, exploring the hidden corners of new cities, or unwinding to rhythms of jazz. I thrive on learning, building, and engaging with fellow innovators and curious minds.
                   </p>
