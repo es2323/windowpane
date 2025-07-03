@@ -314,12 +314,12 @@ a:hover {
 
 .preloader-name {
   /* Give the name a tiny delay to start after the initial render */
-  animation-delay: 0.1s;
+  animation-delay: 0.3s;
 }
 
 .preloader-title {
   /* This makes 'Portfolio' appear just after 'Enosh Earnest' */
-  animation-delay: 0.4s;
+  animation-delay: 0.9s;
 }
 
 /* --- NEW HIGH-PERFORMANCE BORDER ANIMATION --- */
