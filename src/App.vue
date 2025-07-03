@@ -1,16 +1,27 @@
 <template>
   <transition name="fade">
     <div v-if="isLoading" class="preloader">
-  <div class="preloader-box"> <h1 class="preloader-text">
-      <span class="preloader-name">Enosh Earnest</span>
-      <span class="preloader-title">Portfolio</span>
-    </h1>
-  </div> </div>
+      <div class="preloader-box">
+        
+        <!-- The border lines are now correctly placed inside the box -->
+        <span class="border-line line-top"></span>
+        <span class="border-line line-right"></span>
+        <span class="border-line line-bottom"></span>
+        <span class="border-line line-left"></span>
+
+        <!-- The h1 text follows the border lines -->
+        <h1 class="preloader-text">
+          <span class="preloader-name">Enosh Earnest</span>
+          <span class="preloader-title">Portfolio</span>
+        </h1>
+
+      </div> 
+    </div>
   </transition>
 
   <div id="app">
     <hero-section />
-    </div>
+  </div>
 </template>
 
 // This is the script section of App.vue
@@ -287,17 +298,6 @@ a:hover {
 
 
 
-@keyframes draw-border {
-  0% {
-    width: 0;
-    height: 0;
-  }
-  100% {
-    width: 100%;
-    height: 100%;
-  }
-}
-
 .preloader-name,
 .preloader-title {
   /* This makes them invisible to start, ready for the animation */
@@ -317,44 +317,71 @@ a:hover {
   animation-delay: 0.4s;
 }
 
-/* This creates the TOP and LEFT border lines */
-.preloader-box::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  box-sizing: border-box;
-  
-  /* The border will use your Terracotta accent color */
-  border-top: 2px solid #D87A4A;
-  border-left: 2px solid #D87A4A;
+/* --- NEW HIGH-PERFORMANCE BORDER ANIMATION --- */
 
-  /* Apply the animation */
-  animation: draw-border 2s ease-out forwards;
-  will-change: width, height;
-  backface-visibility: hidden;
+/* Base style for all four border lines */
+.border-line {
+  position: absolute;
+  background-color: #D87A4A; /* Your Terracotta accent color */
+  transform-origin: center; /* Default origin */
 }
 
-/* This creates the BOTTOM and RIGHT border lines */
-.preloader-box::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
+/* Positioning and transform origin for each line */
+.line-top {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0); /* Starts with 0 width */
+  transform-origin: left; /* Animates from left to right */
+}
+.line-right {
+  top: 0;
   right: 0;
-  width: 0;
-  height: 0;
-  box-sizing: border-box;
+  width: 2px;
+  height: 100%;
+  transform: scaleY(0); /* Starts with 0 height */
+  transform-origin: top; /* Animates from top to bottom */
+}
+.line-bottom {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: right; /* Animates from right to left */
+}
+.line-left {
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: bottom; /* Animates from bottom to top */
+}
 
-  /* The border will use your Terracotta accent color */
-  border-bottom: 2px solid #D87A4A;
-  border-right: 2px solid #D87A4A;
-  
-  /* Apply the animation with a delay so it starts after the first part */
-  animation: draw-border 0.5s ease-out 0.5s forwards;
-  will-change: width, height;
-  backface-visibility: hidden;
+/* Keyframe animation to scale the lines to 100% */
+@keyframes scale-in {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes scale-in-y {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+/* Apply the animations with a delay to create the sequential effect */
+.preloader-box .line-top {
+  animation: scale-in 0.5s ease-out forwards;
+}
+.preloader-box .line-right {
+  animation: scale-in-y 0.5s ease-out 0.5s forwards;
+}
+.preloader-box .line-bottom {
+  animation: scale-in 0.5s ease-out 1s forwards;
+}
+.preloader-box .line-left {
+  animation: scale-in-y 0.5s ease-out 1.5s forwards;
 }
 
 /* --- Mobile Styles for Pre-loader --- */
