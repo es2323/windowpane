@@ -841,7 +841,7 @@ export default {
   opacity: 0.8;
   color: #D87A4A; 
   transform: translateY(-1px);/* "The rest" */
-  transition: color 0.6s ease;
+  transition: color 0.2s ease;
 }
 
 @keyframes draw-border {

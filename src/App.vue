@@ -300,28 +300,26 @@ a:hover {
 
 .preloader-name,
 .preloader-title {
-  /* This makes them invisible to start, ready for the animation */
-  opacity: 0; 
-  animation-fill-mode: forwards; /* This keeps them visible after animating */
-
-  /* Apply the animation */
-  animation-name: fade-up;
-  animation-duration: 0.8s;
+  /* Common properties */
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-duration: 1.5s; /* How long the fade takes */
   animation-timing-function: ease-out;
-  will-change: transform, opacity;
-  backface-visibility: hidden;
 }
 
 .preloader-name {
-  /* Give the name a tiny delay to start after the initial render */
-  animation-delay: 0.3s;
+  /* Use the new simple fade-in animation */
+  animation-name: simple-fade-in;
+  /* Set a more noticeable delay */
+  animation-delay: 0.5s; 
 }
 
 .preloader-title {
-  /* This makes 'Portfolio' appear just after 'Enosh Earnest' */
-  animation-delay: 0.9s;
+  /* The title can still use the fade-up effect */
+  animation-name: fade-up;
+  /* Make it appear after the name */
+  animation-delay: 0.8s;
 }
-
 /* --- NEW HIGH-PERFORMANCE BORDER ANIMATION --- */
 
 /* Base style for all four border lines */
@@ -387,6 +385,11 @@ a:hover {
 }
 .preloader-box .line-left {
   animation: scale-in-y 0.5s ease-out 1.5s forwards;
+}
+
+@keyframes simple-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* --- Mobile Styles for Pre-loader --- */
