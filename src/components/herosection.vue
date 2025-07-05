@@ -147,7 +147,7 @@
 
                 <div class="about-sidebar">
                   <p>
-                    <a href="/Enosh Earnest Resume.pdf" download="Enosh Earnest's Resume.pdf" class="resume-download">
+                    <a href="/Enosh Earnest Resume.pdf" download="Enosh Earnest Resume.pdf" class="resume-download">
                 Download My Resume!
                     </a>
                   </p>
