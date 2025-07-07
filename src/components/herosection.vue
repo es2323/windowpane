@@ -137,7 +137,7 @@
             <div class="about-content">
               <div class="about-grid">
                 <div class="about-main-text">
-                  <h3>Beyond Binary...</h3>   
+                  <h3>Beyond 1's and 0's...</h3>   
                   <p>
                       Hi, I'm Enosh, a final year Computer Science student based in the rocky Midlands of the UK. My passion lies in bringing ideas to life through engaging front-end experiences and powerful Python driven solutions. I specialize in developing impactful software that bridges complex challenges with user centric design, with a keen focus on intuitive UI/UX design and robust backend development, all while leveraging my experience across digital content creation and performance marketing.                 </p>
                   <p>
