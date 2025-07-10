@@ -29,21 +29,21 @@
               :class="{ active: activeSection === 'projects' }"
               @click="setActiveSection('projects')"
             >
-              projects
+              featured projects
             </div>
             <div
               class="nav-item"
               :class="{ active: activeSection === 'experience' }"
               @click="setActiveSection('experience')"
             >
-              experience
+              experience & education
             </div>
             <div
               class="nav-item"
               :class="{ active: activeSection === 'about' }"
               @click="setActiveSection('about')"
             >
-              about
+              profile & resume
             </div>
             <div
               class="nav-item"
@@ -117,7 +117,7 @@
               <button class="back-button" @click="backToExperienceList()">
                 ⥃ Back to Experiences
               </button>
-              <h2>{{ selectedExperience.title }}</h2>
+              <h2>{{ selectedExperience.detailTitle || selectedExperience.title }}</h2>
               <p class="experience-company-duration">{{ selectedExperience.company }}/ {{ selectedExperience.duration }}</p>
 
               <div class="experience-description">
@@ -227,6 +227,19 @@ export default {
       ],
       // NEW: Experience Data
       experiences: [
+                {
+          "id": "education-derby",
+          "title": "BSc in CS",
+          "detailTitle": "BSc (Honours) in Computer Science",
+          "company": "University of Derby",
+          "duration": "Expected: Sep 26'",
+          "shortDescription": "Second year undergraduate specialising in SWE and Mathematics.",
+          "longDescription": [
+            "Relevant Campus Coursework: Functional Programming, Computational Mathematics, Network System Development, Software Engineering, Games Technologies, Data Driven Systems.",
+            "Relevant Off-Campus Coursework: The Complete Python Bootcamp (Udemy), Machine Learning with Python(LinkedIn Learning), AI Essentials (Google), Fundamentals of UI/UX Design (Microsoft Learn).",
+            "Organisations: Computing Society, Christian Union, DCCYA, Rolls Royce Technology Hub Derby."
+          ],
+        },
         {
           "id": "designer-intern",
           "title": "Designer",
@@ -677,7 +690,7 @@ export default {
   font-size: 3rem;
   margin-bottom: 0.5rem;
   color: #e6e1d2; /* Primary text */
-  text-align: justify;
+  text-align: left;
 }
 
 .experience-detail-view .experience-company-duration {
@@ -698,6 +711,7 @@ export default {
 .experience-detail-view .experience-description li {
   font-size: 0.9rem;
   line-height: 1.6;
+  text-align: left;
   list-style-type: none; /* This removes the bullet point */
   padding-left: 0; 
   color: #e6e1d2; /* Primary text */
@@ -735,7 +749,7 @@ export default {
   
 }
 .about-content h3 {
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   font-weight: 50;
   margin-bottom: 0.5rem;
   line-height: 1;
