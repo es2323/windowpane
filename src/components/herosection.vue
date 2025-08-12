@@ -147,7 +147,7 @@
 
                 <div class="about-sidebar">
                   <p>
-                    <a href="/Enosh Earnest Resume.pdf" download="Enosh Earnest Resume.pdf" class="resume-download">
+                    <a href="/Enosh Earnest CV.pdf" download="Enosh Earnest's CV.pdf" class="resume-download">
                 Download My Resume!
                     </a>
                   </p>
@@ -233,7 +233,7 @@ export default {
           "detailTitle": "BSc (Honours) in Computer Science",
           "company": "University of Derby",
           "duration": "Expected: Sep 26'",
-          "shortDescription": "Second year undergraduate specialising in SWE and Mathematics.",
+          "shortDescription": "Final year undergraduate specialising in SWE and Mathematics",
           "longDescription": [
             "Relevant Campus Coursework: Functional Programming, Computational Mathematics, Network System Development, Software Engineering, Games Technologies, Data Driven Systems.",
             "Relevant Off-Campus Coursework: The Complete Python Bootcamp (Udemy), Machine Learning with Python(LinkedIn Learning), AI Essentials (Google), Fundamentals of UI/UX Design (Microsoft Learn).",
@@ -242,7 +242,7 @@ export default {
         },
         {
           "id": "designer-intern",
-          "title": "Designer",
+          "title": "Operations Intern",
           "company": "University of Derby Enterprise Centre",
           "duration": "Mar to July 24'",
           "shortDescription": "Created digital content templates, optimized CRM processes, and managed databases to enhance operational efficiency",
