@@ -177,7 +177,7 @@ methods: {
         const isLiminal = document.body.classList.contains('liminal-mode-active');
 
         if (isLiminal) {
-          p.background(228, 224, 225); 
+          p.background(255, 170, 51); 
         } else {
           p.background(this.backgroundColor);
         }
