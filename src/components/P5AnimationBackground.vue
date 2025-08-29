@@ -1,5 +1,6 @@
 <template>
   <div ref="canvasContainer" class="p5-canvas-container"></div>
+  <div class="liminal-background"></div>
 </template>
 
 <script>
@@ -177,59 +178,14 @@ methods: {
         const isLiminal = document.body.classList.contains('liminal-mode-active');
 
         if (isLiminal) {
-          p.background(255, 170, 51); 
+          p.background(254, 209, 106);
         } else {
           p.background(this.backgroundColor);
         }
-        
-        // --- BUBBLE ANIMATION WITH TIMER ---
-
-        // First, check if we have JUST switched into liminal mode this frame
-        if (isLiminal && !wasLiminalLastFrame) {
-          liminalStartFrame = p.frameCount; // If so, start the timer
-        }
-
-        if (isLiminal) {
-          // You can easily change the delay here (in seconds)
-          const delayInSeconds = 1;
-          const frameDelay = delayInSeconds * 30; // Assuming 30fps
-
-          // Only start creating and drawing bubbles AFTER the delay has passed
-          if (p.frameCount > liminalStartFrame + frameDelay) {
-            
-            // This is your existing bubble code, now nested inside the timer check
-            if (p.frameCount % 8 === 0) {
-              bubbles.push(new Bubble());
-            }
-
-            let lowestWaveY = p.height;
-            for (const wave of waves) {
-              if (wave.y < lowestWaveY) {
-                lowestWaveY = wave.y;
-              }
-            }
-
-            for (let i = bubbles.length - 1; i >= 0; i--) {
-              let bubble = bubbles[i];
-              bubble.update();
-              bubble.draw('#123458');
-              if (bubble.isOffscreen(lowestWaveY)) {
-                bubbles.splice(i, 1);
-              }
-            }
-          }
-        } else {
-          bubbles = []; // Clear bubbles when not in liminal mode
-        }
-
-          wasLiminalLastFrame = isLiminal;
-  // --- END OF BUBBLE ANIMATION BLOCK ---
-
-
 
         // FIX #4: Updated color arrays to match the new wave count
         const defaultColors = ['#205781', '#4F959D', '#98D2C0'];
-        const underwaterColors = ['#54779280', '#54779280', '#94B4C180'];
+        const underwaterColors = ['#77BEF0', '#77BEF0', '#77BEF0'];
 
         for (let i = 0; i < waves.length; i++) {
          let wave = waves[i];
@@ -278,4 +234,46 @@ methods: {
   transition: filter 1s ease-in-out;
 }/* Changed from -1 to 0, ensure hero-section content has z-index: 1 */
 }
+/* This is the container for our new sunrise effect */
+.liminal-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden; /* This is important */
+}
+
+/* This is the actual circle that will expand */
+.liminal-background::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  /* Create a circle with the new background color */
+  width: 1px;
+  height: 1px;
+  background-color: #FED16A; /* Your "Faded Dusk" light background */
+  border-radius: 50%;
+  
+  /* Start the circle scaled down to nothing */
+  transform: translate(-50%, -50%) scale(0);
+}
+
+/* This is the new, more reliable animation */
+@keyframes sunrise {
+  to {
+    /* Expand the circle to a massive size, ensuring it covers the screen */
+    transform: translate(-50%, -50%) scale(3000);
+  }
+}
+
+/* This triggers the animation when Liminal Mode is active */
+.liminal-mode-active .liminal-background::before {
+  animation: sunrise 1.9s ease-in forwards;
+}
+
 </style>

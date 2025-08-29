@@ -43,7 +43,7 @@
               :class="{ active: activeSection === 'about' }"
               @click="setActiveSection('about')"
             >
-              profile & resume
+              profile & CV
             </div>
             <div
               class="nav-item"
@@ -148,7 +148,7 @@
                 <div class="about-sidebar">
                   <p>
                     <a href="/Enosh Earnest CV.pdf" download="Enosh Earnest's CV.pdf" class="resume-download">
-                Download My Resume!
+                Download My CV!
                     </a>
                   </p>
                 </div>
@@ -263,7 +263,7 @@ export default {
           "title": "BSc in CS",
           "detailTitle": "BSc (Honours) in Computer Science",
           "company": "University of Derby",
-          "duration": "Expected: Sep 26'",
+          "duration": "Expected: July 26'",
           "shortDescription": "Final year undergraduate specialising in SWE and Mathematics",
           "longDescription": [
             "Relevant Campus Coursework: Functional Programming, Computational Mathematics, Network System Development, Software Engineering, Games Technologies, Data Driven Systems.",
@@ -1096,7 +1096,6 @@ export default {
   90% { transform: translateX(-1px) rotate(-1deg); }
   100% { transform: translateX(0) rotate(0); }
 }
-
 /* --- FINAL CORRECTED MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
     .hero-section {
