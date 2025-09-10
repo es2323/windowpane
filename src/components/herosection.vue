@@ -765,6 +765,11 @@ export default {
   font-weight: 600;     /* Makes the heading slightly bolder */
 }
 
+/* This new rule overrides the heading color ONLY in Liminal Mode */
+.liminal-mode-active .experience-detail-view .experience-description .description-heading {
+  color: #4A443D !important; /* Your brown liminal mode text color */
+}
+
 
 .experience-detail-view .experience-skills h3 {
   font-size: 1.1rem;
