@@ -122,7 +122,21 @@
 
               <div class="experience-description">
                 <ul>
-                  <li v-for="(point, index) in selectedExperience.longDescription" :key="index">{{ point }}</li>
+                 <li v-for="(point, index) in selectedExperience.longDescription" :key="index">
+                    
+                    <!-- Use a <template> tag to handle the conditional logic -->
+                  <template v-if="point.includes(':')">
+                      <!-- IF the line has a colon, use our special two-part styling -->
+                      <span class="description-heading">{{ point.split(':')[0] }}:</span>
+                      <span class="description-content">{{ point.split(':')[1] }}</span>
+                  </template>
+                    
+                  <template v-else>
+                      <!-- OTHERWISE, just display the text normally (in white) -->
+                      {{ point }}
+                  </template>
+
+                </li>
                 </ul>
               </div>
 
@@ -148,7 +162,7 @@
                 <div class="about-sidebar">
                   <p>
                     <a href="/Enosh Earnest CV.pdf" download="Enosh Earnest's CV.pdf" class="resume-download">
-                Download My CV!
+                Download My CV
                     </a>
                   </p>
                 </div>
@@ -268,7 +282,7 @@ export default {
           "longDescription": [
             "Relevant Campus Coursework: Functional Programming, Computational Mathematics, Network System Development, Software Engineering, Games Technologies, Data Driven Systems.",
             "Relevant Off-Campus Coursework: The Complete Python Bootcamp (Udemy), Machine Learning with Python(LinkedIn Learning), AI Essentials (Google), Fundamentals of UI/UX Design (Microsoft Learn).",
-            "Organisations: Computing Society, Christian Union, DCCYA, Rolls Royce Technology Hub Derby."
+            "Organisations: Computing Society, Christian Union, Rolls Royce Technology Hub Derby."
           ],
         },
         {
@@ -299,9 +313,7 @@ export default {
           duration: "Jan to June 23'",
           shortDescription: 'Managed social media presence, optimized performance marketing, and analyzed ad campaign performance for diverse clients',
           longDescription: [
-            "Managed social media presence for up to 6 organizations across various platforms (Facebook, Instagram, Twitter, LinkedIn, YouTube, TikTok), including an NGO focused on postpartum depression.",
-            "Achieved a 30% increase in follower count for a luxury villa through strategic content creation and targeted campaigns.",
-            "Curated a 3x increase in ad frequency for an NGO dedicated to under-privileged youth, significantly boosting engagement and helping the organization reach a wider, more relevant audience."
+            "Managed social media presence and data-driven campaigns for six organizations, including two NGOs, across platforms like Facebook, Instagram, and TikTok. Successfully drove a 30% increase in follower count for a key client and curated a 3x increase in ad frequency for an NGO, significantly boosting audience engagement and reach."
           ],
           skills: ['Marketing Strategy', 'Market Research', 'Social Media Management', 'Campaign Management', 'Content Creation.']
         }
@@ -747,6 +759,10 @@ export default {
   padding-left: 0; 
   color: #e6e1d2; /* Primary text */
   margin-bottom: 0.5rem;
+}
+.experience-detail-view .experience-description .description-heading {
+  color: #D87A4A;      /* Your Terracotta accent color */
+  font-weight: 600;     /* Makes the heading slightly bolder */
 }
 
 

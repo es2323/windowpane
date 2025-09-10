@@ -1,6 +1,11 @@
 <template>
-  <div ref="canvasContainer" class="p5-canvas-container"></div>
-  <div class="liminal-background"></div>
+  <!-- A single root element is needed to wrap both animation layers -->
+  <div class="animation-wrapper">
+    <!-- The p5.js canvas for the waves and fish -->
+    <div ref="canvasContainer" class="p5-canvas-container"></div>
+    <!-- The CSS element for the sunrise background effect -->
+    <div class="liminal-background"></div>
+  </div>
 </template>
 
 <script>
@@ -37,6 +42,7 @@ export default {
 methods: {
     sketch(p) {
       // This array will hold our wave objects. It's declared at the top level.
+      const vm = this;
       let waves = [];
       let bubbles = [];
       let liminalStartFrame = 0;
@@ -108,55 +114,9 @@ methods: {
         }
       }
 
-      class Bubble {
-        constructor() {
-          // Start at the bottom center, with a little horizontal randomness
-          this.x = p.random(p.width * 0.1, p.width * 0.7);
-          this.y = p.height + 10; // Start just off-screen at the bottom
-          
-          this.radius = p.random(2, 8);
-          this.ySpeed = p.random(1, 3); // How fast it rises
-          
-          // Each bubble gets its own wobble pattern
-          this.wobblePhase = p.random(p.TWO_PI);
-        }
-
-        update() {
-          this.y -= this.ySpeed; // Move up
-    
-          // Add a gentle side-to-side wobble using sin()
-          this.x += p.sin(this.wobblePhase) * 0.5;
-          this.wobblePhase += 0.05;
-        }
-
-        draw(bubbleColor) {
-          const baseColor = p.color(bubbleColor);
-
-          // Use a semi-transparent version for the inside of the bubble
-          p.fill(
-            p.red(baseColor),
-            p.green(baseColor),
-            p.blue(baseColor),
-            255 // Opacity for the fill (0-255)
-          );
-
-          // Use a solid version for the outline
-          p.stroke(baseColor);
-          p.strokeWeight(0.5); // The thickness of the outline
-          
-          p.ellipse(this.x, this.y, this.radius * 2);
-        }
-
-        // A check to see if the bubble should be removed
-        isOffscreen(surfaceY) {
-          // We remove the bubble if it rises above the "surface" (the lowest wave)
-          return this.y < (surfaceY - this.radius);
-        }
-      }
-
       // SETUP runs once at the start.
       p.setup = () => {
-        const container = this.$refs.canvasContainer;
+        const container = vm.$refs.canvasContainer;
         p.createCanvas(container.clientWidth, container.clientHeight);
         p.frameRate(30);
 
@@ -175,14 +135,8 @@ methods: {
 
       // DRAW runs on every frame.
       p.draw = () => {
+        p.clear();
         const isLiminal = document.body.classList.contains('liminal-mode-active');
-
-        if (isLiminal) {
-          p.background(254, 209, 106);
-        } else {
-          p.background(this.backgroundColor);
-        }
-
         // FIX #4: Updated color arrays to match the new wave count
         const defaultColors = ['#205781', '#4F959D', '#98D2C0'];
         const underwaterColors = ['#77BEF0', '#77BEF0', '#77BEF0'];
@@ -211,7 +165,7 @@ methods: {
       };
 
       p.windowResized = () => {
-        const container = this.$refs.canvasContainer;
+        const container = vm.$refs.canvasContainer;
         p.resizeCanvas(container.clientWidth, container.clientHeight);
         p.setup();
       };
@@ -223,7 +177,7 @@ methods: {
 </script>
 
 <style scoped>
-.p5-canvas-container {
+.animation-wrapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -234,7 +188,7 @@ methods: {
   transition: filter 1s ease-in-out;
 }/* Changed from -1 to 0, ensure hero-section content has z-index: 1 */
 }
-/* This is the container for our new sunrise effect */
+.p5-canvas-container,
 .liminal-background {
   position: absolute;
   top: 0;
@@ -246,34 +200,40 @@ methods: {
   overflow: hidden; /* This is important */
 }
 
-/* This is the actual circle that will expand */
+/* The p5 canvas sits on top */
+.p5-canvas-container {
+  z-index: 1;
+}
+
+/* The sunrise background sits behind everything */
+.liminal-background {
+  z-index: 0;
+  overflow: hidden;
+  /* Set the default background color here */
+  background-color: #222831;
+}
 .liminal-background::before {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
   
-  /* Create a circle with the new background color */
   width: 1px;
   height: 1px;
-  background-color: #FED16A; /* Your "Faded Dusk" light background */
+  background-color: #FED16A; /* Your sunrise color */
   border-radius: 50%;
   
   /* Start the circle scaled down to nothing */
   transform: translate(-50%, -50%) scale(0);
+  
+  /* This is the magic part: tells the browser to animate any change to 'transform' */
+  transition: transform 1.8s ease-in-out;
 }
 
-/* This is the new, more reliable animation */
-@keyframes sunrise {
-  to {
-    /* Expand the circle to a massive size, ensuring it covers the screen */
-    transform: translate(-50%, -50%) scale(3000);
-  }
-}
-
-/* This triggers the animation when Liminal Mode is active */
+/* This is the new "active" state */
 .liminal-mode-active .liminal-background::before {
-  animation: sunrise 1.9s ease-in forwards;
+  /* When liminal mode is on, we just tell the circle to be huge */
+  transform: translate(-50%, -50%) scale(3000);
 }
 
 </style>
