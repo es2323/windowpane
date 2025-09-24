@@ -153,7 +153,7 @@
                 <div class="about-main-text">
                   <h3>Surpassing Syntax...</h3>   
                   <p>
-                      Hi, I'm Enosh, a final year Computer Science student based in the rocky Midlands of the UK. My passion lies in bringing ideas to life through engaging front-end experiences and powerful Python driven solutions. I specialize in developing impactful software that bridges complex challenges with user centric design, with a keen focus on intuitive UI/UX design and robust backend development, all while leveraging my experience across digital content creation and performance marketing.                 </p>
+                      Hi, I'm Enosh, a final year Computer Science student based in the rocky midlands of the UK. My passion lies in bringing ideas to life through engaging front-end experiences and powerful Python driven solutions. I specialise in developing impactful software that bridges complex challenges with user centric design, with a keen focus on intuitive UI/UX design and robust backend development, all while leveraging my experience across digital content creation and performance marketing.                 </p>
                   <p>
                     <br>When I'm not immersed in code, you'll find me captivated by Gothic Cathedrals, exploring the hidden corners of new cities, or unwinding to rhythms of jazz. I thrive on learning, building, and engaging with fellow innovators and curious minds.
                   </p>
@@ -263,7 +263,7 @@ export default {
           id: 'ssh',
           title: "SSH/ Dec 24'",
           shortDescription: 'Secure client-server system for smart home communication',
-          longDescription: "Secure smart home client-server system.<br>This is a secure and high-performance communication backbone for smart homes, built with Python's asyncio library. The system uses strong AES encryption to secure every message and was stress-tested for 48 hours straight, effortlessly handling high traffic from multiple clients with near-perfect accuracy.",
+          longDescription: "Secure smart home client-server system.<br>This is a secure and high-performance communication backbone for smart homes, built with Python's asyncio library. The system uses strong AES encryption to secure every message and was stress-tested for 48 hours straight, effortlessly handling high traffic from multiple clients with near perfect accuracy.",
           links: [
             { type: 'GitHub', url: 'https://github.com/es2323/Client_Server-' } // Placeholder
 
@@ -280,9 +280,9 @@ export default {
           "duration": "Expected: July 26'",
           "shortDescription": "Final year undergraduate specialising in SWE and Mathematics",
           "longDescription": [
-            "Relevant Campus Coursework: Functional Programming, Computational Mathematics, Network System Development, Software Engineering, Games Technologies, Data Driven Systems.",
-            "Relevant Off-Campus Coursework: The Complete Python Bootcamp (Udemy), Machine Learning with Python(LinkedIn Learning), AI Essentials (Google), Fundamentals of UI/UX Design (Microsoft Learn).",
-            "Organisations: Computing Society, Christian Union, Rolls Royce Technology Hub Derby."
+            "Relevant Campus Coursework: Functional Programming, Computational Mathematics, Foundations of Computer and IT Systems, Team Project​ based on Employer Brief.",
+            "Relevant Off-Campus Coursework: The Complete Python Bootcamp (Udemy), Machine Learning with Python (LinkedIn Learning), AI Essentials (Google), Fundamentals of UI/UX Design (Microsoft Learn).",
+            "Organisations: Computing Society, Christian Union, Rolls-Royce Technology Hub Derby."
           ],
         },
         {
@@ -290,16 +290,16 @@ export default {
           "title": "Operations Intern",
           "company": "University of Derby Enterprise Centre",
           "duration": "Mar to July 24'",
-          "shortDescription": "Created digital content templates, optimized CRM processes, and managed databases to enhance operational efficiency",
+          "shortDescription": "Created digital content templates, optimised CRM processes, and managed databases to enhance operational efficiency",
           "longDescription": [
-            "Delivered a comprehensive operational upgrade, from front-facing content to backend data. This involved designing 13 digital templates to accelerate content creation, optimizing the CRM for 400 individuals, and refining 8 databases to boost accuracy, accessibility, and security."
+            "Delivered a comprehensive operational upgrade, from front facing content to backend data. This involved designing 13 digital templates to accelerate content creation, optimising the CRM for 400 individuals, and refining 8 databases to boost accuracy, accessibility, and security."
           ],
           "skills": [
             "Digital Content Design",
             "Template Creation",
             "Content Creation",
             "Database Management",
-            "CRM Optimization",
+            "CRM Optimisation",
             "Data Normalization",
             "Process Efficiency",
             "DaVinci Resolve",
@@ -311,9 +311,9 @@ export default {
           title: 'Marketing Intern',
           company: 'Not Another Agency',
           duration: "Jan to June 23'",
-          shortDescription: 'Managed social media presence, optimized performance marketing, and analyzed ad campaign performance for diverse clients',
+          shortDescription: 'Managed social media presence, optimised performance marketing, and analysed ad campaign performance for diverse clients',
           longDescription: [
-            "Managed social media presence and data-driven campaigns for six organizations, including two NGOs, across platforms like Facebook, Instagram, and TikTok. Successfully drove a 30% increase in follower count for a key client and curated a 3x increase in ad frequency for an NGO, significantly boosting audience engagement and reach."
+            "Managed social media presence and data driven campaigns for six organisations, including two NGOs, across platforms like Facebook, Instagram, and TikTok. Successfully drove a 30% increase in follower count for a key client and curated a 3x increase in ad frequency for an NGO, significantly boosting audience engagement and reach."
           ],
           skills: ['Marketing Strategy', 'Market Research', 'Social Media Management', 'Campaign Management', 'Content Creation.']
         }
