@@ -78,12 +78,17 @@
 
           <div v-if="activeSection === 'projects'" class="content-section fade-in visible">
             <div v-if="!selectedProject" class="project-list-view">
-              <div class="project-item" 
-                  v-for="(project, index) in projects" 
-                  :key="project.id" 
-                  @click="showProjectDetails(project)"
-                  :style="{ animationDelay: index * 0.3 + 's' }">  <h3>{{ project.title }}</h3>
-                  <p class="project-short-description">{{ project.shortDescription }}</p>
+              <div v-if="activeSection === 'projects'" class="content-section fade-in visible">
+                <div v-if="!selectedProject" class="project-list-view">
+                  <div class="project-item" 
+                    v-for="(project, index) in projects" 
+                        :key="project.id" 
+                        @click="handleProjectSelection(project)"
+                        :style="{ animationDelay: index * 0.3 + 's' }">              
+                      <h3>{{ project.title }}</h3>
+                      <p class="project-short-description">{{ project.shortDescription }}</p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -233,6 +238,13 @@ export default {
 
       projects: [
         {
+          id: 'PrjectLevi',
+          title: "projectlevi.co.uk/ April 26'",
+          shortDescription: 'An AI-powered career readiness platform for university students',
+          directUrl: 'https://projectlevi.co.uk',
+
+        },
+        {
           id: 'seec',
           title: "SEEC/ May 25'",
           shortDescription: 'Public Transport app for the visually impaired/ Made for Journeo',
@@ -259,16 +271,7 @@ export default {
 
           ]
         },
-        {
-          id: 'ssh',
-          title: "SSH/ Dec 24'",
-          shortDescription: 'Secure client-server system for smart home communication',
-          longDescription: "Secure smart home client-server system.<br>This is a secure and high-performance communication backbone for smart homes, built with Python's asyncio library. The system uses strong AES encryption to secure every message and was stress-tested for 48 hours straight, effortlessly handling high traffic from multiple clients with near perfect accuracy.",
-          links: [
-            { type: 'GitHub', url: 'https://github.com/es2323/Client_Server-' } // Placeholder
 
-          ]
-        }
       ],
       // NEW: Experience Data
       experiences: [
@@ -346,8 +349,17 @@ export default {
     
     // This adds or removes a class from the main <body> tag of the page
     document.body.classList.toggle('liminal-mode-active');
+  },
+  handleProjectSelection(project) {
+    if (project.directUrl) {
+      // If the project is Project LEVI, go straight to the site
+      window.open(project.directUrl, '_blank');
+    } else {
+      // For all other projects, execute your existing description/modal logic
+      this.selectedProject = project; 
+    }
   }
-  }
+}
 }
 </script>
 
