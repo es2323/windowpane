@@ -71,7 +71,8 @@
           <div v-if="activeSection === 'home'" class="content-section fade-in visible">
             <div class="home-content">
               <p class="about-para">
-                A true believer in bringing beauty through code, I craft intelligent applications that are not just functional, but also captivating to use. My passion lies in developing dynamic front-end experiences through instinctive UI/UX design, and building robust backend solutions with Python. My work thrives where technical rigour meets human complexity, crafting systems that amplify rather than automate judgement. <br>Based in the UK.
+
+                A believer in the beauty of high performance logic, I build systems that are as profound in their reasoning as they are in their execution. My work thrives at the intersection of Agentic AI, mesmerising digital canvases, and robust Python backends. Resulting in applications that are not just functional, but also captivating to use. <br>Based in the UK.
               </p>
             </div>
           </div>
@@ -158,8 +159,7 @@
                 <div class="about-main-text">
                   <h3>Surpassing Syntax...</h3>   
                   <p>
-                      Hi, I'm Enosh, a final year Computer Science student based in the rocky midlands of the UK. My passion lies in bringing ideas to life through engaging front-end experiences and powerful Python driven solutions. I specialise in developing impactful software that bridges complex challenges with user centric design, with a keen focus on intuitive UI/UX design and robust backend development, all while leveraging my experience across digital content creation and performance marketing.                 </p>
-                  <p>
+                      Hi, I'm Enosh, a final year Computer Science student based in the rocky midlands of the UK. My passion lies in engineering systems that solve high-stakes business challenges through Agentic AI and robust Python architectures. I specialise in bridging the gap between complex data and actionable insights, with a core focus on orchestrating multi-step LLM workflows and developing resilient IoT solutions. Whether I am building predictive models for industrial giants like Rolls-Royce or leading the development of Project LEVI, I strive to create solutions that amplify human judgement and deliver tangible global impact. </p>                  <p>
                     <br>When I'm not immersed in code, you'll find me captivated by Gothic Cathedrals, exploring the hidden corners of new cities, or unwinding to rhythms of jazz. I thrive on learning, building, and engaging with fellow innovators and curious minds.
                   </p>
                 </div>
@@ -283,9 +283,8 @@ export default {
           "duration": "Expected: July 26'",
           "shortDescription": "Final year undergraduate specialising in SWE and Mathematics",
           "longDescription": [
-            "Relevant Campus Coursework: Functional Programming, Computational Mathematics, Foundations of Computer and IT Systems, Team Project​ based on Employer Brief.",
-            "Relevant Off-Campus Coursework: The Complete Python Bootcamp (Udemy), Machine Learning with Python (LinkedIn Learning), AI Essentials (Google), Fundamentals of UI/UX Design (Microsoft Learn).",
-            "Organisations: Computing Society, Christian Union, Rolls-Royce Technology Hub Derby."
+          "Relevant Campus Coursework: Functional Programming, AI and Data Science, Computational Mathematics, Operating Systems, Team Project​ based on Employer Brief.",            "Relevant Off-Campus Coursework: The Complete Python Bootcamp (Udemy), Machine Learning with Python (LinkedIn Learning), AI Essentials (Google), Fundamentals of UI/UX Design (Microsoft Learn).",
+          "Organisations: Computing Society, Christian Union, Rolls-Royce Technology Hub Derby."
           ],
         },
         {
@@ -314,7 +313,7 @@ export default {
           title: 'Marketing Intern',
           company: 'Not Another Agency',
           duration: "Jan to June 23'",
-          shortDescription: 'Managed social media presence, optimised performance marketing, and analysed ad campaign performance for diverse clients',
+          shortDescription: 'Managed social media presence, optimised performance marketing, and analysed ad campaign performance.',
           longDescription: [
             "Managed social media presence and data driven campaigns for six organisations, including two NGOs, across platforms like Facebook, Instagram, and TikTok. Successfully drove a 30% increase in follower count for a key client and curated a 3x increase in ad frequency for an NGO, significantly boosting audience engagement and reach."
           ],
@@ -461,10 +460,10 @@ export default {
   color: #e6e1d2; /* Secondary text */
   max-width: 200px;
   margin-top: auto;
-  margin-bottom: 40px;
+  margin-bottom: 85px;
   margin-left: auto;
   margin-right: 0;
-  text-align: justify;
+  text-align: left;
 }
 
 /* Main Navigation Styles */
@@ -1009,6 +1008,7 @@ export default {
 
 /* The icon itself glows green when Liminal Mode is on */
 .liminal-mode-active #liminal-toggle {
+  
   color: #18230F;
   transform: rotate(45deg); /* Rotate it to an 'X' to signify it's active */
 }
