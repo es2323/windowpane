@@ -13,7 +13,7 @@
         <div class="left-column">
           <h1>Enosh Earnest</h1>
           <p class="large-text">
-            Co-Founder at Project Levi| CS & Maths @ UoD
+            Co-Founder @ Project Levi | CS @ UoD
           </p>
 
           <nav class="main-navigation">
@@ -239,7 +239,7 @@ export default {
       projects: [
         {
           id: 'PrjectLevi',
-          title: "projectlevi.co.uk/ April 26'",
+          title: "projectlevi.co.uk/ May 26'",
           shortDescription: 'An AI-powered career readiness platform for university students',
           directUrl: 'https://projectlevi.co.uk',
 
@@ -286,6 +286,26 @@ export default {
           "Relevant Campus Coursework: Functional Programming, AI and Data Science, Computational Mathematics, Operating Systems, Team Project​ based on Employer Brief.",            "Relevant Off-Campus Coursework: The Complete Python Bootcamp (Udemy), Machine Learning with Python (LinkedIn Learning), AI Essentials (Google), Fundamentals of UI/UX Design (Microsoft Learn).",
           "Organisations: Computing Society, Christian Union, Rolls-Royce Technology Hub Derby."
           ],
+        },
+        {
+          "id": "rolls-royce-iot",
+          "title": "Vantage Project 12",
+          "detailTitle": "IoT & PdM Engineering",
+          "company": "University of Derby & Rolls-Royce",
+          "duration": "Oct 25'",
+          "shortDescription": "Engineered a dual-protocol IoT framework and hybrid ML pipeline for aerospace predictive maintenance",
+          "longDescription": [
+            "Engineered a predictive maintenance IoT framework for Rolls-Royce test cells, centering on a hybrid machine learning pipeline. By combining an unsupervised Isolation Forest model for real-time anomaly detection with a Gated Recurrent Unit (GRU) network for temporal trend forecasting, the system generates dynamic health scores to proactively identify equipment failures, moving beyond static threshold alerting. The deployed architecture ensures highly reliable, encrypted telemetry from edge to cloud."
+          ],
+          "skills": [
+            "IoT Architecture",
+            "LoRaWAN",
+            "BLE",
+            "Machine Learning",
+            "Predictive Maintenance",
+            "Python",
+            "Hardware Integration"
+          ]
         },
         {
           "id": "designer-intern",
@@ -386,7 +406,7 @@ export default {
   position: relative;
   z-index: 1; 
   max-height: 100%;         /* Prevents the box from growing too tall */
-  overflow-y: auto; 
+  overflow: hidden; 
 
   /* MODIFIED: Center the container and give it more overall width */
   max-width: 1500px;
@@ -403,6 +423,8 @@ export default {
   align-items: stretch;
   position: relative;
   z-index: 2;
+  height: 100%;
+  min-height: 0;
 }
 
 .left-column {
@@ -435,6 +457,16 @@ export default {
   display: flex;
   flex-direction: column;
   position: relative;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 20px; /* Add padding for a cleaner scroll edge */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.right-column::-webkit-scrollbar {
+  display: none;
 }
 
 /* Common Styles for Dynamic Content Sections */
@@ -672,7 +704,7 @@ export default {
   margin-top: auto;
   margin-bottom: auto;
   margin-left: auto;
-  margin-right: 2000;
+  margin-right: 0;
 }
 
 .experience-list-view .experience-item {
