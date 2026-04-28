@@ -13,7 +13,7 @@
         <div class="left-column">
           <h1>Enosh Earnest</h1>
           <p class="large-text">
-            CS Undergrad & Python Developer 
+            Co-Founder at Project Levi| CS & Maths @ UoD
           </p>
 
           <nav class="main-navigation">
@@ -72,7 +72,7 @@
             <div class="home-content">
               <p class="about-para">
 
-                A believer in the beauty of high performance logic, I build systems that are as profound in their reasoning as they are in their execution. My work thrives at the intersection of Agentic AI, mesmerising digital canvases, and robust Python backends. Resulting in applications that are not just functional, but also captivating to use. <br>Based in the UK.
+                A believer in the beauty of high performance logic. I build systems that are as profound in their reasoning as they are in their execution. My work thrives at the intersection of Agentic AI, mesmerising digital canvases, and robust Python backends. Resulting in applications that are not just functional, but also captivating to use. <br>Based in the UK.
               </p>
             </div>
           </div>
@@ -159,7 +159,7 @@
                 <div class="about-main-text">
                   <h3>Surpassing Syntax...</h3>   
                   <p>
-                      Hi, I'm Enosh, a final year Computer Science student based in the rocky midlands of the UK. My passion lies in engineering systems that solve high-stakes business challenges through Agentic AI and robust Python architectures. I specialise in bridging the gap between complex data and actionable insights, with a core focus on orchestrating multi-step LLM workflows and developing resilient IoT solutions. Whether I am building predictive models for industrial giants like Rolls-Royce or leading the development of Project LEVI, I strive to create solutions that amplify human judgement and deliver tangible global impact. </p>                  <p>
+                      Hi, I'm Enosh, a final year Computer Science student based in the rocky midlands of the UK. My passion lies in engineering systems that solve high-stakes business challenges through Agentic AI and robust Python architectures. I specialise in bridging the gap between complex data and actionable insights, with a core focus on orchestrating multi-step LLM workflows and developing resilient IoT solutions. Whether I am building predictive models for industrial giants like Rolls-Royce or leading the development at projectlevi.co.uk, I strive to create solutions that amplify human judgement and deliver tangible global impact. </p>                  <p>
                     <br>When I'm not immersed in code, you'll find me captivated by Gothic Cathedrals, exploring the hidden corners of new cities, or unwinding to rhythms of jazz. I thrive on learning, building, and engaging with fellow innovators and curious minds.
                   </p>
                 </div>
