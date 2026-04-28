@@ -218,8 +218,8 @@ methods: {
   top: 50%;
   left: 50%;
   
-  width: 1px;
-  height: 1px;
+  width: 100px;
+  height: 100px;
   background-color: #FED16A; /* Your sunrise color */
   border-radius: 50%;
   
@@ -233,7 +233,7 @@ methods: {
 /* This is the new "active" state */
 .liminal-mode-active .liminal-background::before {
   /* When liminal mode is on, we just tell the circle to be huge */
-  transform: translate(-50%, -50%) scale(3000);
+  transform: translate(-50%, -50%) scale(50);
 }
 
 </style>
