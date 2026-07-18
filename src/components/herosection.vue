@@ -13,7 +13,7 @@
         <div class="left-column">
           <h1>Enosh Earnest</h1>
           <p class="large-text">
-            Co-Founder @ Project Levi | CS @ UoD
+            Co-Founder @ Project Levi | AI Developer @ TSG
           </p>
 
           <nav class="main-navigation">
@@ -280,11 +280,11 @@ export default {
           "title": "BSc in CS",
           "detailTitle": "BSc (Honours) in Computer Science",
           "company": "University of Derby",
-          "duration": "Expected: July 26'",
-          "shortDescription": "Final year undergraduate specialising in SWE and Mathematics",
+          "duration": "/July 26'",
+          "shortDescription": "First Class Honours in Computer Science, alongside an industry collabortaion with Rolls-Royce.",
           "longDescription": [
           "Relevant Campus Coursework: Functional Programming, AI and Data Science, Computational Mathematics, Operating Systems, Team Project​ based on Employer Brief.",            "Relevant Off-Campus Coursework: The Complete Python Bootcamp (Udemy), Machine Learning with Python (LinkedIn Learning), AI Essentials (Google), Fundamentals of UI/UX Design (Microsoft Learn).",
-          "Organisations: Computing Society, Christian Union, Rolls-Royce Technology Hub Derby."
+          "Organisations: Christian Union, Rolls-Royce Technology Hub Derby."
           ],
         },
         {
