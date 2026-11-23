@@ -13,7 +13,7 @@
         <div class="left-column">
           <h1>Enosh Earnest</h1>
           <p class="large-text">
-            Co-Founder @ Project Levi | AI Developer @ TSG
+            AI Developer @ TSG | Co-Founder @ Project Levi
           </p>
 
           <nav class="main-navigation">
@@ -23,13 +23,6 @@
               @click="setActiveSection('home')"
             >
               home
-            </div>
-            <div
-              class="nav-item"
-              :class="{ active: activeSection === 'projects' }"
-              @click="setActiveSection('projects')"
-            >
-              featured projects
             </div>
             <div
               class="nav-item"
@@ -74,39 +67,6 @@
 
                 A believer in the beauty of high performance logic. I build systems that are as profound in their reasoning as they are in their execution. My work thrives at the intersection of Agentic AI, mesmerising digital canvases, and robust Python backends. Resulting in applications that are not just functional, but also captivating to use. <br>Based in the UK.
               </p>
-            </div>
-          </div>
-
-          <div v-if="activeSection === 'projects'" class="content-section fade-in visible">
-            <div v-if="!selectedProject" class="project-list-view">
-              <div v-if="activeSection === 'projects'" class="content-section fade-in visible">
-                <div v-if="!selectedProject" class="project-list-view">
-                  <div class="project-item" 
-                    v-for="(project, index) in projects" 
-                        :key="project.id" 
-                        @click="handleProjectSelection(project)"
-                        :style="{ animationDelay: index * 0.3 + 's' }">              
-                      <h3>{{ project.title }}</h3>
-                      <p class="project-short-description">{{ project.shortDescription }}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div v-else class="project-detail-view">
-              <button class="back-button" @click="backToProjectList()">
-                ⥃ Back to Projects
-              </button>
-              <h2>{{ selectedProject.title }}</h2>
-              <p v-html="selectedProject.longDescription"></p>
-
-              <div v-if="selectedProject.links && selectedProject.links.length > 0" class="project-links">
-                <ul>
-                  <li v-for="(link, index) in selectedProject.links.filter(l => l.type === 'GitHub')" :key="index">
-                    <a :href="link.url" target="_blank">GitHub➚</a>
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
 
@@ -159,7 +119,7 @@
                 <div class="about-main-text">
                   <h3>Surpassing Syntax...</h3>   
                   <p>
-                      Hi, I'm Enosh, a final year Computer Science student based in the rocky midlands of the UK. My passion lies in engineering systems that solve high-stakes business challenges through Agentic AI and robust Python architectures. I specialise in bridging the gap between complex data and actionable insights, with a core focus on orchestrating multi-step LLM workflows and developing resilient IoT solutions. Whether I am building predictive models for industries like Rolls-Royce or leading the development at Project Levi, I strive to create solutions that amplify human judgement and deliver tangible impact. </p>                  <p>
+                      Hi, I'm Enosh, a Computer Science graduate (First Class Honours, July 2026) based in the rocky midlands of the UK. My passion lies in engineering systems that solve high-stakes business challenges through Agentic AI and robust Python architectures. I specialise in bridging the gap between complex data and actionable insights, with a core focus on orchestrating multi-step LLM workflows and developing resilient IoT solutions. Whether I am building predictive models for industries like Rolls-Royce or leading the development at Project Levi, I strive to create solutions that amplify human judgement and deliver tangible impact. </p>                  <p>
                     <br>When I'm not immersed in code, you'll find me captivated by Gothic Cathedrals, exploring the hidden corners of new cities, or unwinding to rhythms of jazz. I thrive on learning, building, and engaging with fellow innovators and curious minds.
                   </p>
                 </div>
@@ -232,56 +192,45 @@ export default {
   data() {
     return {
       activeSection: 'home', // Default to home
-      selectedProject: null, // Holds the currently selected project for detail view
       selectedExperience: null, // NEW: Holds the currently selected experience for detail view
       isLiminalMode: false,
 
-      projects: [
-        {
-          id: 'PrjectLevi',
-          title: "projectlevi.co.uk/ May 26'",
-          shortDescription: 'An AI-powered career readiness platform for university students',
-          directUrl: 'https://projectlevi.co.uk',
-
-        },
-        {
-          id: 'seec',
-          title: "SEEC/ May 25'",
-          shortDescription: 'Public Transport app for the visually impaired/ Made for Journeo',
-          longDescription: "A public transport app for the visually impaired.<br>Partnering with Journeo Plc, we developed SEEC. This voice-first mobile app uses the Google Vision API to read street signs aloud and delivers routes with 95% accuracy. The result: a tool that doesn't just give directions, but slashes navigational anxiety by 25%, empowering independent travel.",
-          links: [
-            { type: 'GitHub', url: 'https://github.com/es2323/SEEC' } // Placeholder
-          ]
-        },
-        {
-          id: 'snapback',
-          title: "SnapBack/ May 25'",
-          shortDescription: 'Web app tracking employee fatigue via cognitive games and wellness surveys',
-          longDescription: "An employee fatigue monitoring platform.<br>What if you could measure team burnout with a game? That's SnapBack. This web app uses Python Flask and Pygame to turn cognitive challenges into a live measure of employee fatigue. It gives managers a real-time dashboard (loading in <150ms) to track team wellbeing, offering proactive insights long before burnout becomes a problem.",
-          links: [
-            { type: 'GitHub', url: 'https://github.com/es2323/SnapBack' } // Placeholder
-          ]
-        },
-        {
-          id: 'prs',
-          title: "PRS/ May 25'",
-          shortDescription: 'Web platform for pandemic data management',
-          longDescription: 'Web platform for pandemic data management.<br>Built for public safety under pressure, this platform delivers speed and security. Using Python Flask, and combining SQL Server (for critical compliance data) with MongoDB (for dynamic field reports). With 100% password encryption and query responses under 100ms, the system gives health officials the fast, reliable, and consistent data needed for decisive action.', links: [
-            { type: 'GitHub', url: 'https://github.com/es2323/Pandemic-Resilience-System-' },
-
-          ]
-        },
-
-      ],
       // NEW: Experience Data
       experiences: [
-                {
+        {
+          "id": "tsg-ai-developer",
+          "title": "AI Developer",
+          "detailTitle": "AI Developer",
+          "company": "TSG",
+          "duration": "Present",
+          "shortDescription": "Building agentic AI solutions within TSG's AI and Data practice.",
+          "longDescription": [
+            "Design and build AI agents and internal tooling that automate knowledge-heavy business workflows, working in TSG's AI and Data practice. Combining Microsoft Copilot Studio, Python and the Microsoft 365 ecosystem to take ideas from prototype to production."
+          ],
+          "skills": [
+            "Agentic AI",
+            "Microsoft Copilot Studio",
+            "Python",
+            "LLM Workflows",
+            "Microsoft 365",
+            "Dynamics 365."
+          ]
+        },
+        {
+          "id": "project-levi",
+          "title": "Co-Founder",
+          "company": "Project Levi",
+          "duration": "May 26'",
+          "shortDescription": "An AI-powered career readiness platform for university students.",
+          "directUrl": "https://projectlevi.co.uk"
+        },
+        {
           "id": "education-derby",
           "title": "BSc in CS",
           "detailTitle": "BSc (Honours) in Computer Science",
           "company": "University of Derby",
-          "duration": "/July 26'",
-          "shortDescription": "First Class Honours in Computer Science, alongside an industry collabortaion with Rolls-Royce.",
+          "duration": "Graduated July 26'",
+          "shortDescription": "Graduated with First Class Honours in Computer Science, alongside an industry collaboration with Rolls-Royce.",
           "longDescription": [
           "Relevant Campus Coursework: Functional Programming, AI and Data Science, Computational Mathematics, Operating Systems, Team Project​ based on Employer Brief.",            "Relevant Off-Campus Coursework: The Complete Python Bootcamp (Udemy), Machine Learning with Python (LinkedIn Learning), AI Essentials (Google), Fundamentals of UI/UX Design (Microsoft Learn).",
           "Organisations: Christian Union, Rolls-Royce Technology Hub Derby."
@@ -306,38 +255,6 @@ export default {
             "Python",
             "Hardware Integration"
           ]
-        },
-        {
-          "id": "designer-intern",
-          "title": "Operations Intern",
-          "company": "University of Derby Enterprise Centre",
-          "duration": "Mar to July 24'",
-          "shortDescription": "Created digital content templates, optimised CRM processes, and managed databases to enhance operational efficiency",
-          "longDescription": [
-            "Delivered a comprehensive operational upgrade, from front facing content to backend data. This involved designing 13 digital templates to accelerate content creation, optimising the CRM for 400 individuals, and refining 8 databases to boost accuracy, accessibility, and security."
-          ],
-          "skills": [
-            "Digital Content Design",
-            "Template Creation",
-            "Content Creation",
-            "Database Management",
-            "CRM Optimisation",
-            "Data Normalization",
-            "Process Efficiency",
-            "DaVinci Resolve",
-            "Microsoft Dynamics 365."
-          ]
-        },
-        {
-          id: 'marketing-intern',
-          title: 'Marketing Intern',
-          company: 'Not Another Agency',
-          duration: "Jan to June 23'",
-          shortDescription: 'Managed social media presence, optimised performance marketing, and analysed ad campaign performance.',
-          longDescription: [
-            "Managed social media presence and data driven campaigns for six organisations, including two NGOs, across platforms like Facebook, Instagram, and TikTok. Successfully drove a 30% increase in follower count for a key client and curated a 3x increase in ad frequency for an NGO, significantly boosting audience engagement and reach."
-          ],
-          skills: ['Marketing Strategy', 'Market Research', 'Social Media Management', 'Campaign Management', 'Content Creation.']
         }
       ]
     }
@@ -345,18 +262,16 @@ export default {
   methods: {
     setActiveSection(section) {
       this.activeSection = section;
-      this.selectedProject = null; // Reset selected project when changing main sections
       this.selectedExperience = null; // NEW: Reset selected experience when changing main sections
 
     },
-    showProjectDetails(project) {
-      this.selectedProject = project;
-    },
-    backToProjectList() {
-      this.selectedProject = null;
-    },
     // NEW: Experience Methods
     showExperienceDetails(exp) {
+      // Entries with a directUrl (e.g. Project Levi) go straight to the site
+      if (exp.directUrl) {
+        window.open(exp.directUrl, '_blank', 'noopener');
+        return;
+      }
       this.selectedExperience = exp;
     },
     backToExperienceList() {
@@ -369,15 +284,6 @@ export default {
     // This adds or removes a class from the main <body> tag of the page
     document.body.classList.toggle('liminal-mode-active');
   },
-  handleProjectSelection(project) {
-    if (project.directUrl) {
-      // If the project is Project LEVI, go straight to the site
-      window.open(project.directUrl, '_blank');
-    } else {
-      // For all other projects, execute your existing description/modal logic
-      this.selectedProject = project; 
-    }
-  }
 }
 }
 </script>
