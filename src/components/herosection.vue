@@ -119,7 +119,7 @@
                 <div class="about-main-text">
                   <h3>Surpassing Syntax...</h3>   
                   <p>
-                      Hi, I'm Enosh, a Computer Science graduate (First Class Honours, July 2026) based in the rocky midlands of the UK. My passion lies in engineering systems that solve high-stakes business challenges through Agentic AI and robust Python architectures. I specialise in bridging the gap between complex data and actionable insights, with a core focus on orchestrating multi-step LLM workflows and developing resilient IoT solutions. Whether I am building predictive models for industries like Rolls-Royce or leading the development at Project Levi, I strive to create solutions that amplify human judgement and deliver tangible impact. </p>                  <p>
+                      Hi, I'm Enosh, an AI Developer at TSG and a Computer Science graduate (First Class Honours, July 2026) based in the rocky midlands of the UK. My passion lies in engineering systems that solve high-stakes business challenges through Agentic AI and robust Python architectures. At TSG, I build agentic AI solutions within the AI and Data practice, bridging the gap between complex data and actionable insights by orchestrating multi-step LLM workflows. Whether I am building predictive models for industries like Rolls-Royce, developing resilient IoT solutions, or leading the development at Project Levi, I strive to create solutions that amplify human judgement and deliver tangible impact. </p>                  <p>
                     <br>When I'm not immersed in code, you'll find me captivated by Gothic Cathedrals, exploring the hidden corners of new cities, or unwinding to rhythms of jazz. I thrive on learning, building, and engaging with fellow innovators and curious minds.
                   </p>
                 </div>
@@ -235,26 +235,6 @@ export default {
           "Relevant Campus Coursework: Functional Programming, AI and Data Science, Computational Mathematics, Operating Systems, Team Project​ based on Employer Brief.",            "Relevant Off-Campus Coursework: The Complete Python Bootcamp (Udemy), Machine Learning with Python (LinkedIn Learning), AI Essentials (Google), Fundamentals of UI/UX Design (Microsoft Learn).",
           "Organisations: Christian Union, Rolls-Royce Technology Hub Derby."
           ],
-        },
-        {
-          "id": "rolls-royce-iot",
-          "title": "Vantage Project 12",
-          "detailTitle": "IoT & PdM Engineering",
-          "company": "University of Derby & Rolls-Royce",
-          "duration": "Oct 25'",
-          "shortDescription": "Engineered a dual-protocol IoT framework and hybrid ML pipeline for aerospace predictive maintenance",
-          "longDescription": [
-            "Engineered a predictive maintenance IoT framework for Rolls-Royce test cells, centering on a hybrid machine learning pipeline. By combining an unsupervised Isolation Forest model for real-time anomaly detection with a Gated Recurrent Unit (GRU) network for temporal trend forecasting, the system generates dynamic health scores to proactively identify equipment failures, moving beyond static threshold alerting. The deployed architecture ensures highly reliable, encrypted telemetry from edge to cloud."
-          ],
-          "skills": [
-            "IoT Architecture",
-            "LoRaWAN",
-            "BLE",
-            "Machine Learning",
-            "Predictive Maintenance",
-            "Python",
-            "Hardware Integration"
-          ]
         }
       ]
     }
